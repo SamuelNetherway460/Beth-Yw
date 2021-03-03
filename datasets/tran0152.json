@@ -1,0 +1,889 @@
+{
+  "odata.metadata":"http://open.statswales.gov.wales/en-gb/dataset/$metadata#tran0152","value":[
+    {
+      "Data":64405.5,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000000","PartitionKey":""
+    },{
+      "Data":63205.5,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000001","PartitionKey":""
+    },{
+      "Data":60786.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000002","PartitionKey":""
+    },{
+      "Data":61223.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000003","PartitionKey":""
+    },{
+      "Data":68474.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000004","PartitionKey":""
+    },{
+      "Data":67318.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000005","PartitionKey":""
+    },{
+      "Data":55129.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000006","PartitionKey":""
+    },{
+      "Data":55533.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000007","PartitionKey":""
+    },{
+      "Data":58806.5,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000008","PartitionKey":""
+    },{
+      "Data":72391.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000009","PartitionKey":""
+    },{
+      "Data":71168.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000010","PartitionKey":""
+    },{
+      "Data":69523.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000011","PartitionKey":""
+    },{
+      "Data":67820.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000012","PartitionKey":""
+    },{
+      "Data":66592.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000013","PartitionKey":""
+    },{
+      "Data":64568.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000014","PartitionKey":""
+    },{
+      "Data":66689.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000015","PartitionKey":""
+    },{
+      "Data":65883.0,"LocalAuthority_Code":"W06000001","LocalAuthority_ItemName_ENG":"Isle of Anglesey","LocalAuthority_SortOrder":"10000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000016","PartitionKey":""
+    },{
+      "Data":495433.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000017","PartitionKey":""
+    },{
+      "Data":505109.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000018","PartitionKey":""
+    },{
+      "Data":474339.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000019","PartitionKey":""
+    },{
+      "Data":464461.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000020","PartitionKey":""
+    },{
+      "Data":458504.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000021","PartitionKey":""
+    },{
+      "Data":567560.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000022","PartitionKey":""
+    },{
+      "Data":505054.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000023","PartitionKey":""
+    },{
+      "Data":529866.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000024","PartitionKey":""
+    },{
+      "Data":547619.5,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000025","PartitionKey":""
+    },{
+      "Data":568371.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000026","PartitionKey":""
+    },{
+      "Data":536432.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000027","PartitionKey":""
+    },{
+      "Data":472999.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000028","PartitionKey":""
+    },{
+      "Data":502141.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000029","PartitionKey":""
+    },{
+      "Data":561940.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000030","PartitionKey":""
+    },{
+      "Data":538758.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000031","PartitionKey":""
+    },{
+      "Data":542952.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000032","PartitionKey":""
+    },{
+      "Data":555045.0,"LocalAuthority_Code":"W06000002","LocalAuthority_ItemName_ENG":"Gwynedd","LocalAuthority_SortOrder":"20000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000033","PartitionKey":""
+    },{
+      "Data":263944.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000034","PartitionKey":""
+    },{
+      "Data":277374.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000035","PartitionKey":""
+    },{
+      "Data":248209.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000036","PartitionKey":""
+    },{
+      "Data":248170.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000037","PartitionKey":""
+    },{
+      "Data":260726.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000038","PartitionKey":""
+    },{
+      "Data":289620.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000039","PartitionKey":""
+    },{
+      "Data":303406.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000040","PartitionKey":""
+    },{
+      "Data":327286.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000041","PartitionKey":""
+    },{
+      "Data":355909.5,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000042","PartitionKey":""
+    },{
+      "Data":383181.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000043","PartitionKey":""
+    },{
+      "Data":378387.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000044","PartitionKey":""
+    },{
+      "Data":373073.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000045","PartitionKey":""
+    },{
+      "Data":353376.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000046","PartitionKey":""
+    },{
+      "Data":325794.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000047","PartitionKey":""
+    },{
+      "Data":313033.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000048","PartitionKey":""
+    },{
+      "Data":318795.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000049","PartitionKey":""
+    },{
+      "Data":329429.0,"LocalAuthority_Code":"W06000003","LocalAuthority_ItemName_ENG":"Conwy","LocalAuthority_SortOrder":"30000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000050","PartitionKey":""
+    },{
+      "Data":171358.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000051","PartitionKey":""
+    },{
+      "Data":175311.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000052","PartitionKey":""
+    },{
+      "Data":169003.5,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000053","PartitionKey":""
+    },{
+      "Data":169683.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000054","PartitionKey":""
+    },{
+      "Data":204783.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000055","PartitionKey":""
+    },{
+      "Data":211475.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000056","PartitionKey":""
+    },{
+      "Data":254309.5,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000057","PartitionKey":""
+    },{
+      "Data":259822.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000058","PartitionKey":""
+    },{
+      "Data":262846.99999,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000059","PartitionKey":""
+    },{
+      "Data":284120.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000060","PartitionKey":""
+    },{
+      "Data":282817.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000061","PartitionKey":""
+    },{
+      "Data":282980.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000062","PartitionKey":""
+    },{
+      "Data":247587.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000063","PartitionKey":""
+    },{
+      "Data":237023.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000064","PartitionKey":""
+    },{
+      "Data":230469.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000065","PartitionKey":""
+    },{
+      "Data":222616.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000066","PartitionKey":""
+    },{
+      "Data":217189.0,"LocalAuthority_Code":"W06000004","LocalAuthority_ItemName_ENG":"Denbighshire","LocalAuthority_SortOrder":"40000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000067","PartitionKey":""
+    },{
+      "Data":120880.5,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000068","PartitionKey":""
+    },{
+      "Data":129588.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000069","PartitionKey":""
+    },{
+      "Data":125396.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000070","PartitionKey":""
+    },{
+      "Data":119476.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000071","PartitionKey":""
+    },{
+      "Data":118240.5,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000072","PartitionKey":""
+    },{
+      "Data":128141.5,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000073","PartitionKey":""
+    },{
+      "Data":134080.5,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000074","PartitionKey":""
+    },{
+      "Data":143580.5,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000075","PartitionKey":""
+    },{
+      "Data":146612.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000076","PartitionKey":""
+    },{
+      "Data":158823.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000077","PartitionKey":""
+    },{
+      "Data":158174.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000078","PartitionKey":""
+    },{
+      "Data":157661.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000079","PartitionKey":""
+    },{
+      "Data":149721.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000080","PartitionKey":""
+    },{
+      "Data":145009.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000081","PartitionKey":""
+    },{
+      "Data":135282.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000082","PartitionKey":""
+    },{
+      "Data":126812.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000083","PartitionKey":""
+    },{
+      "Data":118945.0,"LocalAuthority_Code":"W06000005","LocalAuthority_ItemName_ENG":"Flintshire","LocalAuthority_SortOrder":"50000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000084","PartitionKey":""
+    },{
+      "Data":107502.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000085","PartitionKey":""
+    },{
+      "Data":115375.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000086","PartitionKey":""
+    },{
+      "Data":114205.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000087","PartitionKey":""
+    },{
+      "Data":111603.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000088","PartitionKey":""
+    },{
+      "Data":117099.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000089","PartitionKey":""
+    },{
+      "Data":130580.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000090","PartitionKey":""
+    },{
+      "Data":148347.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000091","PartitionKey":""
+    },{
+      "Data":167146.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000092","PartitionKey":""
+    },{
+      "Data":171085.5,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000093","PartitionKey":""
+    },{
+      "Data":181352.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000094","PartitionKey":""
+    },{
+      "Data":185495.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000095","PartitionKey":""
+    },{
+      "Data":183653.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000096","PartitionKey":""
+    },{
+      "Data":170324.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000097","PartitionKey":""
+    },{
+      "Data":155915.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000098","PartitionKey":""
+    },{
+      "Data":147360.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000099","PartitionKey":""
+    },{
+      "Data":137357.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000100","PartitionKey":""
+    },{
+      "Data":128059.0,"LocalAuthority_Code":"W06000006","LocalAuthority_ItemName_ENG":"Wrexham","LocalAuthority_SortOrder":"60000","LocalAuthority_Hierarchy":"25","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000101","PartitionKey":""
+    },{
+      "Data":66541.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000102","PartitionKey":""
+    },{
+      "Data":73830.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000103","PartitionKey":""
+    },{
+      "Data":75957.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000104","PartitionKey":""
+    },{
+      "Data":77122.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000105","PartitionKey":""
+    },{
+      "Data":82854.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000106","PartitionKey":""
+    },{
+      "Data":94276.5,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000107","PartitionKey":""
+    },{
+      "Data":96662.5,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000108","PartitionKey":""
+    },{
+      "Data":102039.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000109","PartitionKey":""
+    },{
+      "Data":107611.5,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000110","PartitionKey":""
+    },{
+      "Data":119283.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000111","PartitionKey":""
+    },{
+      "Data":116977.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000112","PartitionKey":""
+    },{
+      "Data":110873.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000113","PartitionKey":""
+    },{
+      "Data":113339.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000114","PartitionKey":""
+    },{
+      "Data":125538.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000115","PartitionKey":""
+    },{
+      "Data":130457.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000116","PartitionKey":""
+    },{
+      "Data":133671.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000117","PartitionKey":""
+    },{
+      "Data":126303.0,"LocalAuthority_Code":"W06000023","LocalAuthority_ItemName_ENG":"Powys","LocalAuthority_SortOrder":"70000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000118","PartitionKey":""
+    },{
+      "Data":45031.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000119","PartitionKey":""
+    },{
+      "Data":48337.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000120","PartitionKey":""
+    },{
+      "Data":53226.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000121","PartitionKey":""
+    },{
+      "Data":63187.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000122","PartitionKey":""
+    },{
+      "Data":65860.5,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000123","PartitionKey":""
+    },{
+      "Data":71674.5,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000124","PartitionKey":""
+    },{
+      "Data":70311.5,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000125","PartitionKey":""
+    },{
+      "Data":80902.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000126","PartitionKey":""
+    },{
+      "Data":84395.5,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000127","PartitionKey":""
+    },{
+      "Data":85143.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000128","PartitionKey":""
+    },{
+      "Data":82315.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000129","PartitionKey":""
+    },{
+      "Data":75957.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000130","PartitionKey":""
+    },{
+      "Data":74089.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000131","PartitionKey":""
+    },{
+      "Data":88289.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000132","PartitionKey":""
+    },{
+      "Data":91858.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000133","PartitionKey":""
+    },{
+      "Data":95325.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000134","PartitionKey":""
+    },{
+      "Data":85859.0,"LocalAuthority_Code":"W06000008","LocalAuthority_ItemName_ENG":"Ceredigion","LocalAuthority_SortOrder":"80000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000135","PartitionKey":""
+    },{
+      "Data":119633.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000136","PartitionKey":""
+    },{
+      "Data":126246.5,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000137","PartitionKey":""
+    },{
+      "Data":128648.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000138","PartitionKey":""
+    },{
+      "Data":129405.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000139","PartitionKey":""
+    },{
+      "Data":147677.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000140","PartitionKey":""
+    },{
+      "Data":163596.5,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000141","PartitionKey":""
+    },{
+      "Data":169355.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000142","PartitionKey":""
+    },{
+      "Data":175995.5,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000143","PartitionKey":""
+    },{
+      "Data":189902.00001,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000144","PartitionKey":""
+    },{
+      "Data":205584.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000145","PartitionKey":""
+    },{
+      "Data":209237.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000146","PartitionKey":""
+    },{
+      "Data":210198.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000147","PartitionKey":""
+    },{
+      "Data":224394.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000148","PartitionKey":""
+    },{
+      "Data":218832.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000149","PartitionKey":""
+    },{
+      "Data":221970.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000150","PartitionKey":""
+    },{
+      "Data":217706.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000151","PartitionKey":""
+    },{
+      "Data":213332.0,"LocalAuthority_Code":"W06000009","LocalAuthority_ItemName_ENG":"Pembrokeshire","LocalAuthority_SortOrder":"90000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000152","PartitionKey":""
+    },{
+      "Data":314342.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000153","PartitionKey":""
+    },{
+      "Data":318446.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000154","PartitionKey":""
+    },{
+      "Data":330191.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000155","PartitionKey":""
+    },{
+      "Data":341403.5,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000156","PartitionKey":""
+    },{
+      "Data":362960.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000157","PartitionKey":""
+    },{
+      "Data":394865.5,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000158","PartitionKey":""
+    },{
+      "Data":424804.5,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000159","PartitionKey":""
+    },{
+      "Data":428922.5,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000160","PartitionKey":""
+    },{
+      "Data":461660.00001,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000161","PartitionKey":""
+    },{
+      "Data":478819.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000162","PartitionKey":""
+    },{
+      "Data":488659.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000163","PartitionKey":""
+    },{
+      "Data":480928.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000164","PartitionKey":""
+    },{
+      "Data":500910.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000165","PartitionKey":""
+    },{
+      "Data":498411.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000166","PartitionKey":""
+    },{
+      "Data":510780.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000167","PartitionKey":""
+    },{
+      "Data":493386.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000168","PartitionKey":""
+    },{
+      "Data":473958.0,"LocalAuthority_Code":"W06000010","LocalAuthority_ItemName_ENG":"Carmarthenshire","LocalAuthority_SortOrder":"100000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000169","PartitionKey":""
+    },{
+      "Data":483213.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000170","PartitionKey":""
+    },{
+      "Data":486588.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000171","PartitionKey":""
+    },{
+      "Data":482638.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000172","PartitionKey":""
+    },{
+      "Data":492177.5,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000173","PartitionKey":""
+    },{
+      "Data":559709.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000174","PartitionKey":""
+    },{
+      "Data":675331.5,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000175","PartitionKey":""
+    },{
+      "Data":772143.5,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000176","PartitionKey":""
+    },{
+      "Data":799166.5,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000177","PartitionKey":""
+    },{
+      "Data":852797.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000178","PartitionKey":""
+    },{
+      "Data":837559.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000179","PartitionKey":""
+    },{
+      "Data":848498.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000180","PartitionKey":""
+    },{
+      "Data":853520.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000181","PartitionKey":""
+    },{
+      "Data":884614.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000182","PartitionKey":""
+    },{
+      "Data":910878.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000183","PartitionKey":""
+    },{
+      "Data":914448.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000184","PartitionKey":""
+    },{
+      "Data":921736.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000185","PartitionKey":""
+    },{
+      "Data":927841.0,"LocalAuthority_Code":"W06000011","LocalAuthority_ItemName_ENG":"Swansea","LocalAuthority_SortOrder":"110000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000186","PartitionKey":""
+    },{
+      "Data":331150.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000187","PartitionKey":""
+    },{
+      "Data":334916.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000188","PartitionKey":""
+    },{
+      "Data":332312.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000189","PartitionKey":""
+    },{
+      "Data":332574.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000190","PartitionKey":""
+    },{
+      "Data":398316.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000191","PartitionKey":""
+    },{
+      "Data":465119.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000192","PartitionKey":""
+    },{
+      "Data":527378.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000193","PartitionKey":""
+    },{
+      "Data":554100.5,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000194","PartitionKey":""
+    },{
+      "Data":595304.99999,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000195","PartitionKey":""
+    },{
+      "Data":588700.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000196","PartitionKey":""
+    },{
+      "Data":603439.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000197","PartitionKey":""
+    },{
+      "Data":612583.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000198","PartitionKey":""
+    },{
+      "Data":624119.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000199","PartitionKey":""
+    },{
+      "Data":630894.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000200","PartitionKey":""
+    },{
+      "Data":622518.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000201","PartitionKey":""
+    },{
+      "Data":624088.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000202","PartitionKey":""
+    },{
+      "Data":636648.0,"LocalAuthority_Code":"W06000012","LocalAuthority_ItemName_ENG":"Neath Port Talbot","LocalAuthority_SortOrder":"120000","LocalAuthority_Hierarchy":"27","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000203","PartitionKey":""
+    },{
+      "Data":484026.5,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000204","PartitionKey":""
+    },{
+      "Data":543399.5,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000205","PartitionKey":""
+    },{
+      "Data":581725.5,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000206","PartitionKey":""
+    },{
+      "Data":655981.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000207","PartitionKey":""
+    },{
+      "Data":732386.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000208","PartitionKey":""
+    },{
+      "Data":823323.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000209","PartitionKey":""
+    },{
+      "Data":920504.5,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000210","PartitionKey":""
+    },{
+      "Data":941870.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000211","PartitionKey":""
+    },{
+      "Data":996008.49999,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000212","PartitionKey":""
+    },{
+      "Data":999193.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000213","PartitionKey":""
+    },{
+      "Data":985009.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000214","PartitionKey":""
+    },{
+      "Data":1160131.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000215","PartitionKey":""
+    },{
+      "Data":996239.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000216","PartitionKey":""
+    },{
+      "Data":1015275.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000217","PartitionKey":""
+    },{
+      "Data":1011850.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000218","PartitionKey":""
+    },{
+      "Data":1022102.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000219","PartitionKey":""
+    },{
+      "Data":1032579.0,"LocalAuthority_Code":"W06000013","LocalAuthority_ItemName_ENG":"Bridgend","LocalAuthority_SortOrder":"130000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000220","PartitionKey":""
+    },{
+      "Data":1022708.5,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000221","PartitionKey":""
+    },{
+      "Data":1038078.5,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000222","PartitionKey":""
+    },{
+      "Data":1027133.5,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000223","PartitionKey":""
+    },{
+      "Data":1182545.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000224","PartitionKey":""
+    },{
+      "Data":1296479.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000225","PartitionKey":""
+    },{
+      "Data":1381485.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000226","PartitionKey":""
+    },{
+      "Data":1406295.5,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000227","PartitionKey":""
+    },{
+      "Data":1388194.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000228","PartitionKey":""
+    },{
+      "Data":1412820.49999,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000229","PartitionKey":""
+    },{
+      "Data":1496071.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000230","PartitionKey":""
+    },{
+      "Data":1541840.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000231","PartitionKey":""
+    },{
+      "Data":1613460.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000232","PartitionKey":""
+    },{
+      "Data":1591876.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000233","PartitionKey":""
+    },{
+      "Data":1667483.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000234","PartitionKey":""
+    },{
+      "Data":1710500.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000235","PartitionKey":""
+    },{
+      "Data":1737788.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000236","PartitionKey":""
+    },{
+      "Data":1789529.0,"LocalAuthority_Code":"W06000014","LocalAuthority_ItemName_ENG":"Vale of Glamorgan","LocalAuthority_SortOrder":"140000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000237","PartitionKey":""
+    },{
+      "Data":4730870.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000238","PartitionKey":""
+    },{
+      "Data":4910371.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000239","PartitionKey":""
+    },{
+      "Data":5133400.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000240","PartitionKey":""
+    },{
+      "Data":5241435.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000241","PartitionKey":""
+    },{
+      "Data":5670668.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000242","PartitionKey":""
+    },{
+      "Data":6370185.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000243","PartitionKey":""
+    },{
+      "Data":6827560.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000244","PartitionKey":""
+    },{
+      "Data":7002814.5,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000245","PartitionKey":""
+    },{
+      "Data":7266364.49995,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000246","PartitionKey":""
+    },{
+      "Data":7380204.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000247","PartitionKey":""
+    },{
+      "Data":7500619.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000248","PartitionKey":""
+    },{
+      "Data":7733550.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000249","PartitionKey":""
+    },{
+      "Data":7995890.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000250","PartitionKey":""
+    },{
+      "Data":8470596.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000251","PartitionKey":""
+    },{
+      "Data":8758014.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000252","PartitionKey":""
+    },{
+      "Data":8982544.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000253","PartitionKey":""
+    },{
+      "Data":9171249.0,"LocalAuthority_Code":"W06000015","LocalAuthority_ItemName_ENG":"Cardiff","LocalAuthority_SortOrder":"150000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000254","PartitionKey":""
+    },{
+      "Data":1759765.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000255","PartitionKey":""
+    },{
+      "Data":1850393.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000256","PartitionKey":""
+    },{
+      "Data":1883603.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000257","PartitionKey":""
+    },{
+      "Data":1861408.5,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000258","PartitionKey":""
+    },{
+      "Data":2002681.5,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000259","PartitionKey":""
+    },{
+      "Data":2138356.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000260","PartitionKey":""
+    },{
+      "Data":2230708.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000261","PartitionKey":""
+    },{
+      "Data":2333461.5,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000262","PartitionKey":""
+    },{
+      "Data":2334792.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000263","PartitionKey":""
+    },{
+      "Data":2327654.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000264","PartitionKey":""
+    },{
+      "Data":2337550.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000265","PartitionKey":""
+    },{
+      "Data":2355499.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000266","PartitionKey":""
+    },{
+      "Data":2335051.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000267","PartitionKey":""
+    },{
+      "Data":2319346.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000268","PartitionKey":""
+    },{
+      "Data":2462243.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000269","PartitionKey":""
+    },{
+      "Data":2454928.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000270","PartitionKey":""
+    },{
+      "Data":2373410.0,"LocalAuthority_Code":"W06000016","LocalAuthority_ItemName_ENG":"Rhondda Cynon Taf","LocalAuthority_SortOrder":"160000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000271","PartitionKey":""
+    },{
+      "Data":229052.5,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000272","PartitionKey":""
+    },{
+      "Data":195179.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000273","PartitionKey":""
+    },{
+      "Data":198217.5,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000274","PartitionKey":""
+    },{
+      "Data":189262.5,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000275","PartitionKey":""
+    },{
+      "Data":196020.5,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000276","PartitionKey":""
+    },{
+      "Data":196742.5,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000277","PartitionKey":""
+    },{
+      "Data":210567.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000278","PartitionKey":""
+    },{
+      "Data":259217.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000279","PartitionKey":""
+    },{
+      "Data":285325.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000280","PartitionKey":""
+    },{
+      "Data":295287.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000281","PartitionKey":""
+    },{
+      "Data":318348.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000282","PartitionKey":""
+    },{
+      "Data":372443.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000283","PartitionKey":""
+    },{
+      "Data":385521.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000284","PartitionKey":""
+    },{
+      "Data":392297.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000285","PartitionKey":""
+    },{
+      "Data":357006.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000286","PartitionKey":""
+    },{
+      "Data":336635.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000287","PartitionKey":""
+    },{
+      "Data":329274.0,"LocalAuthority_Code":"W06000024","LocalAuthority_ItemName_ENG":"Merthyr Tydfil","LocalAuthority_SortOrder":"170000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000288","PartitionKey":""
+    },{
+      "Data":907687.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000289","PartitionKey":""
+    },{
+      "Data":911400.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000290","PartitionKey":""
+    },{
+      "Data":936902.5,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000291","PartitionKey":""
+    },{
+      "Data":922562.5,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000292","PartitionKey":""
+    },{
+      "Data":961872.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000293","PartitionKey":""
+    },{
+      "Data":1061672.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000294","PartitionKey":""
+    },{
+      "Data":1177442.5,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000295","PartitionKey":""
+    },{
+      "Data":1229200.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000296","PartitionKey":""
+    },{
+      "Data":1285820.49995,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000297","PartitionKey":""
+    },{
+      "Data":1314843.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000298","PartitionKey":""
+    },{
+      "Data":1324029.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000299","PartitionKey":""
+    },{
+      "Data":1372438.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000300","PartitionKey":""
+    },{
+      "Data":1414970.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000301","PartitionKey":""
+    },{
+      "Data":1409392.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000302","PartitionKey":""
+    },{
+      "Data":1463098.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000303","PartitionKey":""
+    },{
+      "Data":1496605.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000304","PartitionKey":""
+    },{
+      "Data":1482916.0,"LocalAuthority_Code":"W06000018","LocalAuthority_ItemName_ENG":"Caerphilly","LocalAuthority_SortOrder":"180000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000305","PartitionKey":""
+    },{
+      "Data":0.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000306","PartitionKey":""
+    },{
+      "Data":0.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000307","PartitionKey":""
+    },{
+      "Data":0.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000308","PartitionKey":""
+    },{
+      "Data":0.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000309","PartitionKey":""
+    },{
+      "Data":0.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000310","PartitionKey":""
+    },{
+      "Data":25913.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000311","PartitionKey":""
+    },{
+      "Data":144155.5,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000312","PartitionKey":""
+    },{
+      "Data":147574.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000313","PartitionKey":""
+    },{
+      "Data":158045.99999,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000314","PartitionKey":""
+    },{
+      "Data":157860.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000315","PartitionKey":""
+    },{
+      "Data":160294.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000316","PartitionKey":""
+    },{
+      "Data":163151.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000317","PartitionKey":""
+    },{
+      "Data":160275.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000318","PartitionKey":""
+    },{
+      "Data":168385.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000319","PartitionKey":""
+    },{
+      "Data":182746.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000320","PartitionKey":""
+    },{
+      "Data":185315.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000321","PartitionKey":""
+    },{
+      "Data":175532.0,"LocalAuthority_Code":"W06000019","LocalAuthority_ItemName_ENG":"Blaenau Gwent","LocalAuthority_SortOrder":"190000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000322","PartitionKey":""
+    },{
+      "Data":90428.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000323","PartitionKey":""
+    },{
+      "Data":90453.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000324","PartitionKey":""
+    },{
+      "Data":96041.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000325","PartitionKey":""
+    },{
+      "Data":90563.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000326","PartitionKey":""
+    },{
+      "Data":104823.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000327","PartitionKey":""
+    },{
+      "Data":117869.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000328","PartitionKey":""
+    },{
+      "Data":123676.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000329","PartitionKey":""
+    },{
+      "Data":145964.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000330","PartitionKey":""
+    },{
+      "Data":148378.5,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000331","PartitionKey":""
+    },{
+      "Data":154704.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000332","PartitionKey":""
+    },{
+      "Data":161968.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000333","PartitionKey":""
+    },{
+      "Data":167889.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000334","PartitionKey":""
+    },{
+      "Data":168757.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000335","PartitionKey":""
+    },{
+      "Data":179782.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000336","PartitionKey":""
+    },{
+      "Data":185832.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000337","PartitionKey":""
+    },{
+      "Data":187275.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000338","PartitionKey":""
+    },{
+      "Data":182364.0,"LocalAuthority_Code":"W06000020","LocalAuthority_ItemName_ENG":"Torfaen","LocalAuthority_SortOrder":"200000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000339","PartitionKey":""
+    },{
+      "Data":140524.5,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000340","PartitionKey":""
+    },{
+      "Data":149782.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000341","PartitionKey":""
+    },{
+      "Data":163522.5,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000342","PartitionKey":""
+    },{
+      "Data":167587.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000343","PartitionKey":""
+    },{
+      "Data":181327.5,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000344","PartitionKey":""
+    },{
+      "Data":193341.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000345","PartitionKey":""
+    },{
+      "Data":199665.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000346","PartitionKey":""
+    },{
+      "Data":211241.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000347","PartitionKey":""
+    },{
+      "Data":216382.5,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000348","PartitionKey":""
+    },{
+      "Data":222306.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000349","PartitionKey":""
+    },{
+      "Data":222577.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000350","PartitionKey":""
+    },{
+      "Data":224542.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000351","PartitionKey":""
+    },{
+      "Data":228752.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000352","PartitionKey":""
+    },{
+      "Data":247331.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000353","PartitionKey":""
+    },{
+      "Data":255295.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000354","PartitionKey":""
+    },{
+      "Data":257446.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000355","PartitionKey":""
+    },{
+      "Data":258633.0,"LocalAuthority_Code":"W06000021","LocalAuthority_ItemName_ENG":"Monmouthshire","LocalAuthority_SortOrder":"210000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000356","PartitionKey":""
+    },{
+      "Data":477381.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000357","PartitionKey":""
+    },{
+      "Data":514985.5,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000358","PartitionKey":""
+    },{
+      "Data":537089.5,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000359","PartitionKey":""
+    },{
+      "Data":565369.5,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000360","PartitionKey":""
+    },{
+      "Data":604128.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000361","PartitionKey":""
+    },{
+      "Data":667952.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000362","PartitionKey":""
+    },{
+      "Data":683327.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000363","PartitionKey":""
+    },{
+      "Data":715964.5,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000364","PartitionKey":""
+    },{
+      "Data":746380.99999,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000365","PartitionKey":""
+    },{
+      "Data":726214.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000366","PartitionKey":""
+    },{
+      "Data":718151.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000367","PartitionKey":""
+    },{
+      "Data":744620.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000368","PartitionKey":""
+    },{
+      "Data":782299.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000369","PartitionKey":""
+    },{
+      "Data":870998.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000370","PartitionKey":""
+    },{
+      "Data":910044.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000371","PartitionKey":""
+    },{
+      "Data":930081.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000372","PartitionKey":""
+    },{
+      "Data":958678.0,"LocalAuthority_Code":"W06000022","LocalAuthority_ItemName_ENG":"Newport","LocalAuthority_SortOrder":"220000","LocalAuthority_Hierarchy":"28","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000373","PartitionKey":""
+    },{
+      "Data":12425878.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000374","PartitionKey":""
+    },{
+      "Data":12858369.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000375","PartitionKey":""
+    },{
+      "Data":13152547.5,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000376","PartitionKey":""
+    },{
+      "Data":13487202.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000377","PartitionKey":""
+    },{
+      "Data":14595590.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000378","PartitionKey":""
+    },{
+      "Data":16236399.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000379","PartitionKey":""
+    },{
+      "Data":17384885.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000380","PartitionKey":""
+    },{
+      "Data":17999862.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000381","PartitionKey":""
+    },{
+      "Data":18684869.99986,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000382","PartitionKey":""
+    },{
+      "Data":19037662.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000383","PartitionKey":""
+    },{
+      "Data":19231983.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000384","PartitionKey":""
+    },{
+      "Data":19791671.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000385","PartitionKey":""
+    },{
+      "Data":19972064.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000386","PartitionKey":""
+    },{
+      "Data":20706000.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000387","PartitionKey":""
+    },{
+      "Data":21218129.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000388","PartitionKey":""
+    },{
+      "Data":21491852.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000389","PartitionKey":""
+    },{
+      "Data":21632655.0,"LocalAuthority_Code":"W92000004","LocalAuthority_ItemName_ENG":"Wales","LocalAuthority_SortOrder":"0","LocalAuthority_Hierarchy":"","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000390","PartitionKey":""
+    },{
+      "Data":1223524.5,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000391","PartitionKey":""
+    },{
+      "Data":1265963.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000392","PartitionKey":""
+    },{
+      "Data":1191939.5,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000393","PartitionKey":""
+    },{
+      "Data":1174617.5,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000394","PartitionKey":""
+    },{
+      "Data":1227827.5,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000395","PartitionKey":""
+    },{
+      "Data":1394696.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000396","PartitionKey":""
+    },{
+      "Data":1400327.5,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000397","PartitionKey":""
+    },{
+      "Data":1483235.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000398","PartitionKey":""
+    },{
+      "Data":1542879.99999,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000399","PartitionKey":""
+    },{
+      "Data":1648238.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000400","PartitionKey":""
+    },{
+      "Data":1612473.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000401","PartitionKey":""
+    },{
+      "Data":1539889.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000402","PartitionKey":""
+    },{
+      "Data":1490969.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000403","PartitionKey":""
+    },{
+      "Data":1492273.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000404","PartitionKey":""
+    },{
+      "Data":1429470.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000405","PartitionKey":""
+    },{
+      "Data":1415221.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000406","PartitionKey":""
+    },{
+      "Data":1414550.0,"LocalAuthority_Code":"W19000001","LocalAuthority_ItemName_ENG":"North Wales","LocalAuthority_SortOrder":"1","LocalAuthority_Hierarchy":"24","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000407","PartitionKey":""
+    },{
+      "Data":1248338.5,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000408","PartitionKey":""
+    },{
+      "Data":1266197.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000409","PartitionKey":""
+    },{
+      "Data":1273789.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000410","PartitionKey":""
+    },{
+      "Data":1295560.5,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000411","PartitionKey":""
+    },{
+      "Data":1468662.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000412","PartitionKey":""
+    },{
+      "Data":1698913.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000413","PartitionKey":""
+    },{
+      "Data":1893681.5,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000414","PartitionKey":""
+    },{
+      "Data":1958185.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000415","PartitionKey":""
+    },{
+      "Data":2099664.00001,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000416","PartitionKey":""
+    },{
+      "Data":2110662.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000417","PartitionKey":""
+    },{
+      "Data":2149833.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000418","PartitionKey":""
+    },{
+      "Data":2157229.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000419","PartitionKey":""
+    },{
+      "Data":2234037.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000420","PartitionKey":""
+    },{
+      "Data":2259015.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000421","PartitionKey":""
+    },{
+      "Data":2269716.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000422","PartitionKey":""
+    },{
+      "Data":2256916.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000423","PartitionKey":""
+    },{
+      "Data":2251779.0,"LocalAuthority_Code":"WXX000002","LocalAuthority_ItemName_ENG":"Mid and South West Wales","LocalAuthority_SortOrder":"3","LocalAuthority_Hierarchy":"24","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000424","PartitionKey":""
+    },{
+      "Data":9842443.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2002","Year_ItemName_ENG":"2002-03","Year_SortOrder":"11","RowKey":"0000000000000425","PartitionKey":""
+    },{
+      "Data":10204042.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2003","Year_ItemName_ENG":"2003-04","Year_SortOrder":"12","RowKey":"0000000000000426","PartitionKey":""
+    },{
+      "Data":10557636.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2004","Year_ItemName_ENG":"2004-05","Year_SortOrder":"13","RowKey":"0000000000000427","PartitionKey":""
+    },{
+      "Data":10876715.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2005","Year_ItemName_ENG":"2005-06","Year_SortOrder":"14","RowKey":"0000000000000428","PartitionKey":""
+    },{
+      "Data":11750386.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2006","Year_ItemName_ENG":"2006-07","Year_SortOrder":"15","RowKey":"0000000000000429","PartitionKey":""
+    },{
+      "Data":12976839.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2007","Year_ItemName_ENG":"2007-08","Year_SortOrder":"16","RowKey":"0000000000000430","PartitionKey":""
+    },{
+      "Data":13923902.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2008","Year_ItemName_ENG":"2008-09","Year_SortOrder":"17","RowKey":"0000000000000431","PartitionKey":""
+    },{
+      "Data":14375501.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2009","Year_ItemName_ENG":"2009-10","Year_SortOrder":"18","RowKey":"0000000000000432","PartitionKey":""
+    },{
+      "Data":14850318.99986,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2010","Year_ItemName_ENG":"2010-11","Year_SortOrder":"19","RowKey":"0000000000000433","PartitionKey":""
+    },{
+      "Data":15074336.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2011","Year_ItemName_ENG":"2011-12","Year_SortOrder":"20","RowKey":"0000000000000434","PartitionKey":""
+    },{
+      "Data":15270385.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2012","Year_ItemName_ENG":"2012-13","Year_SortOrder":"21","RowKey":"0000000000000435","PartitionKey":""
+    },{
+      "Data":15907723.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2013","Year_ItemName_ENG":"2013-14","Year_SortOrder":"22","RowKey":"0000000000000436","PartitionKey":""
+    },{
+      "Data":16059630.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2014","Year_ItemName_ENG":"2014-15","Year_SortOrder":"23","RowKey":"0000000000000437","PartitionKey":""
+    },{
+      "Data":16740885.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2015","Year_ItemName_ENG":"2015-16","Year_SortOrder":"24","RowKey":"0000000000000438","PartitionKey":""
+    },{
+      "Data":17296628.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2016","Year_ItemName_ENG":"2016-17","Year_SortOrder":"25","RowKey":"0000000000000439","PartitionKey":""
+    },{
+      "Data":17590719.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2017","Year_ItemName_ENG":"2017-18","Year_SortOrder":"26","RowKey":"0000000000000440","PartitionKey":""
+    },{
+      "Data":17754164.0,"LocalAuthority_Code":"W19000004","LocalAuthority_ItemName_ENG":"South East Wales","LocalAuthority_SortOrder":"4","LocalAuthority_Hierarchy":"24","Year_Code":"2018","Year_ItemName_ENG":"2018-19","Year_SortOrder":"27","RowKey":"0000000000000441","PartitionKey":""
+    }
+  ]
+}
