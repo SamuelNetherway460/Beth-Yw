@@ -6,7 +6,7 @@
   | BETH YW? WELSH GOVERNMENT DATA PARSER |
   +---------------------------------------+
 
-  AUTHOR: 955794
+  AUTHOR: <STUDENT NUMBER>
 
   This file contains declarations for the helper functions for initialising and
   running Beth Yw?
