@@ -61,9 +61,16 @@ std::vector<BethYw::InputFileSource> parseDatasetsArg(
 std::unordered_set<std::string> parseAreasArg(cxxopts::ParseResult& args);
 
 /*
-  Parse the measures argument and return a std::unordered_set
+  Parse the measures argument and return a std::unordered_set of all the
+  measures to import, or an empty set if all measures should be imported.
  */
 std::unordered_set<std::string> parseMeasuresArg(cxxopts::ParseResult& args);
+
+/*
+  Parse the years argument and return a std::tuple<int, int> of the start
+  and end years of the dataset(s) to import.
+ */
+std::tuple<int, int> parseYearsArg(cxxopts::ParseResult& args);
 
 } // namespace BethYw
 

@@ -69,7 +69,7 @@ int BethYw::run(int argc, char *argv[]) {
   auto datasetsToImport = BethYw::parseDatasetsArg(args);
   auto areasFilter      = BethYw::parseAreasArg(args);
   auto measuresFilter   = BethYw::parseMeasuresArg(args);
-  // auto yearsFilter      = BethYw::parseYearsArg(args);
+  auto yearsFilter      = BethYw::parseYearsArg(args);
 
   Areas data = Areas();
 
@@ -312,7 +312,7 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
 
     std::vector<std::string> temp;
     try {
-        temp = args["areas"].as<std::vector<std::string>>();
+        temp = args["measures"].as<std::vector<std::string>>();
     } catch (const std::domain_error) {
         return measures;
     }
@@ -330,8 +330,6 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
 
 
 /*
-  TODO: BethYw::parseYearsArg(args)
-
   Parse the years command line argument. Years is either a four digit year 
   value, or two four digit year values separated by a hyphen (i.e. either 
   YYYY or YYYY-ZZZZ).
@@ -352,6 +350,34 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
     std::invalid_argument if the argument contains an invalid years value with
     the message: Invalid input for years argument
 */
+std::tuple<int, int> BethYw::parseYearsArg(
+        cxxopts::ParseResult& args) {
+    std::tuple<int, int> years = std::make_tuple(0, 0);
+
+    std::vector<std::string> temp;
+    try {
+        temp = args["years"].as<std::vector<std::string>>();
+    } catch (const std::domain_error) {
+        return years;
+    }
+
+    std::regex singleAllExpr("0");
+    std::regex dualAllExpr("0-0");
+    std::regex singleYearExpr("[0-9][0-9][0-9][0-9]");
+    std::regex dualYearExpr("[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
+
+    if (std::regex_match(temp[0], singleAllExpr)) {
+        return std::make_tuple(0, 0);
+    } else if (std::regex_match(temp[0], dualAllExpr)) {
+        return std::make_tuple(0, 0);
+    } else if (std::regex_match(temp[0], singleYearExpr)) {
+        return std::make_tuple(std::stoi(temp[0]), std::stoi(temp[0]));
+    } else if (std::regex_match(temp[0], dualYearExpr)) {
+        return std::make_tuple(std::stoi(temp[0].substr(0,4)), std::stoi(temp[0].substr(5,4)));
+    } else {
+        throw std::invalid_argument("Invalid input for years argument");
+    }
+}
 
 
 /*
