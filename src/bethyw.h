@@ -35,7 +35,7 @@ namespace BethYw {
 /*
   TODO: Enter your student number here!
 */
-const std::string STUDENT_NUMBER = "987654";
+const std::string STUDENT_NUMBER = "955794";
 
 /*
   Run Beth Yw?, parsing the command line arguments and acting upon them.
