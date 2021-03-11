@@ -197,6 +197,10 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
       for(unsigned int i = 0; i < numDatasets; i++)
           datasetsToImport.push_back(allDatasets[i]);
       return datasetsToImport;
+  } catch (const std::bad_cast) {
+      for(unsigned int i = 0; i < numDatasets; i++)
+          datasetsToImport.push_back(allDatasets[i]);
+      return datasetsToImport;
   }
 
   for (unsigned int i = 0; i < inputDatasets.size(); i++) {
@@ -260,6 +264,8 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
       temp = args["areas"].as<std::vector<std::string>>();
   } catch (const std::domain_error) {
       return areas;
+  } catch (const std::bad_cast) {
+      return areas;
   }
 
   for (unsigned int i = 0; i < temp.size(); i++) {
@@ -315,6 +321,8 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
         temp = args["measures"].as<std::vector<std::string>>();
     } catch (const std::domain_error) {
         return measures;
+    } catch (const std::bad_cast) {
+        return measures;
     }
 
     for (unsigned int i = 0; i < temp.size(); i++) {
@@ -359,6 +367,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
         temp = args["years"].as<std::vector<std::string>>();
     } catch (const std::domain_error) {
         return years;
+    } catch (const std::bad_cast) {
+        return years;
     }
 
     std::regex singleAllExpr("0");
@@ -367,9 +377,9 @@ std::tuple<int, int> BethYw::parseYearsArg(
     std::regex dualYearExpr("[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
 
     if (std::regex_match(temp[0], singleAllExpr)) {
-        return std::make_tuple(0, 0);
+        return years;
     } else if (std::regex_match(temp[0], dualAllExpr)) {
-        return std::make_tuple(0, 0);
+        return years;
     } else if (std::regex_match(temp[0], singleYearExpr)) {
         return std::make_tuple(std::stoi(temp[0]), std::stoi(temp[0]));
     } else if (std::regex_match(temp[0], dualYearExpr)) {
