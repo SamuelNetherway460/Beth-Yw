@@ -6,7 +6,7 @@
   | BETH YW? WELSH GOVERNMENT DATA PARSER |
   +---------------------------------------+
 
-  AUTHOR: <STUDENT NUMBER>
+  AUTHOR: 955794
 
   This file contains the code responsible for opening and closing file
   streams. The actual handling of the data from that stream is handled

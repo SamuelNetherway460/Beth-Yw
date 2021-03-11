@@ -6,7 +6,7 @@
   | BETH YW? WELSH GOVERNMENT DATA PARSER |
   +---------------------------------------+
 
-  AUTHOR: <STUDENT NUMBER>
+  AUTHOR: 955794
 
   This file contains declarations for the input source handlers. There are
   two classes: InputSource and InputFile. InputSource is abstract (i.e. it

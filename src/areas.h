@@ -6,7 +6,7 @@
   | BETH YW? WELSH GOVERNMENT DATA PARSER |
   +---------------------------------------+
 
-  AUTHOR: <STUDENT NUMBER>
+  AUTHOR: 955794
 
   This file contains the Areas class, which is responsible for parsing data
   from a standard input stream and converting it into a series of objects:
