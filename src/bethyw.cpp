@@ -206,20 +206,21 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   // You now need to compare the strings in this vector to the keys in
   // allDatasets above. Populate datasetsToImport with the values
   // from allDatasets above and then return a vector
-  if (inputDatasets[0] == "all") {
-      for(unsigned int i = 0; i < numDatasets; i++)
-          datasetsToImport.push_back(allDatasets[i]);
-  } else {
-      for (unsigned int x = 0; x < inputDatasets.size(); x++) {
-          bool isInvalidArg = true;
-          for (unsigned int y = 0; y < numDatasets; y++) {
-              if (inputDatasets[x] == allDatasets[y].CODE) {
-                  datasetsToImport.push_back(allDatasets[y]);
-                  isInvalidArg = false;
-              }
-          }
-          if (isInvalidArg) throw std::invalid_argument("No dataset matches key: " + inputDatasets[x]);
+  for (unsigned int x = 0; x < inputDatasets.size(); x++) {
+      if (inputDatasets[x] == "all") {
+          datasetsToImport.empty();
+          for(unsigned int i = 0; i < numDatasets; i++)
+              datasetsToImport.push_back(allDatasets[i]);
+          return datasetsToImport;
       }
+      bool isInvalidArg = true;
+      for (unsigned int y = 0; y < numDatasets; y++) {
+          if (inputDatasets[x] == allDatasets[y].CODE) {
+              datasetsToImport.push_back(allDatasets[y]);
+              isInvalidArg = false;
+          }
+      }
+      if (isInvalidArg) throw std::invalid_argument("No dataset matches key: " + inputDatasets[x]);
   }
 
   // You'll want to ignore/remove the following lines of code, they simply
