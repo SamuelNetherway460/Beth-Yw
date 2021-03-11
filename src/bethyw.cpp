@@ -27,6 +27,7 @@
 #include <tuple>
 #include <unordered_set>
 #include <vector>
+#include <regex>
 
 #include "lib_cxxopts.hpp"
 
@@ -66,7 +67,7 @@ int BethYw::run(int argc, char *argv[]) {
 
   // Parse other arguments and import data
   auto datasetsToImport = BethYw::parseDatasetsArg(args);
-  // auto areasFilter      = BethYw::parseAreasArg(args);
+  auto areasFilter      = BethYw::parseAreasArg(args);
   // auto measuresFilter   = BethYw::parseMeasuresArg(args);
   // auto yearsFilter      = BethYw::parseYearsArg(args);
 
@@ -145,8 +146,6 @@ cxxopts::Options BethYw::cxxoptsSetup() {
 }
 
 /*
-  TODO: BethYw::parseDatasetsArg(args)
-
   Parse the datasets argument passed into the command line. 
 
   The datasets argument is optional, and if it is not included, all datasets 
@@ -231,13 +230,9 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   return datasetsToImport;
 }
 
-void BethYw::toLowerCase(std::string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-}
+
 
 /*
-  TODO: BethYw::parseAreasArg(args)
-  
   Parses the areas command line argument, which is optional. If it doesn't 
   exist or exists and contains "all" as value (any case), all areas should be
   imported, i.e., the filter should be an empty set.
@@ -266,9 +261,29 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
   std::unordered_set<std::string> areas;
 
   // Retrieve the areas argument like so:
-  auto temp = args["areas"].as<std::vector<std::string>>();
-  
-  // ...
+  std::vector<std::string> temp;
+  try {
+      temp = args["areas"].as<std::vector<std::string>>();
+  } catch (const std::domain_error) {
+      return areas;
+  }
+
+  for (unsigned int i = 0; i < temp.size(); i++) {
+      toLowerCase(temp[i]);
+  }
+
+  std::regex str_expr("W[0-9]+");
+  if (temp[0] == "all") {
+      return areas;
+  } else {
+      for (unsigned int i = 0; i < temp.size(); i++) {
+          if (std::regex_match(temp[i], str_expr)) {
+              areas.insert(temp[i]);
+          } else {
+              throw std::invalid_argument("Invalid input for area argument");
+          }
+      }
+  }
   
   return areas;
 }
@@ -417,5 +432,16 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
       BethYw::parseYearsArg(args));
 */
 
+/*
+  Converts all characters in a string to lower case.
 
+  @param str
+    The string to be converted to lower case.
+
+  @return
+    void
+ */
+void BethYw::toLowerCase(std::string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+}
 
