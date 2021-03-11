@@ -68,7 +68,7 @@ int BethYw::run(int argc, char *argv[]) {
   // Parse other arguments and import data
   auto datasetsToImport = BethYw::parseDatasetsArg(args);
   auto areasFilter      = BethYw::parseAreasArg(args);
-  // auto measuresFilter   = BethYw::parseMeasuresArg(args);
+  auto measuresFilter   = BethYw::parseMeasuresArg(args);
   // auto yearsFilter      = BethYw::parseYearsArg(args);
 
   Areas data = Areas();
@@ -272,16 +272,15 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
       toLowerCase(temp[i]);
   }
 
-  std::regex str_expr("W[0-9]+");
-  if (temp[0] == "all") {
-      return areas;
-  } else {
-      for (unsigned int i = 0; i < temp.size(); i++) {
-          if (std::regex_match(temp[i], str_expr)) {
-              areas.insert(temp[i]);
-          } else {
-              throw std::invalid_argument("Invalid input for area argument");
-          }
+  std::regex str_expr("w[0-9]+");
+  for (unsigned int i = 0; i < temp.size(); i++) {
+      if (std::regex_match(temp[i], str_expr)) {
+          areas.insert(temp[i]);
+      } else if (temp[i] == "all") {
+          areas.empty();
+          return areas;
+      } else {
+          throw std::invalid_argument("Invalid input for area argument");
       }
   }
   
