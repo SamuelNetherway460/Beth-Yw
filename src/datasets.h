@@ -233,6 +233,7 @@ const InputFileSource DATASETS[NUM_DATASETS] = { POPDEN,
 
 } // namespace InputFiles
 
+    void toLowerCase(std::string str);
 } // namespace BethYw
 
 #endif // DATASETS_H_
