@@ -209,7 +209,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   for (unsigned int x = 0; x < inputDatasets.size(); x++) {
       if (inputDatasets[x] == "all") {
           datasetsToImport.empty();
-          for(unsigned int i = 0; i < numDatasets; i++)
+          for (unsigned int i = 0; i < numDatasets; i++)
               datasetsToImport.push_back(allDatasets[i]);
           return datasetsToImport;
       }
@@ -223,15 +223,8 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
       if (isInvalidArg) throw std::invalid_argument("No dataset matches key: " + inputDatasets[x]);
   }
 
-  // You'll want to ignore/remove the following lines of code, they simply
-  // import all datasets (for now) as an example to get you started
-  //for(unsigned int i = 0; i < numDatasets; i++)
-  //    datasetsToImport.push_back(allDatasets[i]);
-
   return datasetsToImport;
 }
-
-
 
 /*
   Parses the areas command line argument, which is optional. If it doesn't 
@@ -289,7 +282,7 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
 }
 
 /*
-  TODO: BethYw::parseMeasuresArg(args)
+  TODO: Add exception throw for invalid measures or remove documentation if not possible
 
   Parse the measures command line argument, which is optional. If it doesn't 
   exist or exists and contains "all" as value (any case), all measures should
@@ -313,6 +306,27 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
     std::invalid_argument if the argument contains an invalid measures value
     with the message: Invalid input for measures argument
 */
+std::unordered_set<std::string> BethYw::parseMeasuresArg(
+        cxxopts::ParseResult& args) {
+    std::unordered_set<std::string> measures;
+
+    std::vector<std::string> temp;
+    try {
+        temp = args["areas"].as<std::vector<std::string>>();
+    } catch (const std::domain_error) {
+        return measures;
+    }
+
+    for (unsigned int i = 0; i < temp.size(); i++) {
+        if (temp[i] == "all") {
+            measures.empty();
+            return measures;
+        } else {
+            measures.insert(temp[i]);
+        }
+    }
+
+}
 
 
 /*

@@ -60,6 +60,11 @@ std::vector<BethYw::InputFileSource> parseDatasetsArg(
 */
 std::unordered_set<std::string> parseAreasArg(cxxopts::ParseResult& args);
 
+/*
+  Parse the measures argument and return a std::unordered_set
+ */
+std::unordered_set<std::string> parseMeasuresArg(cxxopts::ParseResult& args);
+
 } // namespace BethYw
 
 #endif // BETHYW_H_
