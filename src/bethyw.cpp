@@ -366,6 +366,7 @@ std::tuple<int, int> BethYw::parseYearsArg(
         cxxopts::ParseResult& args) {
     std::tuple<int, int> years = std::make_tuple(0, 0);
 
+    /*
     std::vector<std::string> temp;
     try {
         temp = args["years"].as<std::vector<std::string>>();
@@ -380,6 +381,7 @@ std::tuple<int, int> BethYw::parseYearsArg(
     std::regex singleYearExpr("[0-9][0-9][0-9][0-9]");
     std::regex dualYearExpr("[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
 
+
     if (std::regex_match(temp[0], singleAllExpr)) {
         return years;
     } else if (std::regex_match(temp[0], dualAllExpr)) {
@@ -391,6 +393,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
     } else {
         throw std::invalid_argument("Invalid input for years argument");
     }
+     */
+    return years;
 }
 
 
