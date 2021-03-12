@@ -204,7 +204,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   }
 
   for (unsigned int i = 0; i < inputDatasets.size(); i++) {
-      toLowerCase(inputDatasets[i]);
+      transform(inputDatasets[i].begin(), inputDatasets[i].end(), inputDatasets[i].begin(), ::tolower);
   }
 
   // You now need to compare the strings in this vector to the keys in
@@ -212,7 +212,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   // from allDatasets above and then return a vector
   for (unsigned int x = 0; x < inputDatasets.size(); x++) {
       if (inputDatasets[x] == "all") {
-          datasetsToImport.empty();
+          datasetsToImport.clear();
           for (unsigned int i = 0; i < numDatasets; i++)
               datasetsToImport.push_back(allDatasets[i]);
           return datasetsToImport;
@@ -269,15 +269,15 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
   }
 
   for (unsigned int i = 0; i < temp.size(); i++) {
-      toLowerCase(temp[i]);
+      transform(temp[i].begin(), temp[i].end(), temp[i].begin(), ::toupper);
   }
 
-  std::regex str_expr("w[0-9]+");
+  std::regex str_expr("W[0-9]+");
   for (unsigned int i = 0; i < temp.size(); i++) {
       if (std::regex_match(temp[i], str_expr)) {
           areas.insert(temp[i]);
-      } else if (temp[i] == "all") {
-          areas.empty();
+      } else if (temp[i] == "ALL") {
+          areas.clear();
           return areas;
       } else {
           throw std::invalid_argument("Invalid input for area argument");
@@ -327,13 +327,12 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
 
     for (unsigned int i = 0; i < temp.size(); i++) {
         if (temp[i] == "all") {
-            measures.empty();
-            return measures;
+            measures.clear();
         } else {
             measures.insert(temp[i]);
         }
     }
-
+    return measures;
 }
 
 
@@ -481,17 +480,4 @@ std::tuple<int, int> BethYw::parseYearsArg(
       BethYw::parseMeasuresArg(args),
       BethYw::parseYearsArg(args));
 */
-
-/*
-  Converts all characters in a string to lower case.
-
-  @param str
-    The string to be converted to lower case.
-
-  @return
-    void
- */
-void BethYw::toLowerCase(std::string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-}
 
