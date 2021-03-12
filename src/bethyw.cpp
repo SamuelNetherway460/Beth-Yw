@@ -326,8 +326,13 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
     }
 
     for (unsigned int i = 0; i < temp.size(); i++) {
+        transform(temp[i].begin(), temp[i].end(), temp[i].begin(), ::tolower);
+    }
+
+    for (unsigned int i = 0; i < temp.size(); i++) {
         if (temp[i] == "all") {
             measures.clear();
+            return measures;
         } else {
             measures.insert(temp[i]);
         }
