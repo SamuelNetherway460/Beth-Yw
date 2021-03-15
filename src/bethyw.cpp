@@ -177,8 +177,6 @@ cxxopts::Options BethYw::cxxoptsSetup() {
  */
 std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
     cxxopts::ParseResult& args) {
-  // This function is incomplete, but to get you started...
-  // You may want to delete much of these // comments too!
 
   // Retrieve all valid datasets, see datasets.h
   size_t numDatasets = InputFiles::NUM_DATASETS;
@@ -366,10 +364,9 @@ std::tuple<int, int> BethYw::parseYearsArg(
         cxxopts::ParseResult& args) {
     std::tuple<int, int> years = std::make_tuple(0, 0);
 
-    /*
-    std::vector<std::string> temp;
+    std::string temp;
     try {
-        temp = args["years"].as<std::vector<std::string>>();
+        temp = args["years"].as<std::string>();
     } catch (const std::domain_error) {
         return years;
     } catch (const std::bad_cast) {
@@ -382,19 +379,17 @@ std::tuple<int, int> BethYw::parseYearsArg(
     std::regex dualYearExpr("[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
 
 
-    if (std::regex_match(temp[0], singleAllExpr)) {
+    if (std::regex_match(temp, singleAllExpr)) {
         return years;
-    } else if (std::regex_match(temp[0], dualAllExpr)) {
+    } else if (std::regex_match(temp, dualAllExpr)) {
         return years;
-    } else if (std::regex_match(temp[0], singleYearExpr)) {
-        return std::make_tuple(std::stoi(temp[0]), std::stoi(temp[0]));
-    } else if (std::regex_match(temp[0], dualYearExpr)) {
-        return std::make_tuple(std::stoi(temp[0].substr(0,4)), std::stoi(temp[0].substr(5,4)));
+    } else if (std::regex_match(temp, singleYearExpr)) {
+        return std::make_tuple(std::stoi(temp), std::stoi(temp));
+    } else if (std::regex_match(temp, dualYearExpr)) {
+        return std::make_tuple(std::stoi(temp.substr(0,4)), std::stoi(temp.substr(5,4)));
     } else {
         throw std::invalid_argument("Invalid input for years argument");
     }
-     */
-    return years;
 }
 
 
