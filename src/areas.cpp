@@ -44,9 +44,7 @@ using json = nlohmann::json;
   @example
     Areas data = Areas();
 */
-Areas::Areas() {
-  throw std::logic_error("Areas::Areas() has not been implemented!");
-}
+Areas::Areas() {}
 
 /*
   TODO: Areas::setArea(localAuthorityCode, area)
@@ -73,10 +71,19 @@ Areas::Areas() {
     Area area(localAuthorityCode);
     data.setArea(localAuthorityCode, area);
 */
+void Areas::setArea(const std::string key, const Area area) {
+  // New area
+  if (areas.find(key) == areas.end()) {
+    areas[key] = area;
+  // Overwrite existing area
+  } else {
+    //TODO: Implement Overwrite
+  }
+}
 
 
 /*
-  TODO: Areas::getArea(localAuthorityCode)
+  TODO: Documentation
 
   Retrieve an Area instance with a given local authority code.
 
@@ -98,10 +105,17 @@ Areas::Areas() {
     ...
     Area area2 = areas.getArea("W06000023");
 */
+Area Areas::getArea(const std::string key) const {
+  if (areas.find(key) != areas.end()) {
+    return areas.find(key)->second;
+  } else {
+    throw std::out_of_range("No area found matching " + key);
+  }
+}
 
 
 /*
-  TODO: Areas::size()
+  TODO: Documentation
 
   Retrieve the number of Areas within the container. This function should be 
   callable from a constant context, not modify the state of the instance, and
@@ -118,6 +132,9 @@ Areas::Areas() {
     
     auto size = areas.size(); // returns 1
 */
+int Areas::size() const noexcept {
+  return areas.size();
+}
 
 
 /*

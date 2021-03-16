@@ -187,7 +187,13 @@ Measure Area::getMeasure(std::string key) const {
 */
 void Area::setMeasure(std::string codename, Measure measure) {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
-  measures[codename] = measure;
+  // New measure
+  if (measures.find(codename) == measures.end()) {
+    measures[codename] = measure;
+  // Overwrite existing measure
+  } else {
+    //TODO: Implement Overwrite
+  }
 }
 
 

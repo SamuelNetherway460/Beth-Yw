@@ -13,7 +13,7 @@
 
   Measure       — Represents a single measure for an area, e.g.
    |              population. Contains a human-readable label and a map of
-   |              the measure accross a number of years.
+   |              the measure across a number of years.
    |
    +-> Area       Represents an area. Contains a unique local authority code
         |         used in national statistics, a map of the names of the area 
@@ -51,8 +51,7 @@ using YearFilterTuple = std::tuple<unsigned int, unsigned int>;
   TODO: you should remove the declaration of the Null class below, and set
   AreasContainer to a valid Standard Library container of your choosing.
 */
-class Null { };
-using AreasContainer = Null;
+using AreasContainer = std::map<std::string, Area>;
 
 /*
   Areas is a class that stores all the data categorised by area. The 
@@ -69,8 +68,15 @@ using AreasContainer = Null;
   to overload.
 */
 class Areas {
+private:
+  AreasContainer areas;
+
 public:
   Areas();
+
+  void setArea(const std::string key, const Area area);
+  Area getArea(const std::string key) const;
+  int size() const noexcept;
   
   void populateFromAuthorityCodeCSV(
       std::istream& is,
