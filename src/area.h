@@ -19,6 +19,7 @@
 #include <string>
 #include <unordered_set>
 #include <vector>
+#include <map>
 
 #include "measure.h"
 
@@ -34,19 +35,21 @@
 class Area {
 private:
   std::string localAuthorityCode;
-  std::unordered_set<std::string> names;
-  std::vector<Measure> measures;
+  std::map<std::string, std::string> names;
+  std::map<std::string, Measure> measures;
 
 public:
   Area(const std::string& localAuthorityCode);
 
   std::string getLocalAuthorityCode() const;
-  std::string getName();
+  std::string getName(std::string lang) const;
+  std::map<std::string, std::string> getNames() const;
   void setName(std::string lang, std::string name);
   Measure getMeasure(std::string key) const;
+  std::map<std::string, Measure> getMeasures() const;
   void setMeasure(std::string codename, Measure measure);
   int size() const;
-  friend std::ostream& operator<<(std::ostream &os, const Area area);
+  friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);
 };
 

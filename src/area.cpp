@@ -18,6 +18,7 @@
 */
 
 #include <stdexcept>
+#include <regex>
 
 #include "area.h"
 
@@ -32,12 +33,10 @@
   @example
     Area("W06000023");
 */
-Area::Area(const std::string& localAuthorityCode) {
-  throw std::logic_error("Area::Area() has not been implemented!");
-}
+Area::Area(const std::string& localAuthorityCode) : localAuthorityCode(localAuthorityCode) {}
 
 /*
-  TODO: Area::getLocalAuthorityCode()
+  TODO: Documentation
 
   Retrieve the local authority code for this Area. This function should be 
   callable from a constant context and not modify the state of the instance.
@@ -50,6 +49,9 @@ Area::Area(const std::string& localAuthorityCode) {
     ...
     auto authCode = area.getLocalAuthorityCode();
 */
+std::string Area::getLocalAuthorityCode() const {
+  return localAuthorityCode;
+}
 
 
 /*
@@ -76,10 +78,17 @@ Area::Area(const std::string& localAuthorityCode) {
     ...
     auto name = area.getName(langCode);
 */
+std::string Area::getName(std::string lang) const {
+  if (names.find(lang) != names.end()) {
+    return names.find(lang)->second;
+  } else {
+    throw std::out_of_range("No name in language " + lang);
+  }
+}
 
 
 /*
-  TODO: Area::setName(lang, name)
+  TODO: Documentation
 
   Set a name for the Area in a specific language.
 
@@ -103,10 +112,16 @@ Area::Area(const std::string& localAuthorityCode) {
     std::string langValueWelsh = "Powys";
     area.setName(langCodeWelsh, langValueWelsh);
 */
+void Area::setName(std::string lang, std::string name) {
+  transform(lang.begin(), lang.end(), lang.begin(), ::tolower);
+  std::regex langExpr("[a-z][a-z][a-z]");
+  if (!std::regex_match(lang, langExpr)) throw std::invalid_argument("Language is not three letters long");
+  names[lang] = name;
+}
 
 
 /*
-  TODO: Area::getMeasure(key)
+  TODO: Documentation
 
   Retrieve a Measure object, given its codename. This function should be case
   insensitive when searching for a measure.
@@ -129,10 +144,17 @@ Area::Area(const std::string& localAuthorityCode) {
     ...
     auto measure2 = area.getMeasure("pop");
 */
+Measure Area::getMeasure(std::string key) const {
+  if (measures.find(key) != measures.end()) {
+    return measures.find(key)->second;
+  } else {
+    throw std::out_of_range("No measure found matching " + key);
+  }
+}
 
 
 /*
-  TODO: Area::setMeasure(codename, measure)
+  TODO: Documentation
 
   Add a particular Measure to this Area object. Note that the Measure's
   codename should be converted to lowercase.
@@ -163,10 +185,14 @@ Area::Area(const std::string& localAuthorityCode) {
 
     area.setMeasure(code, measure);
 */
+void Area::setMeasure(std::string codename, Measure measure) {
+  transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
+  measures[codename] = measure;
+}
 
 
 /*
-  TODO: Area::size()
+  TODO: Documentation
 
   Retrieve the number of Measures we have for this Area. This function should be 
   callable from a constant context, not modify the state of the instance, and
@@ -188,6 +214,9 @@ Area::Area(const std::string& localAuthorityCode) {
     area.setMeasure(code, measure);
     auto size = area.size();
 */
+int Area::size() const {
+  return measures.size();
+}
 
 
 /*
@@ -221,10 +250,13 @@ Area::Area(const std::string& localAuthorityCode) {
     area.setName("eng", "Powys");
     std::cout << area << std::endl;
 */
-
+std::ostream& operator<<(std::ostream &os, const Area &area) {
+  os << area.getLocalAuthorityCode() + " TESTING";
+  return os;
+}
 
 /*
-  TODO: operator==(lhs, rhs)
+  TODO: Documentation / check
 
   Overload the == operator for two Area objects as a global/free function. Two
   Area objects are only equal when their local authority code, all names, and
@@ -237,7 +269,7 @@ Area::Area(const std::string& localAuthorityCode) {
     A second Area object
 
   @return
-    true if both Area instanes have the same local authority code, names
+    true if both Area instances have the same local authority code, names
     and data; false otherwise.
 
   @example
@@ -246,3 +278,11 @@ Area::Area(const std::string& localAuthorityCode) {
 
     bool eq = area1 == area2;
 */
+bool operator==(const Area &lhs, const Area &rhs) {
+  if (lhs.getLocalAuthorityCode() == rhs.localAuthorityCode) {
+    if (lhs.getNames() == rhs.getNames()) {
+      return lhs.getMeasures() == rhs.getMeasures(); // TODO: Check if good enough
+    }
+  }
+  return false;
+}
