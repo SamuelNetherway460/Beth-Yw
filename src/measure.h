@@ -37,8 +37,15 @@ public:
 
   std::string getCodename() const noexcept;
   std::string getLabel() const noexcept;
-  void setLabel(const std::string label) noexcept;
-  double getValue(const int key);
+  void setLabel(const std::string label);
+  double getValue(const int key) const;
+  void setValue(const int key, const double value);
+  int size() const noexcept;
+  double getDifference() const noexcept;
+  double getDifferenceAsPercentage() const noexcept;
+  double getAverage() const noexcept;
+  friend std::ostream& operator<<(std::ostream &os, const Measure &measure);
+  friend bool operator==(const Measure &lhs, const Measure &rhs);
 };
 
 #endif // MEASURE_H_

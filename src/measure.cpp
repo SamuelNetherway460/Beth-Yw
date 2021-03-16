@@ -21,6 +21,7 @@
 #include <stdexcept>
 #include <string>
 #include <regex>
+#include <iomanip>
 
 #include "measure.h"
 
@@ -107,7 +108,7 @@ std::string Measure::getLabel() const noexcept {
     ...
     measure.setLabel("New Population");
 */
-void Measure::setLabel(const std::string label) noexcept {
+void Measure::setLabel(const std::string label) {
   this->label = label;
 }
 
@@ -137,7 +138,7 @@ void Measure::setLabel(const std::string label) noexcept {
     ...
     auto value = measure.getValue(1999); // returns 12345678.9
 */
-double Measure::getValue(const int key) {
+double Measure::getValue(const int key) const {
   std::regex yearExpr("[1-9][0-9][0-9][0-9]");
   if (data.find(key) != data.end() && std::regex_match(std::to_string(key), yearExpr)) {
     return data.find(key)->second; // TODO: Check that this second thing works correctly
@@ -148,7 +149,7 @@ double Measure::getValue(const int key) {
 
 
 /*
-  TODO: Measure::setValue(key, value)
+  TODO: Documentation
 
   Add a particular year's value to the Measure object. If a value already
   exists for the year, replace it.
@@ -169,10 +170,14 @@ double Measure::getValue(const int key) {
 
     measure.setValue(1999, 12345678.9);
 */
+void Measure::setValue(const int key, const double value) {
+  data[key] = value;
+}
+
 
 
 /*
-  TODO: Measure::size()
+  TODO: Documentation
 
   Retrieve the number of years data we have for this measure. This function
   should be callable from a constant context and must promise to not change
@@ -189,10 +194,14 @@ double Measure::getValue(const int key) {
     measure.setValue(1999, 12345678.9);
     auto size = measure.size(); // returns 1
 */
+int Measure::size() const noexcept {
+  return data.size();
+}
+
 
 
 /*
-  TODO: Measure::getDifference()
+  TODO: Documentation
 
   Calculate the difference between the first and last year imported. This
   function should be callable from a constant context and must promise to not
@@ -205,13 +214,20 @@ double Measure::getValue(const int key) {
   @example
     Measure measure("pop", "Population");
     measure.setValue(1999, 12345678.9);
-    measure.setValue(1999, 12345679.9);
+    measure.setValue(2001, 12345679.9);
     auto diff = measure.getDifference(); // returns 1.0
 */
+double Measure::getDifference() const noexcept {
+  if (data.size() > 1) {
+    return data.end()->second - data.begin()->second;
+  } else {
+    return 0;
+  }
+}
 
 
 /*
-  TODO: Measure::getDifferenceAsPercentage()
+  TODO: Documentation & check calculation
 
   Calculate the difference between the first and last year imported as a 
   percentage. This function should be callable from a constant context and
@@ -227,10 +243,16 @@ double Measure::getValue(const int key) {
     measure.setValue(2010, 12345679.9);
     auto diff = measure.getDifferenceAsPercentage();
 */
-
+double Measure::getDifferenceAsPercentage() const noexcept {
+  if (data.size() > 1) {
+    return ((data.end()->second - data.begin()->second) / data.end()->second) * 100;
+  } else {
+    return 0;
+  }
+}
 
 /*
-  TODO: Measure::getAverage()
+  TODO: Documentation & check calculation
 
   Calculate the average/mean value for all the values. This function should be
   callable from a constant context and must promise to not change the state of 
@@ -242,13 +264,20 @@ double Measure::getValue(const int key) {
   @example
     Measure measure("pop", "Population");
     measure.setValue(1999, 12345678.9);
-    measure.setValue(1999, 12345679.9);
-    auto diff = measure.getDifference(); // returns 1
+    measure.setValue(2001, 12345679.9);
+    auto diff = measure.getAverage(); // returns 12345678.4
 */
+double Measure::getAverage() const noexcept {
+  double total = 0.0;
+  for (auto iterator = data.begin(); iterator != data.end(); iterator++) {
+    total += iterator->second;
+  }
+  return total / data.size();
+}
 
 
 /*
-  TODO: operator<<(os, measure)
+  TODO: Check formatting of output
 
   Overload the << operator to print all of the Measure's imported data.
 
@@ -283,10 +312,40 @@ double Measure::getValue(const int key) {
     measure.setValue(1999, 12345678.9);
     std::cout << measure << std::end;
 */
+std::ostream& operator<<(std::ostream &os, const Measure &measure) {
+  os << measure.label << " (" << measure.getCodename() << ")" << std::endl;
 
+  if (measure.data.empty()) {
+    os << "<no data>";
+  } else {
+    for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
+      int width = std::to_string(iterator->second).size();
+      os << std::setw(width) << std::right << std::to_string(iterator->first) << " ";
+    }
+
+    int averageWidth = std::to_string(measure.getAverage()).size();
+    os << std::setw(averageWidth) << std::right << "Average ";
+
+    int differenceWidth = std::to_string(measure.getDifference()).size();
+    os << std::setw(differenceWidth) << std::right << "Diff. ";
+
+    int differencePercentWidth = std::to_string(measure.getDifferenceAsPercentage()).size();
+    os << std::setw(differencePercentWidth) << std::right << "% Diff." << std::endl;
+
+    for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
+      os << std::to_string(iterator->second) << " ";
+    }
+
+    os << std::to_string(measure.getAverage()) << " ";
+    os << std::to_string(measure.getDifference()) << " ";
+    os << std::to_string(measure.getDifferenceAsPercentage());
+  }
+
+  return os;
+}
 
 /*
-  TODO: operator==(lhs, rhs)
+  TODO: Documentation & check logic
 
   Overload the == operator for two Measure objects. Two Measure objects
   are only equal when their codename, label and data are all equal.
@@ -301,4 +360,13 @@ double Measure::getValue(const int key) {
     true if both Measure objects have the same codename, label and data; false
     otherwise
 */
-
+bool operator==(const Measure &lhs, const Measure &rhs) {
+  if (lhs.codename == rhs.codename) {
+    if (lhs.label == rhs.label) {
+      if (lhs.size() == rhs.size()) {
+        return lhs.data == rhs.data;
+      }
+    }
+  }
+  return false;
+}
