@@ -20,11 +20,12 @@
 
 #include <stdexcept>
 #include <string>
+#include <regex>
 
 #include "measure.h"
 
 /*
-  TODO: Measure::Measure(codename, label);
+  TODO: Documentation
 
   Construct a single Measure, that has values across many years.
 
@@ -42,12 +43,13 @@
     std::string label = "Population";
     Measure measure(codename, label);
 */
-Measure::Measure(std::string codename, const std::string &label) {
-  throw std::logic_error("Measure::Measure() has not been implemented!");
+Measure::Measure(std::string codename, const std::string &label) : label(label) {
+  transform(codename.begin(), codename.end(), codename.begin(), ::tolower); //TODO Check this works
+  this->codename = codename;
 }
 
 /*
-  TODO: Measure::getCodename()
+  TODO: Documentation
 
   Retrieve the code for the Measure. This function should be callable from a 
   constant context and must promise to not modify the state of the instance or 
@@ -65,10 +67,12 @@ Measure::Measure(std::string codename, const std::string &label) {
     ...
     auto codename2 = measure.getCodename();
 */
-
+std::string Measure::getCodename() const noexcept {
+  return codename;
+}
 
 /*
-  TODO: Measure::getLabel()
+  TODO: Documentation
 
   Retrieve the human-friendly label for the Measure. This function should be 
   callable from a constant context and must promise to not modify the state of 
@@ -86,11 +90,12 @@ Measure::Measure(std::string codename, const std::string &label) {
     ...
     auto label = measure.getLabel();
 */
+std::string Measure::getLabel() const noexcept {
+  return label;
+}
 
 
 /*
-  TODO: Measure::setLabel(label)
-
   Change the label for the Measure.
 
   @param label
@@ -102,11 +107,12 @@ Measure::Measure(std::string codename, const std::string &label) {
     ...
     measure.setLabel("New Population");
 */
+void Measure::setLabel(const std::string label) noexcept {
+  this->label = label;
+}
 
 
 /*
-  TODO: Measure::getValue(key)
-
   Retrieve a Measure's value for a given year.
 
   @param key
@@ -131,6 +137,14 @@ Measure::Measure(std::string codename, const std::string &label) {
     ...
     auto value = measure.getValue(1999); // returns 12345678.9
 */
+double Measure::getValue(const int key) {
+  std::regex yearExpr("[1-9][0-9][0-9][0-9]");
+  if (data.find(key) != data.end() && std::regex_match(std::to_string(key), yearExpr)) {
+    return data.find(key)->second; // TODO: Check that this second thing works correctly
+  } else {
+    throw std::out_of_range("No value found for year " + key);
+  }
+}
 
 
 /*
@@ -243,7 +257,7 @@ Measure::Measure(std::string codename, const std::string &label) {
   can be read as a table of numerical values.
 
   Years should be printed in chronological order. Three additional columns
-  should be included at the end of the output, correspodning to the average
+  should be included at the end of the output, corresponding to the average
   value across the years, the difference between the first and last year,
   and the percentage difference between the first and last year.
 
