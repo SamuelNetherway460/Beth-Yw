@@ -19,6 +19,7 @@
 
 #include <stdexcept>
 #include <regex>
+#include <iomanip>
 
 #include "area.h"
 
@@ -226,7 +227,7 @@ int Area::size() const {
 
 
 /*
-  TODO: operator<<(os, area)
+  TODO: Documentation & check
 
   Overload the stream output operator as a free/global function.
 
@@ -257,7 +258,12 @@ int Area::size() const {
     std::cout << area << std::endl;
 */
 std::ostream& operator<<(std::ostream &os, const Area &area) {
-  os << area.getLocalAuthorityCode() + " TESTING";
+  os << area.names.find("eng")->second  << " / " << area.names.find("cym")->second << " ("
+      << area.localAuthorityCode << ")";
+
+  for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
+    os << iterator->second << std::endl;
+  }
   return os;
 }
 

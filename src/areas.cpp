@@ -530,6 +530,7 @@ void Areas::populate(
 
 /*
   TODO: Areas::toJSON()
+  TODO: Update example below to look like JSON output example in the coursework brief
 
   Convert this Areas object, and all its containing Area instances, and
   the Measure instances within those, to values.
@@ -713,5 +714,9 @@ std::string Areas::toJSON() const {
     Areas areas();
     std::cout << areas << std::end;
 */
-
+std::ostream& operator<<(std::ostream &os, const Areas &areas) {
+  for (auto iterator = areas.areas.begin(); iterator != areas.areas.end(); iterator++) {
+    os << iterator->second << std::endl;
+  }
+}
 
