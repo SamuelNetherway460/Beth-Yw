@@ -17,6 +17,8 @@
  */
 
 #include <string>
+#include <unordered_set>
+#include <vector>
 
 #include "measure.h"
 
@@ -30,7 +32,22 @@
   to overload.
 */
 class Area {
+private:
+  std::string localAuthorityCode;
+  std::unordered_set<std::string> names;
+  std::vector<Measure> measures;
+
+public:
   Area(const std::string& localAuthorityCode);
+
+  std::string getLocalAuthorityCode() const;
+  std::string getName();
+  void setName(std::string lang, std::string name);
+  Measure getMeasure(std::string key) const;
+  void setMeasure(std::string codename, Measure measure);
+  int size() const;
+  friend std::ostream& operator<<(std::ostream &os, const Area area);
+  friend bool operator==(const Area &lhs, const Area &rhs);
 };
 
 #endif // AREA_H_
