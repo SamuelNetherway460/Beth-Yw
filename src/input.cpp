@@ -27,18 +27,20 @@
   @param source
     A unique identifier for a source (i.e. the location).
 */
-InputSource::InputSource(const std::string& source) {
-  throw std::logic_error("InputSource::InputSource() has not been implemented!");
+InputSource::InputSource(const std::string& source) : source(source) {
+
 }
 
 /*
-  TODO: InputSource::getSource()
-
+  TODO: Documentation
   This function should be callable from a constant context.
 
   @return
-    A non-modifable value for the source passed into the construtor.
+    A non-modifiable value for the source passed into the constructor.
 */
+std::string InputSource::getSource() const {
+  return source;
+}
 
 
 /*
@@ -52,8 +54,15 @@ InputSource::InputSource(const std::string& source) {
   @example
     InputFile input("data/areas.csv");
 */
-InputFile::InputFile(const std::string& filePath) : InputSource(filePath) {
-  throw std::logic_error("InputFile::InputFile() has not been implemented!");
+InputFile::InputFile(const std::string &filePath) : InputSource(filePath) {
+  is = std::ifstream(filePath);
+}
+
+/*
+  Destructor for the file-based source.
+ */
+InputFile::~InputFile() {
+  is.close();
 }
 
 /*
@@ -73,3 +82,8 @@ InputFile::InputFile(const std::string& filePath) : InputSource(filePath) {
     InputFile input("data/areas.csv");
     input.open();
 */
+std::istream& InputFile::open() {
+  is.open(source);
+  if (is.is_open() == 0) throw std::runtime_error("InputFile::open: Failed to open file " + source);
+  return is;
+}

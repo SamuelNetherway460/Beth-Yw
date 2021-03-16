@@ -30,13 +30,18 @@
   data sources such as files and web pages. Therefore, this virtual class 
   will allow us to mix/match sources as needed. 
 
-  TODO: Based on your implementation of this class and of dervived classes,
+  TODO: Based on your implementation of this class and of derived classes,
   there may be additional constructors or functions you implement here,
   and perhaps additional operators you may wish to overload.
 */
 class InputSource {
 protected:
+  std::string source;
+
   InputSource(const std::string& source);
+
+public:
+  std::string getSource() const;
 };
 
 /*
@@ -48,8 +53,14 @@ protected:
   to overload.
 */
 class InputFile : public InputSource {
+private:
+  std::ifstream is;
+
 public:
-  InputFile(const std::string& filePath);
+  InputFile(const std::string &filePath);
+  ~InputFile();
+
+  std::istream& open();
 };
 
 #endif // INPUT_H_
