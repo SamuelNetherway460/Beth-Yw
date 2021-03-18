@@ -37,7 +37,7 @@
 using json = nlohmann::json;
 
 /*
-  TODO: Areas::Areas()
+  TODO: Documentation
 
   Constructor for an Areas object.
 
@@ -47,7 +47,7 @@ using json = nlohmann::json;
 Areas::Areas() {}
 
 /*
-  TODO: Areas::setArea(localAuthorityCode, area)
+  TODO: Documentation & check that = override works in Area class
 
   Add a particular Area to the Areas object.
 
@@ -72,13 +72,7 @@ Areas::Areas() {}
     data.setArea(localAuthorityCode, area);
 */
 void Areas::setArea(const std::string key, const Area area) {
-  // New area
-  if (areas.find(key) == areas.end()) {
-    areas[key] = area;
-  // Overwrite existing area
-  } else {
-    //TODO: Implement Overwrite
-  }
+  areas[key] = area;
 }
 
 
@@ -609,7 +603,7 @@ std::string Areas::toJSON() const {
 }
 
 /*
-  TODO: operator<<(os, areas)
+  TODO: Documentation & check output
 
   Overload the << operator to print all of the imported data.
 

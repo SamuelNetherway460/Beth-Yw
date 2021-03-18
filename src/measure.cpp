@@ -281,34 +281,6 @@ double Measure::getAverage() const noexcept {
 
 
 /*
-  TODO: Check works
-  Combines two measure instances, overwriting any duplicate values with the new
-  measure's values.
-
-  @param newMeasure
-    The measure containing the new desired values.
-
-  @param overwriteMeasure
-    The measure to be overwritten by the newMeasure.
-
-  @return
-    void
- */
-void Measure::overwrite(const Measure &newMeasure, Measure &overwriteMeasure) {
-  overwriteMeasure.setLabel(newMeasure.label);
-  for (auto iterator = newMeasure.data.begin(); iterator != newMeasure.data.end(); iterator++) {
-    try {
-      if (overwriteMeasure.getValue(iterator->first) != newMeasure.getValue(iterator->first)) {
-        overwriteMeasure.setValue(iterator->first, iterator->second);
-      }
-    } catch (std::out_of_range) {
-
-    }
-  }
-}
-
-
-/*
   TODO: Check formatting of output
 
   Overload the << operator to print all of the Measure's imported data.
@@ -376,6 +348,8 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
   return os;
 }
 
+
+
 /*
   TODO: Documentation & check logic
 
@@ -401,4 +375,17 @@ bool operator==(const Measure &lhs, const Measure &rhs) {
     }
   }
   return false;
+}
+
+
+
+/*
+  TODO: Check works
+
+ */
+Measure& Measure::operator=(const Measure &rhs) {
+  this->label = rhs.label;
+  for (auto iterator = rhs.data.begin(); iterator != rhs.data.end(); iterator++) {
+    this->setValue(iterator->first, iterator->second);
+  }
 }

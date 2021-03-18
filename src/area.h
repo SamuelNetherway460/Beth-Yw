@@ -49,8 +49,10 @@ public:
   std::map<std::string, Measure> getMeasures() const;
   void setMeasure(const std::string codename, const Measure measure);
   int size() const;
+
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);
+  Area& operator=(const Area &rhs);
 };
 
 #endif // AREA_H_

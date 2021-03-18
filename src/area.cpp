@@ -155,7 +155,7 @@ Measure Area::getMeasure(const std::string key) const {
 
 
 /*
-  TODO: Documentation
+  TODO: Documentation & check = overload in measure class works
 
   Add a particular Measure to this Area object. Note that the Measure's
   codename should be converted to lowercase.
@@ -188,14 +188,7 @@ Measure Area::getMeasure(const std::string key) const {
 */
 void Area::setMeasure(const std::string codename, const Measure measure) {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
-  // New measure
-  if (measures.find(codename) == measures.end()) {
-    measures[codename] = measure;
-  // Overwrite existing measure
-  } else {
-    Measure existingMeasure = measures.find(codename)->second;
-    Measure::overwrite(measure, measures.find(codename)->second);
-  }
+  measures[codename] = measure;
 }
 
 
@@ -225,6 +218,7 @@ void Area::setMeasure(const std::string codename, const Measure measure) {
 int Area::size() const {
   return measures.size();
 }
+
 
 
 /*
@@ -298,4 +292,20 @@ bool operator==(const Area &lhs, const Area &rhs) {
     }
   }
   return false;
+}
+
+
+
+/*
+  TODO: Check works
+
+ */
+Area& Area::operator=(const Area &rhs) {
+  for (auto iterator = rhs.names.begin(); iterator != rhs.names.end(); iterator++) {
+    this->setName(iterator->first, iterator->second);
+  }
+
+  for (auto iterator = rhs.measures.begin(); iterator != rhs.measures.end(); iterator++) {
+    this->setMeasure(iterator->first, iterator->second);
+  }
 }
