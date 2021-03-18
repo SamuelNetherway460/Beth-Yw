@@ -42,12 +42,12 @@ public:
   Area(const std::string& localAuthorityCode);
 
   std::string getLocalAuthorityCode() const;
-  std::string getName(std::string lang) const;
+  std::string getName(const std::string lang) const;
   std::map<std::string, std::string> getNames() const;
-  void setName(std::string lang, std::string name);
-  Measure getMeasure(std::string key) const;
+  void setName(const std::string lang, const std::string name);
+  Measure getMeasure(const std::string key) const;
   std::map<std::string, Measure> getMeasures() const;
-  void setMeasure(std::string codename, Measure measure);
+  void setMeasure(const std::string codename, const Measure measure);
   int size() const;
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);

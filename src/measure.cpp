@@ -226,6 +226,7 @@ double Measure::getDifference() const noexcept {
 }
 
 
+
 /*
   TODO: Documentation & check calculation
 
@@ -251,6 +252,8 @@ double Measure::getDifferenceAsPercentage() const noexcept {
   }
 }
 
+
+
 /*
   TODO: Documentation & check calculation
 
@@ -273,6 +276,35 @@ double Measure::getAverage() const noexcept {
     total += iterator->second;
   }
   return total / data.size();
+}
+
+
+
+/*
+  TODO: Check works
+  Combines two measure instances, overwriting any duplicate values with the new
+  measure's values.
+
+  @param newMeasure
+    The measure containing the new desired values.
+
+  @param overwriteMeasure
+    The measure to be overwritten by the newMeasure.
+
+  @return
+    void
+ */
+void Measure::overwrite(const Measure &newMeasure, Measure &overwriteMeasure) {
+  overwriteMeasure.setLabel(newMeasure.label);
+  for (auto iterator = newMeasure.data.begin(); iterator != newMeasure.data.end(); iterator++) {
+    try {
+      if (overwriteMeasure.getValue(iterator->first) != newMeasure.getValue(iterator->first)) {
+        overwriteMeasure.setValue(iterator->first, iterator->second);
+      }
+    } catch (std::out_of_range) {
+
+    }
+  }
 }
 
 

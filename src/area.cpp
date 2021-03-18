@@ -24,7 +24,7 @@
 #include "area.h"
 
 /*
-  TODO: Area::Area(localAuthorityCode)
+  TODO: Documentation
 
   Construct an Area with a given local authority code.
 
@@ -56,7 +56,7 @@ std::string Area::getLocalAuthorityCode() const {
 
 
 /*
-  TODO: Area::getName(lang)
+  TODO: Documentation
 
   Get a name for the Area in a specific language.  This function should be 
   callable from a constant context and not modify the state of the instance.
@@ -79,7 +79,7 @@ std::string Area::getLocalAuthorityCode() const {
     ...
     auto name = area.getName(langCode);
 */
-std::string Area::getName(std::string lang) const {
+std::string Area::getName(const std::string lang) const {
   if (names.find(lang) != names.end()) {
     return names.find(lang)->second;
   } else {
@@ -113,7 +113,7 @@ std::string Area::getName(std::string lang) const {
     std::string langValueWelsh = "Powys";
     area.setName(langCodeWelsh, langValueWelsh);
 */
-void Area::setName(std::string lang, std::string name) {
+void Area::setName(const std::string lang, const std::string name) {
   transform(lang.begin(), lang.end(), lang.begin(), ::tolower);
   std::regex langExpr("[a-z][a-z][a-z]");
   if (!std::regex_match(lang, langExpr)) throw std::invalid_argument("Language is not three letters long");
@@ -145,7 +145,7 @@ void Area::setName(std::string lang, std::string name) {
     ...
     auto measure2 = area.getMeasure("pop");
 */
-Measure Area::getMeasure(std::string key) const {
+Measure Area::getMeasure(const std::string key) const {
   if (measures.find(key) != measures.end()) {
     return measures.find(key)->second;
   } else {
@@ -186,14 +186,15 @@ Measure Area::getMeasure(std::string key) const {
 
     area.setMeasure(code, measure);
 */
-void Area::setMeasure(std::string codename, Measure measure) {
+void Area::setMeasure(const std::string codename, const Measure measure) {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
   // New measure
   if (measures.find(codename) == measures.end()) {
     measures[codename] = measure;
   // Overwrite existing measure
   } else {
-    //TODO: Implement Overwrite
+    Measure existingMeasure = measures.find(codename)->second;
+    Measure::overwrite(measure, measures.find(codename)->second);
   }
 }
 

@@ -46,6 +46,8 @@ public:
   double getAverage() const noexcept;
   friend std::ostream& operator<<(std::ostream &os, const Measure &measure);
   friend bool operator==(const Measure &lhs, const Measure &rhs);
+
+  static void overwrite(const Measure& newMeasure, Measure& overwriteMeasure);
 };
 
 #endif // MEASURE_H_
