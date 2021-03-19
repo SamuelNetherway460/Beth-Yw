@@ -39,20 +39,19 @@ private:
   std::map<std::string, Measure> measures;
 
 public:
+  Area();
   Area(const std::string& localAuthorityCode);
 
   std::string getLocalAuthorityCode() const;
   std::string getName(const std::string lang) const;
-  std::map<std::string, std::string> getNames() const;
-  void setName(const std::string lang, const std::string name);
-  Measure getMeasure(const std::string key) const;
-  std::map<std::string, Measure> getMeasures() const;
-  void setMeasure(const std::string codename, const Measure measure);
+  void setName(std::string lang, const std::string name);
+  Measure& getMeasure(const std::string key);
+  void setMeasure(std::string codename, const Measure measure);
   int size() const;
 
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);
-  Area& operator=(const Area &rhs);
+  Area& operator=(const Area &area);
 };
 
 #endif // AREA_H_

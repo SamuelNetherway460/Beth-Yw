@@ -33,6 +33,7 @@ private:
   std::map<int, double> data;
 
 public:
+  Measure();
   Measure(std::string code, const std::string &label);
 
   std::string getCodename() const noexcept;
@@ -47,7 +48,7 @@ public:
 
   friend std::ostream& operator<<(std::ostream &os, const Measure &measure);
   friend bool operator==(const Measure &lhs, const Measure &rhs);
-  Measure& operator=(const Measure &rhs);
+  Measure& operator=(const Measure &measure);
 };
 
 #endif // MEASURE_H_

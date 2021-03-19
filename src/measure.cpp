@@ -25,6 +25,8 @@
 
 #include "measure.h"
 
+Measure::Measure() {}
+
 /*
   TODO: Documentation
 
@@ -143,7 +145,8 @@ double Measure::getValue(const int key) const {
   if (data.find(key) != data.end() && std::regex_match(std::to_string(key), yearExpr)) {
     return data.find(key)->second; // TODO: Check that this second thing works correctly
   } else {
-    throw std::out_of_range("No value found for year " + key);
+
+    throw std::out_of_range("No value found for year " + std::to_string(key));
   }
 }
 
@@ -383,9 +386,10 @@ bool operator==(const Measure &lhs, const Measure &rhs) {
   TODO: Check works
 
  */
-Measure& Measure::operator=(const Measure &rhs) {
-  this->label = rhs.label;
-  for (auto iterator = rhs.data.begin(); iterator != rhs.data.end(); iterator++) {
+Measure& Measure::operator=(const Measure &measure) {
+  this->label = measure.label;
+  for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
     this->setValue(iterator->first, iterator->second);
   }
+  return *this;
 }

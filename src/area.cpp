@@ -23,6 +23,8 @@
 
 #include "area.h"
 
+Area::Area() {}
+
 /*
   TODO: Documentation
 
@@ -113,10 +115,11 @@ std::string Area::getName(const std::string lang) const {
     std::string langValueWelsh = "Powys";
     area.setName(langCodeWelsh, langValueWelsh);
 */
-void Area::setName(const std::string lang, const std::string name) {
+void Area::setName(std::string lang, const std::string name) {
   transform(lang.begin(), lang.end(), lang.begin(), ::tolower);
   std::regex langExpr("[a-z][a-z][a-z]");
-  if (!std::regex_match(lang, langExpr)) throw std::invalid_argument("Language is not three letters long");
+  if (!std::regex_match(lang, langExpr))
+    throw std::invalid_argument("Area::setName: Language code must be three alphabetical letters only");
   names[lang] = name;
 }
 
@@ -145,7 +148,7 @@ void Area::setName(const std::string lang, const std::string name) {
     ...
     auto measure2 = area.getMeasure("pop");
 */
-Measure Area::getMeasure(const std::string key) const {
+Measure& Area::getMeasure(const std::string key) {
   if (measures.find(key) != measures.end()) {
     return measures.find(key)->second;
   } else {
@@ -186,7 +189,7 @@ Measure Area::getMeasure(const std::string key) const {
 
     area.setMeasure(code, measure);
 */
-void Area::setMeasure(const std::string codename, const Measure measure) {
+void Area::setMeasure(std::string codename, const Measure measure) {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
   measures[codename] = measure;
 }
@@ -287,8 +290,8 @@ std::ostream& operator<<(std::ostream &os, const Area &area) {
 */
 bool operator==(const Area &lhs, const Area &rhs) {
   if (lhs.getLocalAuthorityCode() == rhs.localAuthorityCode) {
-    if (lhs.getNames() == rhs.getNames()) {
-      return lhs.getMeasures() == rhs.getMeasures(); // TODO: Check if good enough
+    if (lhs.names == rhs.names) {
+      return lhs.measures == rhs.measures; // TODO: Check if good enough
     }
   }
   return false;
@@ -300,12 +303,14 @@ bool operator==(const Area &lhs, const Area &rhs) {
   TODO: Check works
 
  */
-Area& Area::operator=(const Area &rhs) {
-  for (auto iterator = rhs.names.begin(); iterator != rhs.names.end(); iterator++) {
+Area& Area::operator=(const Area &area) {
+  for (auto iterator = area.names.begin(); iterator != area.names.end(); iterator++) {
     this->setName(iterator->first, iterator->second);
   }
 
-  for (auto iterator = rhs.measures.begin(); iterator != rhs.measures.end(); iterator++) {
+  for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
     this->setMeasure(iterator->first, iterator->second);
   }
+
+  return *this;
 }

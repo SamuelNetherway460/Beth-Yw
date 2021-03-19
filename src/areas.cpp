@@ -21,9 +21,6 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
-#include <stdexcept>
-#include <tuple>
-#include <unordered_set>
 
 #include "lib_json.hpp"
 
@@ -99,7 +96,7 @@ void Areas::setArea(const std::string key, const Area area) {
     ...
     Area area2 = areas.getArea("W06000023");
 */
-Area Areas::getArea(const std::string key) const {
+Area& Areas::getArea(const std::string key) {
   if (areas.find(key) != areas.end()) {
     return areas.find(key)->second;
   } else {
@@ -712,5 +709,6 @@ std::ostream& operator<<(std::ostream &os, const Areas &areas) {
   for (auto iterator = areas.areas.begin(); iterator != areas.areas.end(); iterator++) {
     os << iterator->second << std::endl;
   }
+  return os;
 }
 

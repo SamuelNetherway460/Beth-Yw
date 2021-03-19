@@ -75,7 +75,7 @@ public:
   Areas();
 
   void setArea(const std::string key, const Area area);
-  Area getArea(const std::string key) const;
+  Area& getArea(const std::string key);
   int size() const noexcept;
   
   void populateFromAuthorityCodeCSV(
