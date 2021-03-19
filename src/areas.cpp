@@ -43,6 +43,7 @@ using json = nlohmann::json;
 */
 Areas::Areas() {}
 
+
 /*
   TODO: Documentation & check that = override works in Area class
 
@@ -68,15 +69,17 @@ Areas::Areas() {}
     Area area(localAuthorityCode);
     data.setArea(localAuthorityCode, area);
 */
-void Areas::setArea(const std::string key, const Area area) {
-  areas[key] = area;
+void Areas::setArea(const std::string key, Area &area) {
+  if (areas.find(key) != areas.end()) {
+    areas.find(key)->second.overwrite(area);
+  } else {
+    areas[key] = area;
+  }
 }
 
 
 /*
-  TODO: Documentation
-
-  Retrieve an Area instance with a given local authority code.
+  Retrieves an Area instance with a given local authority code.
 
   @param key
     The local authority code to find the Area instance of
@@ -106,11 +109,7 @@ Area& Areas::getArea(const std::string key) {
 
 
 /*
-  TODO: Documentation
-
-  Retrieve the number of Areas within the container. This function should be 
-  callable from a constant context, not modify the state of the instance, and
-  must promise not throw an exception.
+  Retrieves the number of Areas within the container.
 
   @return
     The number of Area instances
@@ -186,6 +185,7 @@ void Areas::populateFromAuthorityCodeCSV(
   throw std::logic_error(
     "Areas::populateFromAuthorityCodeCSV() has not been implemented!");
 }
+
 
 /*
   TODO: Areas::populateFromWelshStatsJSON(is,
@@ -422,6 +422,7 @@ void Areas::populate(std::istream &is,
   }
 }
 
+
 /*
   TODO: Areas::populate(is,
                         type,
@@ -519,6 +520,7 @@ void Areas::populate(
   }
 }
 
+
 /*
   TODO: Areas::toJSON()
   TODO: Update example below to look like JSON output example in the coursework brief
@@ -598,6 +600,7 @@ std::string Areas::toJSON() const {
   
   return j.dump();
 }
+
 
 /*
   TODO: Documentation & check output

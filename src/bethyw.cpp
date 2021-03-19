@@ -34,7 +34,6 @@
 #include "areas.h"
 #include "datasets.h"
 #include "bethyw.h"
-#include "input.h"
 
 /*
   Run Beth Yw?, parsing the command line arguments, importing the data,
@@ -93,6 +92,7 @@ int BethYw::run(int argc, char *argv[]) {
   return 0;
 }
 
+
 /*
   This function sets up and returns a valid cxxopts object. You do not need to
   modify this function.
@@ -144,6 +144,7 @@ cxxopts::Options BethYw::cxxoptsSetup() {
 
   return cxxopts;
 }
+
 
 /*
   Parse the datasets argument passed into the command line. 
@@ -228,6 +229,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
   return datasetsToImport;
 }
 
+
 /*
   Parses the areas command line argument, which is optional. If it doesn't 
   exist or exists and contains "all" as value (any case), all areas should be
@@ -284,6 +286,7 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
   
   return areas;
 }
+
 
 /*
   TODO: Add exception throw for invalid measures or remove documentation if not possible

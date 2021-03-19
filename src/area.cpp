@@ -8,13 +8,11 @@
 
   AUTHOR: 955794
 
+  TODO: Documentation
   This file contains the implementation for the Area class. Area is a relatively
   simple class that contains a local authority code, a container of names in
   different languages (perhaps stored in an associative container?) and a series
   of Measure objects (also in some form of container).
-
-  This file contains numerous functions you must implement. Each function you
-  must implement has a TODO block comment. 
 */
 
 #include <stdexcept>
@@ -23,12 +21,13 @@
 
 #include "area.h"
 
+/*
+  TODO: Documentation
+ */
 Area::Area() {}
 
 /*
-  TODO: Documentation
-
-  Construct an Area with a given local authority code.
+  Constructs an Area with a given local authority code.
 
   @param localAuthorityCode
     The local authority code of the Area
@@ -39,10 +38,7 @@ Area::Area() {}
 Area::Area(const std::string& localAuthorityCode) : localAuthorityCode(localAuthorityCode) {}
 
 /*
-  TODO: Documentation
-
-  Retrieve the local authority code for this Area. This function should be 
-  callable from a constant context and not modify the state of the instance.
+  Retrieves the local authority code for this Area.
   
   @return
     The Area's local authority code
@@ -58,13 +54,10 @@ std::string Area::getLocalAuthorityCode() const {
 
 
 /*
-  TODO: Documentation
-
-  Get a name for the Area in a specific language.  This function should be 
-  callable from a constant context and not modify the state of the instance.
+  Gets the name for the Area in a specified language.
 
   @param lang
-    A three-leter language code in ISO 639-3 format, e.g. cym or eng
+    A three-letter language code in ISO 639-3 format, e.g. cym or eng
 
   @return
     The name for the area in the given language
@@ -91,9 +84,7 @@ std::string Area::getName(const std::string lang) const {
 
 
 /*
-  TODO: Documentation
-
-  Set a name for the Area in a specific language.
+  Sets the name for the Area in a specified language.
 
   @param lang
     A three-letter (alphabetical) language code in ISO 639-3 format,
@@ -125,10 +116,7 @@ void Area::setName(std::string lang, const std::string name) {
 
 
 /*
-  TODO: Documentation
-
-  Retrieve a Measure object, given its codename. This function should be case
-  insensitive when searching for a measure.
+  Retrieves a Measure object, given its codename.
 
   @param key
     The codename for the measure you want to retrieve
@@ -158,15 +146,9 @@ Measure& Area::getMeasure(const std::string key) {
 
 
 /*
-  TODO: Documentation & check = overload in measure class works
-
-  Add a particular Measure to this Area object. Note that the Measure's
-  codename should be converted to lowercase.
-
-  If a Measure already exists with the same codename in this Area, overwrite any
-  values contained within the existing Measure with those in the new Measure
-  passed into this function. The resulting Measure stored inside the Area
-  instance should be a combination of the two Measures instances.
+  Adds a particular Measure to this Area object. If a Measure already exists
+  with the same codename in this Area, the existing Measure's values are
+  overwritten with the new Measure.
 
   @param key
     The codename for the Measure
@@ -189,18 +171,18 @@ Measure& Area::getMeasure(const std::string key) {
 
     area.setMeasure(code, measure);
 */
-void Area::setMeasure(std::string codename, const Measure measure) {
+void Area::setMeasure(std::string codename, Measure measure) {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
-  measures[codename] = measure;
+  if (measures.find(codename) != measures.end()) {
+    measures.find(codename)->second.overwrite(measure);
+  } else {
+    measures[codename] = measure;
+  }
 }
 
 
 /*
-  TODO: Documentation
-
-  Retrieve the number of Measures we have for this Area. This function should be 
-  callable from a constant context, not modify the state of the instance, and
-  must promise not throw an exception.
+  Retrieves the number of Measures contained for this Area.
 
   @return
     The size of the Area (i.e., the number of Measures)
@@ -218,23 +200,21 @@ void Area::setMeasure(std::string codename, const Measure measure) {
     area.setMeasure(code, measure);
     auto size = area.size();
 */
-int Area::size() const {
+int Area::size() const noexcept {
   return measures.size();
 }
 
 
-
 /*
-  TODO: Documentation & check
+  TODO: Documentation & implement rest of logic
 
   Overload the stream output operator as a free/global function.
 
-  Output the name of the Area in English and Welsh, followed by the local
-  authority code. Then output all the measures for the area (see the coursework
-  worksheet for specific formatting).
+  Outputs the name of the Area in English and Welsh, followed by the local
+  authority code.
 
-  If the Area only has only one name, output this. If the area has no names,
-  output the name "Unnamed".
+  If the Area only has only one name, only this is output. If the area has no names,
+  "Unnamed" is outputted.
 
   Measures should be ordered by their Measure codename. If there are no measures
   output the line "<no measures>" after you have output the area names.
@@ -265,12 +245,10 @@ std::ostream& operator<<(std::ostream &os, const Area &area) {
   return os;
 }
 
-/*
-  TODO: Documentation / check
 
-  Overload the == operator for two Area objects as a global/free function. Two
-  Area objects are only equal when their local authority code, all names, and
-  all data are equal.
+/*
+  Compares two Area objects for equivalence. Two Area objects are only equal when
+  their local authority code, all names, and all data are equal.
 
   @param lhs
     An Area object
@@ -291,19 +269,24 @@ std::ostream& operator<<(std::ostream &os, const Area &area) {
 bool operator==(const Area &lhs, const Area &rhs) {
   if (lhs.getLocalAuthorityCode() == rhs.localAuthorityCode) {
     if (lhs.names == rhs.names) {
-      return lhs.measures == rhs.measures; // TODO: Check if good enough
+      return lhs.measures == rhs.measures;
     }
   }
   return false;
 }
 
 
-
 /*
-  TODO: Check works
+  Combines two Area objects.
+
+  @param area
+    The Area object whose values taken from when combining.
+
+  @return area
+    The Area object which will contain the combined, most recent values.
 
  */
-Area& Area::operator=(const Area &area) {
+Area& Area::overwrite(Area &area) {
   for (auto iterator = area.names.begin(); iterator != area.names.end(); iterator++) {
     this->setName(iterator->first, iterator->second);
   }

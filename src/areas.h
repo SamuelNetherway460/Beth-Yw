@@ -74,7 +74,7 @@ private:
 public:
   Areas();
 
-  void setArea(const std::string key, const Area area);
+  void setArea(const std::string key, Area &area);
   Area& getArea(const std::string key);
   int size() const noexcept;
   

@@ -45,10 +45,10 @@ public:
   double getDifference() const noexcept;
   double getDifferenceAsPercentage() const noexcept;
   double getAverage() const noexcept;
+  Measure& overwrite(Measure &measure);
 
   friend std::ostream& operator<<(std::ostream &os, const Measure &measure);
   friend bool operator==(const Measure &lhs, const Measure &rhs);
-  Measure& operator=(const Measure &measure);
 };
 
 #endif // MEASURE_H_

@@ -47,11 +47,11 @@ public:
   void setName(std::string lang, const std::string name);
   Measure& getMeasure(const std::string key);
   void setMeasure(std::string codename, const Measure measure);
-  int size() const;
+  int size() const noexcept;
+  Area& overwrite(Area &area);
 
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);
-  Area& operator=(const Area &area);
 };
 
 #endif // AREA_H_

@@ -8,14 +8,12 @@
 
   AUTHOR: 955794
 
+  TODO: Documentation
   This file contains the implementation of the Measure class. Measure is a
   very simple class that needs to contain a few member variables for its name,
   codename, and a Standard Library container for data. The data you need to 
   store is values, organised by year. I'd recommend storing the values as 
   doubles.
-
-  This file contains numerous functions you must implement. Each function you
-  must implement has a TODO block comment. 
 */
 
 #include <stdexcept>
@@ -25,15 +23,14 @@
 
 #include "measure.h"
 
+/*
+  Basic constructor for a new Measure object.
+ */
 Measure::Measure() {}
 
+
 /*
-  TODO: Documentation
-
-  Construct a single Measure, that has values across many years.
-
-  All StatsWales JSON files have a codename for measures. You should convert 
-  all codenames to lowercase.
+  Constructs a single Measure, that has values across many years.
 
   @param codename
     The codename for the measure
@@ -51,12 +48,9 @@ Measure::Measure(std::string codename, const std::string &label) : label(label) 
   this->codename = codename;
 }
 
-/*
-  TODO: Documentation
 
-  Retrieve the code for the Measure. This function should be callable from a 
-  constant context and must promise to not modify the state of the instance or 
-  throw an exception.
+/*
+  Retrieve the code for the Measure.
 
   @return
     The codename for the Measure
@@ -74,12 +68,9 @@ std::string Measure::getCodename() const noexcept {
   return codename;
 }
 
-/*
-  TODO: Documentation
 
-  Retrieve the human-friendly label for the Measure. This function should be 
-  callable from a constant context and must promise to not modify the state of 
-  the instance and to not throw an exception.
+/*
+  Retrieve the human-friendly label for the Measure.
 
   @return
     The human-friendly label for the Measure
@@ -152,10 +143,8 @@ double Measure::getValue(const int key) const {
 
 
 /*
-  TODO: Documentation
-
-  Add a particular year's value to the Measure object. If a value already
-  exists for the year, replace it.
+  Adds a particular year's value to the Measure object. If a value already
+  exists for the year, it is replaced.
 
   @param key
     The year to insert a value at
@@ -178,13 +167,8 @@ void Measure::setValue(const int key, const double value) {
 }
 
 
-
 /*
-  TODO: Documentation
-
-  Retrieve the number of years data we have for this measure. This function
-  should be callable from a constant context and must promise to not change
-  the state of the instance or throw an exception.
+  Retrieves the number of years data we have for this measure.
 
   @return
     The size of the measure
@@ -202,13 +186,8 @@ int Measure::size() const noexcept {
 }
 
 
-
 /*
-  TODO: Documentation
-
-  Calculate the difference between the first and last year imported. This
-  function should be callable from a constant context and must promise to not
-  change the state of the instance or throw an exception.
+  Calculates the difference between the first and last year imported.
 
   @return
     The difference/change in value from the first to the last year, or 0 if it
@@ -229,13 +208,9 @@ double Measure::getDifference() const noexcept {
 }
 
 
-
 /*
-  TODO: Documentation & check calculation
-
-  Calculate the difference between the first and last year imported as a 
-  percentage. This function should be callable from a constant context and
-  must promise to not change the state of the instance or throw an exception.
+  Calculates the difference between the first and last year imported as a
+  percentage.
 
   @return
     The difference/change in value from the first to the last year as a decminal
@@ -256,13 +231,8 @@ double Measure::getDifferenceAsPercentage() const noexcept {
 }
 
 
-
 /*
-  TODO: Documentation & check calculation
-
-  Calculate the average/mean value for all the values. This function should be
-  callable from a constant context and must promise to not change the state of 
-  the instance or throw an exception.
+  Calculates the average/mean value for all the values.
 
   @return
     The average value for all the years, or 0 if it cannot be calculated
@@ -282,25 +252,17 @@ double Measure::getAverage() const noexcept {
 }
 
 
-
 /*
   TODO: Check formatting of output
+  Adds measure's imported data to a os stream. Years are added in
+  chronological order on a single line with the average value across the
+  years, the difference between the first and last year, and the
+  percentage difference between the first and last year at the end.
 
-  Overload the << operator to print all of the Measure's imported data.
+  If there is no data in this measure, the name and code is printed with
+  <no data> printed on the next line.
 
-  We align the year and value outputs by padding the outputs with spaces,
-  i.e. the year and values should be right-aligned to each other so they
-  can be read as a table of numerical values.
-
-  Years should be printed in chronological order. Three additional columns
-  should be included at the end of the output, corresponding to the average
-  value across the years, the difference between the first and last year,
-  and the percentage difference between the first and last year.
-
-  If there is no data in this measure, print the name and code, and 
-  on the next line print: <no data>
-
-  See the coursework specification for more information.
+  Years are right aligned respective to the values for clarity.
 
   @param os
     The output stream to write to
@@ -352,11 +314,9 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
 }
 
 
-
 /*
-  TODO: Documentation & check logic
-
-  Overload the == operator for two Measure objects. Two Measure objects
+  TODO: Check logic
+  Compares two Measure objects. Two Measure objects
   are only equal when their codename, label and data are all equal.
 
   @param lhs
@@ -381,12 +341,17 @@ bool operator==(const Measure &lhs, const Measure &rhs) {
 }
 
 
-
 /*
-  TODO: Check works
+  TODO: Check
+  Combines two Measure objects.
 
+  @param measure
+    The Measure object whose values taken from when combining.
+
+  @return measure
+    The Measure object which will contain the combined, most recent values.
  */
-Measure& Measure::operator=(const Measure &measure) {
+Measure& Measure::overwrite(Measure &measure) {
   this->label = measure.label;
   for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
     this->setValue(iterator->first, iterator->second);
