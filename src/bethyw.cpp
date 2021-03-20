@@ -34,6 +34,7 @@
 #include "areas.h"
 #include "datasets.h"
 #include "bethyw.h"
+#include "input.h"
 
 /*
   Run Beth Yw?, parsing the command line arguments, importing the data,
@@ -69,6 +70,14 @@ int BethYw::run(int argc, char *argv[]) {
   auto areasFilter      = BethYw::parseAreasArg(args);
   auto measuresFilter   = BethYw::parseMeasuresArg(args);
   auto yearsFilter      = BethYw::parseYearsArg(args);
+
+  //TODO: TESTING
+  auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
+  auto cols = InputFiles::AREAS.COLS;
+  Areas test = Areas();
+  test.populateFromAuthorityCodeCSV(input.open(), cols, &areasFilter);
+  //TODO: TESTING
 
   Areas data = Areas();
 

@@ -13,14 +13,13 @@
 
   Areas is also responsible for importing data from a stream (using the
   various populate() functions) and creating the Area and Measure objects.
-
-  This file contains numerous functions you must implement. Each function you
-  must implement has a TODO block comment. 
 */
 
 #include <stdexcept>
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 
 #include "lib_json.hpp"
 
@@ -34,9 +33,7 @@
 using json = nlohmann::json;
 
 /*
-  TODO: Documentation
-
-  Constructor for an Areas object.
+  Basic constructor for an Areas object.
 
   @example
     Areas data = Areas();
@@ -45,7 +42,7 @@ Areas::Areas() {}
 
 
 /*
-  TODO: Documentation & check that = override works in Area class
+  TODO: Documentation
 
   Add a particular Area to the Areas object.
 
@@ -151,7 +148,7 @@ int Areas::size() const noexcept {
     that give the column header in the CSV file
 
   @param areasFilter
-    An umodifiable pointer to set of umodifiable strings for areas to import,
+    An unmodifiable pointer to set of unmodifiable strings for areas to import,
     or an empty set if all areas should be imported
 
   @return
@@ -182,8 +179,54 @@ void Areas::populateFromAuthorityCodeCSV(
     std::istream &is,
     const BethYw::SourceColumnMapping &cols,
     const StringFilterSet * const areasFilter) {
-  throw std::logic_error(
-    "Areas::populateFromAuthorityCodeCSV() has not been implemented!");
+
+  std::string line, token;
+  std::vector<std::string> tokens;
+
+  std::getline(is, line);
+  std::stringstream ls(line);
+  tokens = getLineTokens(ls, line, ',');
+
+  if (cols.size() == 3) {//TODO: Use enum cols
+    if (tokens[0] == "Local authority code" &&
+        tokens[1] == "Name (eng)" &&
+        tokens[2] == "Name (cym)") {
+
+      while (std::getline(is, line)) {
+        tokens = getLineTokens(ls, line, ',');
+        if (areasFilter->find(tokens[0]) != areasFilter->end() ||
+            areasFilter->size() == 0) {//TODO: Check that filtering works
+          Area area(tokens[0]);
+          area.setName("eng", tokens[1]);
+          area.setName("cym", tokens[2]);
+          areas[tokens[0]] = area;
+        }
+      }
+
+    } else {
+      throw std::out_of_range("Incorrect column names");
+    }
+  } else {
+    throw std::out_of_range("Not enough columns");
+  }
+}
+
+
+/*
+  TODO: Documentation
+ */
+std::vector<std::string> Areas::getLineTokens(std::istream &ls,
+                                       std::string line,
+                                       char delimiter) {
+  std::string token;
+  std::vector<std::string> tokens;
+  std::stringstream lineStream(line);
+
+  while (std::getline(lineStream, token, delimiter)) {
+    tokens.push_back(token);
+  }
+
+  return tokens;
 }
 
 

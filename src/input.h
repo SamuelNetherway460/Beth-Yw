@@ -57,6 +57,7 @@ private:
   std::ifstream is;
 
 public:
+
   InputFile(const std::string &filePath);
   ~InputFile();
 

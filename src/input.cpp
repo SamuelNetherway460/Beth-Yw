@@ -55,7 +55,6 @@ std::string InputSource::getSource() const {
     InputFile input("data/areas.csv");
 */
 InputFile::InputFile(const std::string &filePath) : InputSource(filePath) {
-  is = std::ifstream(filePath);
 }
 
 /*

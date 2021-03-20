@@ -21,9 +21,6 @@
         |         objects.
         |
         +-> Areas A class that contains all Area objects.
-
-  TODO: Read the block comments with TODO in areas.cpp to know which 
-  functions and member variables you need to declare in this class.
  */
 
 #include <iostream>
@@ -47,9 +44,6 @@ using YearFilterTuple = std::tuple<unsigned int, unsigned int>;
 
 /*
   An alias for the data within an Areas object stores Area objects.
-
-  TODO: you should remove the declaration of the Null class below, and set
-  AreasContainer to a valid Standard Library container of your choosing.
 */
 using AreasContainer = std::map<std::string, Area>;
 
@@ -62,14 +56,15 @@ using AreasContainer = std::map<std::string, Area>;
   populate data inside an Areas instance. This function will hand off the
   specific parsing of code to other functions, based on the value of 
   BethYw::SourceDataType.
-
-  TODO: Based on your implementation, there may be additional constructors
-  or functions you implement here, and perhaps additional operators you may wish
-  to overload.
 */
 class Areas {
 private:
   AreasContainer areas;
+
+  std::vector<std::string> getLineTokens(
+      std::istream &ls,
+      std::string line,
+      char delimiter);
 
 public:
   Areas();
