@@ -18,7 +18,6 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <sstream>
 
 #include "lib_json.hpp"
@@ -39,6 +38,25 @@ using json = nlohmann::json;
     Areas data = Areas();
 */
 Areas::Areas() {}
+
+
+/*
+  TODO: Documentation
+ */
+std::vector<std::string> Areas::getLineTokens(std::istream &ls,
+                                              std::string line,
+                                              char delimiter) {
+  std::string token;
+  std::vector<std::string> tokens;
+  std::stringstream lineStream(line);
+
+  // Split each line into individual tokens separated by commas
+  while (std::getline(lineStream, token, delimiter)) {
+    tokens.push_back(token);
+  }
+
+  return tokens;
+}
 
 
 /*
@@ -125,7 +143,7 @@ int Areas::size() const noexcept {
 
 
 /*
-  TODO: Areas::populateFromAuthorityCodeCSV(is, cols, areasFilter)
+  TODO: Documentation & check , possibly add more exceptions
 
   This function specifically parses the compiled areas.csv file of local 
   authority codes, and their names in English and Welsh.
@@ -209,24 +227,6 @@ void Areas::populateFromAuthorityCodeCSV(
   } else {
     throw std::out_of_range("Not enough columns");
   }
-}
-
-
-/*
-  TODO: Documentation
- */
-std::vector<std::string> Areas::getLineTokens(std::istream &ls,
-                                       std::string line,
-                                       char delimiter) {
-  std::string token;
-  std::vector<std::string> tokens;
-  std::stringstream lineStream(line);
-
-  while (std::getline(lineStream, token, delimiter)) {
-    tokens.push_back(token);
-  }
-
-  return tokens;
 }
 
 
@@ -334,6 +334,13 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
       &measuresFilter,
       &yearsFilter);
 */
+void Areas::populateFromWelshStatsJSON(std::istream& is,
+                                       const BethYw::SourceColumnMapping& cols,
+                                       const StringFilterSet * const areas,
+                                       const StringFilterSet * const measures,
+                                       const YearFilterTuple * const years) {
+
+}
 
 
 /*
@@ -364,15 +371,15 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
     that give the column header in the CSV file
 
   @param areasFilter
-    An umodifiable pointer to set of umodifiable strings for areas to import,
+    An unmodifiable pointer to set of unmodifiable strings for areas to import,
     or an empty set if all areas should be imported
 
   @param measuresFilter
-    An umodifiable pointer to set of strings for measures to import, or an empty 
+    An unmodifiable pointer to set of strings for measures to import, or an empty
     set if all measures should be imported
 
   @param yearsFilter
-    An umodifiable pointer to an umodifiable tuple of two unsigned integers,
+    An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
     where if both values are 0, then all years should be imported, otherwise
     they should be treated as a the range of years to be imported
 
@@ -401,10 +408,17 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
     std::runtime_error if a parsing error occurs (e.g. due to a malformed file)
     std::out_of_range if there are not enough columns in cols
 */
+void Areas::populateFromAuthorityByYearCSV(std::istream& is,
+                                       const BethYw::SourceColumnMapping& cols,
+                                       const StringFilterSet * const areasFilter,
+                                       const StringFilterSet * const measuresFilter,
+                                       const YearFilterTuple * const yearsFilter) {
+
+}
 
 
 /*
-  TODO: Areas::populate(is, type, cols)
+  TODO: Add check for working stream and has content
 
   Parse data from an standard input stream `is`, that has data of a particular
   `type`, and with a given column mapping in `cols`.
@@ -460,6 +474,10 @@ void Areas::populate(std::istream &is,
                      const BethYw::SourceColumnMapping &cols) {
   if (type == BethYw::AuthorityCodeCSV) {
     populateFromAuthorityCodeCSV(is, cols);
+  } else if (type == BethYw::AuthorityByYearCSV) {
+    populateFromAuthorityByYearCSV(is, cols);
+  } else if (type == BethYw::WelshStatsJSON) {
+    populateFromWelshStatsJSON(is, cols);
   } else {
     throw std::runtime_error("Areas::populate: Unexpected data type");
   }
@@ -467,12 +485,7 @@ void Areas::populate(std::istream &is,
 
 
 /*
-  TODO: Areas::populate(is,
-                        type,
-                        cols,
-                        areasFilter,
-                        measuresFilter,
-                        yearsFilter)
+  TODO: Add check for working stream and has content
 
   Parse data from an standard input stream, that is of a particular type,
   and with a given column mapping, filtering for specific areas, measures,
@@ -554,10 +567,13 @@ void Areas::populate(
     const BethYw::SourceColumnMapping &cols,
     const StringFilterSet * const areasFilter,
     const StringFilterSet * const measuresFilter,
-    const YearFilterTuple * const yearsFilter)
-     {
+    const YearFilterTuple * const yearsFilter) {
   if (type == BethYw::AuthorityCodeCSV) {
     populateFromAuthorityCodeCSV(is, cols, areasFilter);
+  } else if (type == BethYw::AuthorityByYearCSV) {
+    populateFromAuthorityByYearCSV(is, cols, areasFilter, measuresFilter, yearsFilter);
+  } else if (type == BethYw::WelshStatsJSON) {
+    populateFromWelshStatsJSON(is, cols, areasFilter, measuresFilter, yearsFilter);
   } else {
     throw std::runtime_error("Areas::populate: Unexpected data type");
   }

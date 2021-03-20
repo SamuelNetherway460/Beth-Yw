@@ -72,17 +72,28 @@ int BethYw::run(int argc, char *argv[]) {
   auto yearsFilter      = BethYw::parseYearsArg(args);
 
   //TODO: TESTING
-  auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
+  //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
+  /*
   InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
   auto cols = InputFiles::AREAS.COLS;
   Areas test = Areas();
-  test.populateFromAuthorityCodeCSV(input.open(), cols, &areasFilter);
+  test.populate(input.open(),
+                SourceDataType::AuthorityCodeCSV,
+                cols);
+  */
+  /*
+  test.populate(input.open(),
+                SourceDataType::AuthorityCodeCSV,
+                cols,
+                nullptr,
+                nullptr,
+                nullptr);
+  */
   //TODO: TESTING
 
   Areas data = Areas();
+  BethYw::loadAreas(data, dir, &areasFilter);
 
-  // BethYw::loadAreas(data, dir, areasFilter);
-  //
   // BethYw::loadDatasets(data,
   //                      dir,
   //                      datasetsToImport,
@@ -95,7 +106,7 @@ int BethYw::run(int argc, char *argv[]) {
     std::cout << data.toJSON() << std::endl;
   } else {
     // The output as tables
-    // std::cout << data << std::endl;
+    std::cout << data << std::endl;
   }
 
   return 0;
@@ -406,21 +417,11 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
 
 /*
-  TODO: BethYw::loadAreas(areas, dir, areasFilter)
+  TODO: Documentation & check exception handling
 
   Load the areas.csv file from the directory `dir`. Parse the file and
   create the appropriate Area objects inside the Areas object passed to
   the function in the `areas` argument.
-
-  areas.csv is guaranteed to be formatted as:
-    Local authority code,Name (eng),Name (cym)
-
-  Hint: To implement this function. First you will need create an InputFile 
-  object with the filename of the areas file, open it, and then pass reference 
-  to the stream to the Areas::populate() function.
-
-  Hint 2: you can retrieve the specific filename for a dataset, e.g. for the 
-  areas.csv file, from the InputFileSource's FILE member variable
 
   @param areas
     An Areas instance that should be modified (i.e. the populate() function
@@ -440,6 +441,17 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
+void BethYw::loadAreas(Areas areas, std::string dir, StringFilterSet *const areasFilter) {
+  //InputFile input(dir + InputFiles::AREAS.FILE);
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+  auto cols = InputFiles::AREAS.COLS;
+  areas.populate(input.open(),
+                SourceDataType::AuthorityCodeCSV,
+                cols,
+                areasFilter,
+                nullptr,
+                nullptr);
+}
 
 
 /*

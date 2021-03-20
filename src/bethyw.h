@@ -10,9 +10,6 @@
 
   This file contains declarations for the helper functions for initialising and
   running Beth Yw?
-
-  TODO: Read the block comments with TODO in bethyw.cpp to know which 
-  functions you need to declare in this file.
  */
 
 #include <string>
@@ -22,6 +19,7 @@
 #include "lib_cxxopts.hpp"
 
 #include "datasets.h"
+#include "areas.h"
 
 const char DIR_SEP =
 #ifdef _WIN32
@@ -32,9 +30,6 @@ const char DIR_SEP =
 
 namespace BethYw {
 
-/*
-  TODO: Enter your student number here!
-*/
 const std::string STUDENT_NUMBER = "955794";
 
 /*
@@ -58,7 +53,7 @@ std::vector<BethYw::InputFileSource> parseDatasetsArg(
   Parse the areas argument and return a std::unordered_set of all the
   areas to import, or an empty set if all areas should be imported.
 */
-std::unordered_set<std::string> parseAreasArg(cxxopts::ParseResult& args);
+StringFilterSet parseAreasArg(cxxopts::ParseResult& args);
 
 /*
   Parse the measures argument and return a std::unordered_set of all the
@@ -71,6 +66,10 @@ std::unordered_set<std::string> parseMeasuresArg(cxxopts::ParseResult& args);
   and end years of the dataset(s) to import.
  */
 std::tuple<int, int> parseYearsArg(cxxopts::ParseResult& args);
+
+void loadAreas(Areas areas,
+               std::string dir,
+               StringFilterSet * const areasFilter = nullptr);
 
 } // namespace BethYw
 

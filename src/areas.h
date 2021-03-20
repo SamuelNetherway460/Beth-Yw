@@ -79,6 +79,20 @@ public:
       const StringFilterSet * const areas = nullptr)
       noexcept(false);
 
+  void populateFromWelshStatsJSON(
+      std::istream& is,
+      const BethYw::SourceColumnMapping& cols,
+      const StringFilterSet * const areas = nullptr,
+      const StringFilterSet * const measures = nullptr,
+      const YearFilterTuple * const years = nullptr);
+
+  void populateFromAuthorityByYearCSV(
+      std::istream& is,
+      const BethYw::SourceColumnMapping& cols,
+      const StringFilterSet * const areas = nullptr,
+      const StringFilterSet * const measures = nullptr,
+      const YearFilterTuple * const years = nullptr);
+
   void populate(
       std::istream& is,
       const BethYw::SourceDataType& type,
@@ -88,9 +102,9 @@ public:
       std::istream& is,
       const BethYw::SourceDataType& type,
       const BethYw::SourceColumnMapping& cols,
-      const StringFilterSet * const areasFilter = nullptr,
-      const StringFilterSet * const measuresFilter = nullptr,
-      const YearFilterTuple * const yearsFilter = nullptr)
+      const StringFilterSet * const areasFilter,
+      const StringFilterSet * const measuresFilter,
+      const YearFilterTuple * const yearsFilter)
       noexcept(false);
 
   std::string toJSON() const;
