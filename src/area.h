@@ -19,6 +19,7 @@
 #include <map>
 
 #include "measure.h"
+#include "lib_json.hpp"
 
 /*
   An Area object consists of a unique authority code, a container for names
@@ -40,8 +41,11 @@ public:
   void setName(std::string lang, const std::string name);
   Measure& getMeasure(const std::string key);
   void setMeasure(std::string codename, const Measure measure);
+  std::map<std::string, Measure> getMeasures() const;
   int size() const noexcept;
   Area& overwrite(Area &area);
+  nlohmann::json getJsonMeasures() const;
+  nlohmann::json getJsonNames() const;
 
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);

@@ -22,6 +22,7 @@
 #include <iomanip>
 
 #include "measure.h"
+#include "lib_json.hpp"
 
 /*
   Basic constructor for a new Measure object.
@@ -357,4 +358,15 @@ Measure& Measure::overwrite(Measure &measure) {
     this->setValue(iterator->first, iterator->second);
   }
   return *this;
+}
+
+
+/*
+  TODO: Documentation
+ */
+nlohmann::json Measure::getJsonMeasure() const {
+  nlohmann::json j;
+  nlohmann::json j_map(data);
+  j[codename] = {j_map};
+  return j;
 }

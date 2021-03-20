@@ -441,9 +441,9 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
-void BethYw::loadAreas(Areas areas, std::string dir, StringFilterSet *const areasFilter) {
-  //InputFile input(dir + InputFiles::AREAS.FILE);
-  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
+  InputFile input(dir + InputFiles::AREAS.FILE);
+  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
   auto cols = InputFiles::AREAS.COLS;
   areas.populate(input.open(),
                 SourceDataType::AuthorityCodeCSV,

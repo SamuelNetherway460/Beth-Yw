@@ -67,7 +67,7 @@ std::unordered_set<std::string> parseMeasuresArg(cxxopts::ParseResult& args);
  */
 std::tuple<int, int> parseYearsArg(cxxopts::ParseResult& args);
 
-void loadAreas(Areas areas,
+void loadAreas(Areas &areas,
                std::string dir,
                StringFilterSet * const areasFilter = nullptr);
 

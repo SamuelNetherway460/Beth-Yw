@@ -655,9 +655,14 @@ void Areas::populate(
     std::cout << data.toJSON();
 */
 std::string Areas::toJSON() const {
-  json j;
-  
-  return j.dump();
+  json a;
+  for (auto iterator = areas.begin(); iterator != areas.end(); iterator++) {
+    a[iterator->first];
+    a[iterator->first]["measures"] = iterator->second.getJsonMeasures();
+    a[iterator->first]["names"] = iterator->second.getJsonNames();
+  }
+  std::string dump = a.dump();
+  return a.dump();
 }
 
 

@@ -182,6 +182,14 @@ void Area::setMeasure(std::string codename, Measure measure) {
 
 
 /*
+  TODO: Documentation
+ */
+std::map<std::string, Measure> Area::getMeasures() const {
+  return measures;
+}
+
+
+/*
   Retrieves the number of Measures contained for this Area.
 
   @return
@@ -296,4 +304,26 @@ Area& Area::overwrite(Area &area) {
   }
 
   return *this;
+}
+
+
+/*
+  TODO: Documentation
+ */
+nlohmann::json Area::getJsonMeasures() const {
+  nlohmann::json j;
+  j["measures"];
+  for (auto iterator = measures.begin(); iterator != measures.end(); iterator++) {
+    j.push_back(iterator->second.getJsonMeasure());
+  }
+  return j;
+}
+
+
+/*
+  TODO: Documentation
+ */
+nlohmann::json Area::getJsonNames() const {
+  nlohmann::json j_map(names);
+  return j_map;
 }
