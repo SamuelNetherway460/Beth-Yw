@@ -92,7 +92,8 @@ int BethYw::run(int argc, char *argv[]) {
   //TODO: TESTING
 
   Areas data = Areas();
-  BethYw::loadAreas(data, dir, &areasFilter);
+  BethYw::loadAreas(data, dir, nullptr);
+  std::cout << data.toJSON();
 
   // BethYw::loadDatasets(data,
   //                      dir,

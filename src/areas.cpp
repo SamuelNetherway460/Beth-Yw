@@ -212,7 +212,12 @@ void Areas::populateFromAuthorityCodeCSV(
 
       while (std::getline(is, line)) {
         tokens = getLineTokens(ls, line, ',');
-        if (areasFilter->find(tokens[0]) != areasFilter->end() ||
+        if (areasFilter == nullptr) {
+          Area area(tokens[0]);
+          area.setName("eng", tokens[1]);
+          area.setName("cym", tokens[2]);
+          areas[tokens[0]] = area;
+        } else if (areasFilter->find(tokens[0]) != areasFilter->end() ||
             areasFilter->size() == 0) {//TODO: Check that filtering works
           Area area(tokens[0]);
           area.setName("eng", tokens[1]);
