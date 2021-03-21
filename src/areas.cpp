@@ -367,10 +367,27 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     Area area(localAuthorityCode);
     area.setName("eng", authNameEnglish);
     Measure measure(measureCode, measureName);
-    measure.setValue(year, value);
-    area.setMeasure(measureCode, measure);
 
-    this->setArea(localAuthorityCode, area);
+    if (yearsFilter == nullptr) {
+      measure.setValue(year, value);
+    } else if ((year >= std::get<0>(*yearsFilter) && year <= std::get<1>(*yearsFilter)) ||
+               (std::get<0>(*yearsFilter) == 0 && std::get<1>(*yearsFilter) == 0)) {
+      measure.setValue(year, value);
+    }
+
+    if (measuresFilter == nullptr) {
+      area.setMeasure(measureCode, measure);
+    } else if (measuresFilter->find(measureCode) != measuresFilter->end() ||
+               measuresFilter->size() == 0) {
+      area.setMeasure(measureCode, measure);
+    }
+
+    if (areasFilter == nullptr) {
+      this->setArea(localAuthorityCode, area);
+    } else if (areasFilter->find(localAuthorityCode) != areasFilter->end() ||
+               areasFilter->size() == 0) {//TODO: Check that filtering works
+      this->setArea(localAuthorityCode, area);
+    }
   }
 }
 
