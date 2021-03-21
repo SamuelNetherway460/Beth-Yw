@@ -29,7 +29,6 @@
 */
 class Measure {
 private:
-  std::string name;
   std::string codename;
   std::string label;
   std::map<int, double> data;

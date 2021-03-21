@@ -67,6 +67,7 @@ private:
       char delimiter);
 
   int safeStringToInt(const std::string& str) const;
+  double safeStringToDouble(const std::string& str) const;
 
 public:
   Areas();

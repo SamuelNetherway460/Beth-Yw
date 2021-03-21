@@ -76,10 +76,25 @@ int BethYw::run(int argc, char *argv[]) {
 
   //TODO: TESTING
   //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
-  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
-  auto cols = InputFiles::BIZ.COLS;
-  data.populateFromWelshStatsJSON(input.open(), cols, &areasFilter, &measuresFilter, &yearsFilter);
+  /*
+  InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
+  auto biz = InputFiles::BIZ.COLS;
+
+  InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");
+  auto aqi = InputFiles::AQI.COLS;
+
+  InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");
+  auto popden = InputFiles::POPDEN.COLS;
+
+  InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");
+  auto trains = InputFiles::TRAINS.COLS;
+
+  data.populateFromWelshStatsJSON(bizInput.open(), biz, &areasFilter, &measuresFilter, &yearsFilter);
+  data.populateFromWelshStatsJSON(aqiInput.open(), aqi, &areasFilter, &measuresFilter, &yearsFilter);
+  data.populateFromWelshStatsJSON(popdenInput.open(), popden, &areasFilter, &measuresFilter, &yearsFilter);
+  data.populateFromWelshStatsJSON(trainsInput.open(), trains, &areasFilter, &measuresFilter, &yearsFilter);
   std::cout << data.toJSON() << std::endl;
+  */
   //TODO: TESTING
 
   // BethYw::loadDatasets(data,
@@ -89,7 +104,6 @@ int BethYw::run(int argc, char *argv[]) {
   //                      measuresFilter,
   //                      yearsFilter);
 
-  /*
   if (args.count("json")) {
     // The output as JSON
     std::cout << data.toJSON() << std::endl;
@@ -97,7 +111,6 @@ int BethYw::run(int argc, char *argv[]) {
     // The output as tables
     std::cout << data << std::endl;
   }
-   */
 
   return 0;
 }
@@ -432,8 +445,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
 void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
-  //InputFile input(dir + InputFiles::AREAS.FILE);
-  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+  InputFile input(dir + InputFiles::AREAS.FILE);
+  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
   auto cols = InputFiles::AREAS.COLS;
   areas.populate(input.open(),
                 SourceDataType::AuthorityCodeCSV,

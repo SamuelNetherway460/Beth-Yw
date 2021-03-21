@@ -347,6 +347,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
   std::string str;
   std::string fileContents;
 
+  //TODO: Throw exception if cannot get content from file
   while (std::getline(is, str))
   {
     fileContents += str;
@@ -359,10 +360,30 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     auto &data = el.value();
     std::string localAuthorityCode = data[cols.at(BethYw::SourceColumn::AUTH_CODE)];
     std::string authNameEnglish = data[cols.at(BethYw::SourceColumn::AUTH_NAME_ENG)];
-    std::string measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
-    std::string measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
+
+    std::string measureCode;
+    if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
+      measureCode = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE);
+    } else {
+      measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
+    }
+
+    std::string measureName;
+    if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
+      measureName = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME);
+    } else {
+      measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
+    }
+
     int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
-    double value = data[cols.at(BethYw::SourceColumn::VALUE)];
+
+    // Convert to double if necessary
+    double value;
+    if (data[cols.at(BethYw::SourceColumn::VALUE)].is_number()) {
+      value = data[cols.at(BethYw::SourceColumn::VALUE)];
+    } else {
+      value = safeStringToDouble(data[cols.at(BethYw::SourceColumn::VALUE)]);
+    }
 
     Area area(localAuthorityCode);
     area.setName("eng", authNameEnglish);
@@ -407,6 +428,26 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
 int Areas::safeStringToInt(const std::string &str) const {
   std::stringstream ss(str);
   int num;
+  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
+  return num;
+}
+
+
+/*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+double Areas::safeStringToDouble(const std::string &str) const {
+  std::stringstream ss(str);
+  double num;
   if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
   return num;
 }
