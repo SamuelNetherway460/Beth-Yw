@@ -367,6 +367,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     } else {
       measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
     }
+    transform(measureCode.begin(), measureCode.end(), measureCode.begin(), ::tolower);
 
     std::string measureName;
     if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {

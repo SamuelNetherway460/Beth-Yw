@@ -75,26 +75,26 @@ int BethYw::run(int argc, char *argv[]) {
   BethYw::loadAreas(data, dir, &areasFilter);
 
   //TODO: TESTING
-  //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
   /*
-  InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
-  auto biz = InputFiles::BIZ.COLS;
+  //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
+  //InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
+  //auto biz = InputFiles::BIZ.COLS;
 
-  InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");
-  auto aqi = InputFiles::AQI.COLS;
+  //InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");
+  //auto aqi = InputFiles::AQI.COLS;
 
   InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");
   auto popden = InputFiles::POPDEN.COLS;
 
-  InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");
-  auto trains = InputFiles::TRAINS.COLS;
+  //InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");
+  //auto trains = InputFiles::TRAINS.COLS;
 
-  data.populateFromWelshStatsJSON(bizInput.open(), biz, &areasFilter, &measuresFilter, &yearsFilter);
-  data.populateFromWelshStatsJSON(aqiInput.open(), aqi, &areasFilter, &measuresFilter, &yearsFilter);
+  //data.populateFromWelshStatsJSON(bizInput.open(), biz, &areasFilter, &measuresFilter, &yearsFilter);
+  //data.populateFromWelshStatsJSON(aqiInput.open(), aqi, &areasFilter, &measuresFilter, &yearsFilter);
   data.populateFromWelshStatsJSON(popdenInput.open(), popden, &areasFilter, &measuresFilter, &yearsFilter);
-  data.populateFromWelshStatsJSON(trainsInput.open(), trains, &areasFilter, &measuresFilter, &yearsFilter);
+  //data.populateFromWelshStatsJSON(trainsInput.open(), trains, &areasFilter, &measuresFilter, &yearsFilter);
   std::cout << data.toJSON() << std::endl;
-  */
+   */
   //TODO: TESTING
 
   // BethYw::loadDatasets(data,
