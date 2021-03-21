@@ -66,34 +66,21 @@ int BethYw::run(int argc, char *argv[]) {
   std::string dir = args["dir"].as<std::string>() + DIR_SEP;
 
   // Parse other arguments and import data
-  auto datasetsToImport = BethYw::parseDatasetsArg(args);
-  auto areasFilter      = BethYw::parseAreasArg(args);
-  auto measuresFilter   = BethYw::parseMeasuresArg(args);
-  auto yearsFilter      = BethYw::parseYearsArg(args);
+  auto datasetsToImport       = BethYw::parseDatasetsArg(args);
+  auto areasFilter            = BethYw::parseAreasArg(args);
+  auto measuresFilter         = BethYw::parseMeasuresArg(args);
+  YearFilterTuple yearsFilter = BethYw::parseYearsArg(args);
+
+  Areas data = Areas();
+  BethYw::loadAreas(data, dir, &areasFilter);
 
   //TODO: TESTING
   //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
-  /*
-  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
-  auto cols = InputFiles::AREAS.COLS;
-  Areas test = Areas();
-  test.populate(input.open(),
-                SourceDataType::AuthorityCodeCSV,
-                cols);
-  */
-  /*
-  test.populate(input.open(),
-                SourceDataType::AuthorityCodeCSV,
-                cols,
-                nullptr,
-                nullptr,
-                nullptr);
-  */
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
+  auto cols = InputFiles::BIZ.COLS;
+  data.populateFromWelshStatsJSON(input.open(), cols, &areasFilter, &measuresFilter, &yearsFilter);
+  std::cout << data.toJSON() << std::endl;
   //TODO: TESTING
-
-  Areas data = Areas();
-  BethYw::loadAreas(data, dir, nullptr);
-  std::cout << data.toJSON();
 
   // BethYw::loadDatasets(data,
   //                      dir,
@@ -102,6 +89,7 @@ int BethYw::run(int argc, char *argv[]) {
   //                      measuresFilter,
   //                      yearsFilter);
 
+  /*
   if (args.count("json")) {
     // The output as JSON
     std::cout << data.toJSON() << std::endl;
@@ -109,6 +97,7 @@ int BethYw::run(int argc, char *argv[]) {
     // The output as tables
     std::cout << data << std::endl;
   }
+   */
 
   return 0;
 }
@@ -443,8 +432,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
 void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
-  InputFile input(dir + InputFiles::AREAS.FILE);
-  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+  //InputFile input(dir + InputFiles::AREAS.FILE);
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
   auto cols = InputFiles::AREAS.COLS;
   areas.populate(input.open(),
                 SourceDataType::AuthorityCodeCSV,

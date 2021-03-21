@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include <regex>
 #include <iomanip>
+#include <iostream>
 
 #include "area.h"
 
@@ -245,10 +246,10 @@ int Area::size() const noexcept {
 */
 std::ostream& operator<<(std::ostream &os, const Area &area) {
   os << area.names.find("eng")->second  << " / " << area.names.find("cym")->second << " ("
-      << area.localAuthorityCode << ")";
+      << area.localAuthorityCode << ")" << std::endl;
 
   for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
-    os << iterator->second << std::endl;
+    os << iterator->second << std::endl << std::endl;
   }
   return os;
 }
@@ -312,9 +313,8 @@ Area& Area::overwrite(Area &area) {
  */
 nlohmann::json Area::getJsonMeasures() const {
   nlohmann::json j;
-  j["measures"];
   for (auto iterator = measures.begin(); iterator != measures.end(); iterator++) {
-    j.push_back(iterator->second.getJsonMeasure());
+    j = iterator->second.getJsonMeasure();
   }
   return j;
 }

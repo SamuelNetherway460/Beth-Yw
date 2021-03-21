@@ -246,7 +246,7 @@ void Areas::populateFromAuthorityCodeCSV(
   top-level keys: odata.metadata, value, odata.nextLink. value contains the
   data we need. Rather than been hierarchical, it contains data as a
   continuous list (e.g. as you would find in a table). For each row in value,
-  there is a mapping of various column headings and their respective vaues.
+  there is a mapping of various column headings and their respective values.
 
   Therefore, you need to go through the items in value (in a loop)
   using a JSON library. To help you, I've selected the nlohmann::json
@@ -296,15 +296,15 @@ void Areas::populateFromAuthorityCodeCSV(
     that give the column header in the CSV file
 
   @param areasFilter
-    An umodifiable pointer to set of umodifiable strings of areas to import,
+    An unmodifiable pointer to set of unmodifiable strings of areas to import,
     or an empty set if all areas should be imported
 
   @param measuresFilter
-    An umodifiable pointer to set of umodifiable strings of measures to import,
+    An unmodifiable pointer to set of unmodifiable strings of measures to import,
     or an empty set if all measures should be imported
 
   @param yearsFilter
-    An umodifiable pointer to an umodifiable tuple of two unsigned integers,
+    An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
     where if both values are 0, then all years should be imported, otherwise
     they should be treated as the range of years to be imported (inclusively)
 
@@ -341,10 +341,57 @@ void Areas::populateFromAuthorityCodeCSV(
 */
 void Areas::populateFromWelshStatsJSON(std::istream& is,
                                        const BethYw::SourceColumnMapping& cols,
-                                       const StringFilterSet * const areas,
-                                       const StringFilterSet * const measures,
-                                       const YearFilterTuple * const years) {
+                                       const StringFilterSet * const areasFilter,
+                                       const StringFilterSet * const measuresFilter,
+                                       const YearFilterTuple * const yearsFilter) {
+  std::string str;
+  std::string fileContents;
 
+  while (std::getline(is, str))
+  {
+    fileContents += str;
+    fileContents.push_back('\n');
+  }
+
+  json j = json::parse(fileContents);
+
+  for (auto& el : j["value"].items()) {
+    auto &data = el.value();
+    std::string localAuthorityCode = data[cols.at(BethYw::SourceColumn::AUTH_CODE)];
+    std::string authNameEnglish = data[cols.at(BethYw::SourceColumn::AUTH_NAME_ENG)];
+    std::string measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
+    std::string measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
+    int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
+    double value = data[cols.at(BethYw::SourceColumn::VALUE)];
+
+    Area area(localAuthorityCode);
+    area.setName("eng", authNameEnglish);
+    Measure measure(measureCode, measureName);
+    measure.setValue(year, value);
+    area.setMeasure(measureCode, measure);
+
+    this->setArea(localAuthorityCode, area);
+  }
+}
+
+
+/*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+int Areas::safeStringToInt(const std::string &str) const {
+  std::stringstream ss(str);
+  int num;
+  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
+  return num;
 }
 
 
@@ -779,7 +826,7 @@ std::string Areas::toJSON() const {
 */
 std::ostream& operator<<(std::ostream &os, const Areas &areas) {
   for (auto iterator = areas.areas.begin(); iterator != areas.areas.end(); iterator++) {
-    os << iterator->second << std::endl;
+    os << iterator->second;
   }
   return os;
 }

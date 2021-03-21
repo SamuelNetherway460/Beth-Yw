@@ -20,6 +20,7 @@
 #include <string>
 #include <regex>
 #include <iomanip>
+#include <iostream>
 
 #include "measure.h"
 #include "lib_json.hpp"
@@ -294,7 +295,7 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
     }
 
     int averageWidth = std::to_string(measure.getAverage()).size();
-    os << std::setw(averageWidth) << std::right << "Average ";
+    os << std::setw(averageWidth) << std::right << "Average";
 
     int differenceWidth = std::to_string(measure.getDifference()).size();
     os << std::setw(differenceWidth) << std::right << "Diff. ";
@@ -364,9 +365,19 @@ Measure& Measure::overwrite(Measure &measure) {
 /*
   TODO: Documentation
  */
+/*
 nlohmann::json Measure::getJsonMeasure() const {
   nlohmann::json j;
   nlohmann::json j_map(data);
-  j[codename] = {j_map};
+  std::cout << j_map;
+  j[codename] = j_map;
+  return j;
+}
+ */
+nlohmann::json Measure::getJsonMeasure() const {
+  nlohmann::json j;
+  for (auto iterator = data.begin(); iterator != data.end(); iterator++) {
+    j[codename][std::to_string(iterator->first)] = iterator->second;
+  }
   return j;
 }
