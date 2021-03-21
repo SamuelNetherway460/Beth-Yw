@@ -202,9 +202,13 @@ int Measure::size() const noexcept {
     auto diff = measure.getDifference(); // returns 1.0
 */
 double Measure::getDifference() const noexcept {
-  if (data.size() > 1) {
-    return data.end()->second - data.begin()->second;
-  } else {
+  try {
+    if (data.size() > 1) {
+      return (--data.end())->second - data.begin()->second;
+    } else {
+      return 0;
+    }
+  } catch (std::exception) {
     return 0;
   }
 }
@@ -215,7 +219,7 @@ double Measure::getDifference() const noexcept {
   percentage.
 
   @return
-    The difference/change in value from the first to the last year as a decminal
+    The difference/change in value from the first to the last year as a decimal
     value, or 0 if it cannot be calculated
 
   @example
@@ -225,9 +229,13 @@ double Measure::getDifference() const noexcept {
     auto diff = measure.getDifferenceAsPercentage();
 */
 double Measure::getDifferenceAsPercentage() const noexcept {
-  if (data.size() > 1) {
-    return ((data.end()->second - data.begin()->second) / data.end()->second) * 100;
-  } else {
+  try {
+    if (data.size() > 1) {
+      return (getDifference() / data.begin()->second) * 100;
+    } else {
+      return 0;
+    }
+  } catch (std::exception) {
     return 0;
   }
 }
@@ -297,10 +305,11 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
     int averageWidth = std::to_string(measure.getAverage()).size();
     os << std::setw(averageWidth) << std::right << "Average";
 
-    int differenceWidth = std::to_string(measure.getDifference()).size();
-    os << std::setw(differenceWidth) << std::right << "Diff. ";
+    int differenceWidth = std::to_string(measure.getDifference()).size() + 1;
+    os << std::setw(differenceWidth) << std::right << " Diff.";
 
-    int differencePercentWidth = std::to_string(measure.getDifferenceAsPercentage()).size();
+    int differencePercentWidth = std::to_string(measure.getDifferenceAsPercentage()).size() + 1;
+    if (differencePercentWidth < 7) differencePercentWidth = 8;
     os << std::setw(differencePercentWidth) << std::right << "% Diff." << std::endl;
 
     for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
@@ -377,7 +386,7 @@ nlohmann::json Measure::getJsonMeasure() const {
 nlohmann::json Measure::getJsonMeasure() const {
   nlohmann::json j;
   for (auto iterator = data.begin(); iterator != data.end(); iterator++) {
-    j[codename][std::to_string(iterator->first)] = iterator->second;
+    j[std::to_string(iterator->first)] = iterator->second;
   }
   return j;
 }

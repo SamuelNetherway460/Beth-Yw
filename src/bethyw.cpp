@@ -66,9 +66,9 @@ int BethYw::run(int argc, char *argv[]) {
   std::string dir = args["dir"].as<std::string>() + DIR_SEP;
 
   // Parse other arguments and import data
-  auto datasetsToImport       = BethYw::parseDatasetsArg(args);
-  auto areasFilter            = BethYw::parseAreasArg(args);
-  auto measuresFilter         = BethYw::parseMeasuresArg(args);
+  std::vector<BethYw::InputFileSource> datasetsToImport = BethYw::parseDatasetsArg(args);
+  auto areasFilter = BethYw::parseAreasArg(args);
+  auto measuresFilter = BethYw::parseMeasuresArg(args);
   YearFilterTuple yearsFilter = BethYw::parseYearsArg(args);
 
   Areas data = Areas();
@@ -77,39 +77,40 @@ int BethYw::run(int argc, char *argv[]) {
   //TODO: TESTING
   /*
   //auto is = std::ifstream("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv");
-  //InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
-  //auto biz = InputFiles::BIZ.COLS;
 
-  //InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");
-  //auto aqi = InputFiles::AQI.COLS;
+  InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");
+  auto biz = InputFiles::BIZ.COLS;
+
+  InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");
+  auto aqi = InputFiles::AQI.COLS;
 
   InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");
   auto popden = InputFiles::POPDEN.COLS;
 
-  //InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");
-  //auto trains = InputFiles::TRAINS.COLS;
+  InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");
+  auto trains = InputFiles::TRAINS.COLS;
 
-  //data.populateFromWelshStatsJSON(bizInput.open(), biz, &areasFilter, &measuresFilter, &yearsFilter);
-  //data.populateFromWelshStatsJSON(aqiInput.open(), aqi, &areasFilter, &measuresFilter, &yearsFilter);
+  data.populateFromWelshStatsJSON(bizInput.open(), biz, &areasFilter, &measuresFilter, &yearsFilter);
+  data.populateFromWelshStatsJSON(aqiInput.open(), aqi, &areasFilter, &measuresFilter, &yearsFilter);
   data.populateFromWelshStatsJSON(popdenInput.open(), popden, &areasFilter, &measuresFilter, &yearsFilter);
-  //data.populateFromWelshStatsJSON(trainsInput.open(), trains, &areasFilter, &measuresFilter, &yearsFilter);
-  std::cout << data.toJSON() << std::endl;
+  data.populateFromWelshStatsJSON(trainsInput.open(), trains, &areasFilter, &measuresFilter, &yearsFilter);
+  //std::cout << data.toJSON() << std::endl;
    */
   //TODO: TESTING
 
-  // BethYw::loadDatasets(data,
-  //                      dir,
-  //                      datasetsToImport,
-  //                      areasFilter,
-  //                      measuresFilter,
-  //                      yearsFilter);
+  BethYw::loadDatasets(data,
+                       dir,
+                       &datasetsToImport,
+                       &areasFilter,
+                       &measuresFilter,
+                       &yearsFilter);
 
   if (args.count("json")) {
     // The output as JSON
     std::cout << data.toJSON() << std::endl;
   } else {
     // The output as tables
-    std::cout << data << std::endl;
+    std::cout << data;
   }
 
   return 0;
@@ -445,8 +446,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
 void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
-  InputFile input(dir + InputFiles::AREAS.FILE);
-  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+  //InputFile input(dir + InputFiles::AREAS.FILE);
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
   auto cols = InputFiles::AREAS.COLS;
   areas.populate(input.open(),
                 SourceDataType::AuthorityCodeCSV,
@@ -469,7 +470,7 @@ void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const are
   filtering them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
 
   The actual filtering will be done by the Areas::populate() function, thus 
-  you need to merely pass pointers on to these flters.
+  you need to merely pass pointers on to these filters.
 
   This function should promise not to throw an exception. If there is an
   error/exception thrown in any function called by thus function, catch it and
@@ -511,4 +512,98 @@ void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const are
       BethYw::parseMeasuresArg(args),
       BethYw::parseYearsArg(args));
 */
+void BethYw::loadDatasets(Areas &areas,
+                          std::string dir,
+                          const std::vector<InputFileSource> * const datasetsToImport,
+                          const StringFilterSet * const areasFilter,
+                          const StringFilterSet * const measuresFilter,
+                          const YearFilterTuple * const yearsFilter) noexcept {
 
+  for (auto iterator = datasetsToImport->begin(); iterator != datasetsToImport->end(); iterator++) {
+    if (iterator->NAME == InputFiles::BIZ.NAME) {
+      loadBiz(areas, dir, areasFilter, measuresFilter, yearsFilter);
+    } else if (iterator->NAME == InputFiles::AQI.NAME) {
+      loadAqi(areas, dir, areasFilter, measuresFilter, yearsFilter);
+    } else if (iterator->NAME == InputFiles::POPDEN.NAME) {
+      loadPopden(areas, dir, areasFilter, measuresFilter, yearsFilter);
+    } else if (iterator->NAME == InputFiles::TRAINS.NAME) {
+      loadTrains(areas, dir, areasFilter, measuresFilter, yearsFilter);
+    }
+  }
+}
+
+
+/*
+  //TODO: Documentation
+ */
+void BethYw::loadBiz(Areas &areas,
+                     std::string dir,
+                     const StringFilterSet * const areasFilter,
+                     const StringFilterSet * const measuresFilter,
+                     const YearFilterTuple * const yearsFilter) noexcept {
+  try {
+    //InputFile bizInput(dir + InputFiles::BIZ.FILE);
+    InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");//TODO: Remove once testing is done
+    auto biz = InputFiles::BIZ.COLS;
+    areas.populateFromWelshStatsJSON(bizInput.open(), biz, areasFilter, measuresFilter, yearsFilter);
+  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
+    std::cout << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << e.what();
+  }
+}
+
+
+/*
+  //TODO: Documentation
+ */
+void BethYw::loadAqi(Areas &areas,
+                     std::string dir,
+                     const StringFilterSet * const areasFilter,
+                     const StringFilterSet * const measuresFilter,
+                     const YearFilterTuple * const yearsFilter) noexcept {
+  try {
+    //InputFile aqiInput(dir + InputFiles::AQI.FILE);
+    InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");//TODO: Remove once testing is done
+    auto aqi = InputFiles::AQI.COLS;
+    areas.populateFromWelshStatsJSON(aqiInput.open(), aqi, areasFilter, measuresFilter, yearsFilter);
+  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
+    std::cout << "Error importing dataset: " << InputFiles::AQI.FILE << std::endl << e.what();
+  }
+}
+
+
+/*
+  //TODO: Documentation
+ */
+void BethYw::loadPopden(Areas &areas,
+                     std::string dir,
+                     const StringFilterSet * const areasFilter,
+                     const StringFilterSet * const measuresFilter,
+                     const YearFilterTuple * const yearsFilter) noexcept {
+  try {
+    //InputFile popdenInput(dir + InputFiles::POPDEN.FILE);
+    InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");//TODO: Remove once testing is done
+    auto popden = InputFiles::POPDEN.COLS;
+    areas.populateFromWelshStatsJSON(popdenInput.open(), popden, areasFilter, measuresFilter, yearsFilter);
+  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
+    std::cout << "Error importing dataset: " << InputFiles::POPDEN.FILE << std::endl << e.what();
+  }
+}
+
+
+/*
+  //TODO: Documentation
+ */
+void BethYw::loadTrains(Areas &areas,
+                     std::string dir,
+                     const StringFilterSet * const areasFilter,
+                     const StringFilterSet * const measuresFilter,
+                     const YearFilterTuple * const yearsFilter) noexcept {
+  try {
+    //InputFile trainsInput(dir + InputFiles::TRAINS.FILE);
+    InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");//TODO: Remove once testing is done
+    auto trains = InputFiles::TRAINS.COLS;
+    areas.populateFromWelshStatsJSON(trainsInput.open(), trains, areasFilter, measuresFilter, yearsFilter);
+  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
+    std::cout << "Error importing dataset: " << InputFiles::TRAINS.FILE << std::endl << e.what();
+  }
+}

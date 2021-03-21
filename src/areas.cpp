@@ -205,11 +205,14 @@ void Areas::populateFromAuthorityCodeCSV(
   std::stringstream ls(line);
   tokens = getLineTokens(ls, line, ',');
 
-  if (cols.size() == 3) {//TODO: Use enum cols
-    if (tokens[0] == "Local authority code" &&
-        tokens[1] == "Name (eng)" &&
-        tokens[2] == "Name (cym)") {
+  // Check for correct number of columns
+  if (cols.size() == 3) {
+    // Check for correct column names
+    if (tokens[0] == cols.at(BethYw::SourceColumn::AUTH_CODE) &&
+        tokens[1] == cols.at(BethYw::SourceColumn::AUTH_NAME_ENG) &&
+        tokens[2] == cols.at(BethYw::SourceColumn::AUTH_NAME_CYM)) {
 
+      // Parse column data
       while (std::getline(is, line)) {
         tokens = getLineTokens(ls, line, ',');
         if (areasFilter == nullptr) {
@@ -218,7 +221,7 @@ void Areas::populateFromAuthorityCodeCSV(
           area.setName("cym", tokens[2]);
           areas[tokens[0]] = area;
         } else if (areasFilter->find(tokens[0]) != areasFilter->end() ||
-            areasFilter->size() == 0) {//TODO: Check that filtering works
+            areasFilter->size() == 0) {
           Area area(tokens[0]);
           area.setName("eng", tokens[1]);
           area.setName("cym", tokens[2]);
@@ -241,6 +244,7 @@ void Areas::populateFromAuthorityCodeCSV(
                                           areasFilter,
                                           measuresFilter,
                                           yearsFilter)
+  TODO: Possibly break up into further methods - look at comments
 
   Data from StatsWales is in the JSON format, and contains three
   top-level keys: odata.metadata, value, odata.nextLink. value contains the
@@ -361,6 +365,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     std::string localAuthorityCode = data[cols.at(BethYw::SourceColumn::AUTH_CODE)];
     std::string authNameEnglish = data[cols.at(BethYw::SourceColumn::AUTH_NAME_ENG)];
 
+    // Retrieve measure code and convert to lower case
     std::string measureCode;
     if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
       measureCode = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE);
@@ -369,6 +374,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     }
     transform(measureCode.begin(), measureCode.end(), measureCode.begin(), ::tolower);
 
+    // Retrieve measure name and convert to lower case
     std::string measureName;
     if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
       measureName = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME);
@@ -378,7 +384,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
 
     int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
 
-    // Convert to double if necessary
+    // Retrieve value and convert to double if necessary
     double value;
     if (data[cols.at(BethYw::SourceColumn::VALUE)].is_number()) {
       value = data[cols.at(BethYw::SourceColumn::VALUE)];
@@ -390,6 +396,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     area.setName("eng", authNameEnglish);
     Measure measure(measureCode, measureName);
 
+    // Apply years filtering
     if (yearsFilter == nullptr) {
       measure.setValue(year, value);
     } else if ((year >= std::get<0>(*yearsFilter) && year <= std::get<1>(*yearsFilter)) ||
@@ -397,6 +404,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
       measure.setValue(year, value);
     }
 
+    // Apply measures filtering
     if (measuresFilter == nullptr) {
       area.setMeasure(measureCode, measure);
     } else if (measuresFilter->find(measureCode) != measuresFilter->end() ||
@@ -404,10 +412,11 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
       area.setMeasure(measureCode, measure);
     }
 
+    // Apply areas filtering
     if (areasFilter == nullptr) {
       this->setArea(localAuthorityCode, area);
     } else if (areasFilter->find(localAuthorityCode) != areasFilter->end() ||
-               areasFilter->size() == 0) {//TODO: Check that filtering works
+               areasFilter->size() == 0) {
       this->setArea(localAuthorityCode, area);
     }
   }
@@ -459,6 +468,7 @@ double Areas::safeStringToDouble(const std::string &str) const {
                                               cols,
                                               areasFilter,
                                               yearFilter)
+  TODO: Check that the correct cols are being passed in
 
   This function imports CSV files that contain a single measure. The 
   CSV file consists of columns containing the authority code and years.
@@ -530,6 +540,7 @@ void Areas::populateFromAuthorityByYearCSV(std::istream& is,
 
 /*
   TODO: Add check for working stream and has content
+  TODO: Check that the correct cols are being passed in
 
   Parse data from an standard input stream `is`, that has data of a particular
   `type`, and with a given column mapping in `cols`.
@@ -597,6 +608,7 @@ void Areas::populate(std::istream &is,
 
 /*
   TODO: Add check for working stream and has content
+  TODO: Check that the correct cols are being passed in
 
   Parse data from an standard input stream, that is of a particular type,
   and with a given column mapping, filtering for specific areas, measures,

@@ -314,7 +314,7 @@ Area& Area::overwrite(Area &area) {
 nlohmann::json Area::getJsonMeasures() const {
   nlohmann::json j;
   for (auto iterator = measures.begin(); iterator != measures.end(); iterator++) {
-    j = iterator->second.getJsonMeasure();
+    j[iterator->first] = iterator->second.getJsonMeasure();
   }
   return j;
 }
