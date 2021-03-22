@@ -102,6 +102,24 @@ void loadTrains(Areas &areas,
              const StringFilterSet * const measuresFilter,
              const YearFilterTuple * const yearsFilter) noexcept;
 
+void loadCompletePopden(Areas &areas,
+                        std::string dir,
+                        const StringFilterSet * const areasFilter,
+                        const StringFilterSet * const measuresFilter,
+                        const YearFilterTuple * const yearsFilter) noexcept;
+
+void loadCompletePop(Areas &areas,
+                     std::string dir,
+                     const StringFilterSet * const areasFilter,
+                     const StringFilterSet * const measuresFilter,
+                     const YearFilterTuple * const yearsFilter) noexcept;
+
+void loadCompleteArea(Areas &areas,
+                      std::string dir,
+                      const StringFilterSet * const areasFilter,
+                      const StringFilterSet * const measuresFilter,
+                      const YearFilterTuple * const yearsFilter) noexcept;
+
 } // namespace BethYw
 
 #endif // BETHYW_H_

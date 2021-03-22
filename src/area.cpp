@@ -245,12 +245,31 @@ int Area::size() const noexcept {
     std::cout << area << std::endl;
 */
 std::ostream& operator<<(std::ostream &os, const Area &area) {
-  os << area.names.find("eng")->second  << " / " << area.names.find("cym")->second << " ("
-      << area.localAuthorityCode << ")" << std::endl;
-
-  for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
-    os << iterator->second << std::endl << std::endl;
+  // English Name
+  if (area.names.find("eng") != area.names.end()) {
+    os << area.names.find("eng")->second;
+    // Welsh Name
+    if (area.names.find("cym") != area.names.end()) {
+      os << " / " << area.names.find("cym")->second;
+    }
+  // No names
+  } else if (area.names.empty()) {
+    os << "Unnamed";
+  // Non-English name
+  } else {
+    os << area.names.at(0);
   }
+
+  os << " (" << area.localAuthorityCode << ")" << std::endl;
+
+  if (area.measures.empty()) {
+    os << "<no measures>" << std::endl << std::endl;
+  } else {
+    for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
+      os << iterator->second << std::endl << std::endl;
+    }
+  }
+
   return os;
 }
 

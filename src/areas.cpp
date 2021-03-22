@@ -530,10 +530,10 @@ double Areas::safeStringToDouble(const std::string &str) const {
     std::out_of_range if there are not enough columns in cols
 */
 void Areas::populateFromAuthorityByYearCSV(std::istream& is,
-                                       const BethYw::SourceColumnMapping& cols,
-                                       const StringFilterSet * const areasFilter,
-                                       const StringFilterSet * const measuresFilter,
-                                       const YearFilterTuple * const yearsFilter) {
+                                           const BethYw::SourceColumnMapping& cols,
+                                           const StringFilterSet * const areasFilter,
+                                           const StringFilterSet * const measuresFilter,
+                                           const YearFilterTuple * const yearsFilter) {
 
 }
 
@@ -778,10 +778,12 @@ void Areas::populate(
     std::cout << data.toJSON();
 */
 std::string Areas::toJSON() const {
+  if (areas.empty()) return "{}";
   json a;
   for (auto iterator = areas.begin(); iterator != areas.end(); iterator++) {
     a[iterator->first];
-    a[iterator->first]["measures"] = iterator->second.getJsonMeasures();
+    if(!iterator->second.getMeasures().empty())
+      a[iterator->first]["measures"] = iterator->second.getJsonMeasures();
     a[iterator->first]["names"] = iterator->second.getJsonNames();
   }
   std::string dump = a.dump();

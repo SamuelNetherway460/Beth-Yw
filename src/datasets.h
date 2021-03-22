@@ -36,7 +36,7 @@ namespace BethYw {
   As such, it is a useful way for us to specify information in both a
   machine and human-readable format.
 
-  Unlike Java, enum in C++ only map to intenger values. You can either let
+  Unlike Java, enum in C++ only map to integer values. You can either let
   the compiler generate the values automatically, in which it allocates a
   unique integer (0-indexed). Or, you can set the value by giving the name
   followed by = <value> (e.g. AuthorityCodeCSV=1).
@@ -54,12 +54,12 @@ enum SourceDataType {
 };
 
 /*
-  Data from the different sources typically hagve different column headings
+  Data from the different sources typically have different column headings
   for the same value (e.g. some might say "Year" whereas others might say
   "Year_Code"). Here we create another enum for these column headings for
   the parser.
 
-  Each input passed to the Areas object will have to specifiy a
+  Each input passed to the Areas object will have to specify a
   an unordered map to match each of these enum values into a string that
   the source contains.
 */
