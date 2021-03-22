@@ -24,7 +24,7 @@
 InputSource::InputSource(const std::string& source) : source(source) {}
 
 /*
-  The file source.
+  Gets the std::string source.
 
   @return
     A non-modifiable value for the source passed into the constructor.
@@ -35,9 +35,7 @@ std::string InputSource::getSource() const noexcept {
 
 
 /*
-  TODO: InputFile:InputFile(path)
-
-  Constructor for a file-based source.
+  Constructs a file-based source.
 
   @param path
     The complete path for a file to import.
@@ -56,10 +54,8 @@ InputFile::~InputFile() {
 }
 
 /*
-  TODO: InputFile::open()
-
-  Open a file stream to the file path retrievable from getSource()
-  and return a reference to the stream.
+  Opens a file stream to the file path retrievable from getSource()
+  and returns a reference to the stream.
 
   @return
     A standard input stream reference
