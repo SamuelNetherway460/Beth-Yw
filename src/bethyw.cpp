@@ -47,54 +47,58 @@
     Exit code
 */
 int BethYw::run(int argc, char *argv[]) {
-  auto cxxopts = BethYw::cxxoptsSetup();
-  auto args = cxxopts.parse(argc, argv);
-
-  // Print the help usage if requested
-  if (args.count("help")) {
-    std::cerr << cxxopts.help() << std::endl;
-    return 0;
-  }
-
-  // Parse data directory argument
-  std::string dir = args["dir"].as<std::string>() + DIR_SEP;
-
-  // Parse other arguments and import data
-  std::vector<BethYw::InputFileSource> datasetsToImport;
-  StringFilterSet areasFilter;
-  StringFilterSet measuresFilter;
-  YearFilterTuple yearsFilter;
   try {
-    datasetsToImport = BethYw::parseDatasetsArg(args);
-    areasFilter = BethYw::parseAreasArg(args);
-    measuresFilter = BethYw::parseMeasuresArg(args);
-    yearsFilter = BethYw::parseYearsArg(args);
-  } catch (std::invalid_argument invalidArgument) {
-    std::cerr << invalidArgument.what();
-    return 0;//TODO: Possibly change to an error code
-  }
+    auto cxxopts = BethYw::cxxoptsSetup();
+    auto args = cxxopts.parse(argc, argv);
 
-  Areas data = Areas();
-  try {
-    BethYw::loadAreas(data, dir, &areasFilter);
-    BethYw::loadDatasets(data,
-                         dir,
-                         &datasetsToImport,
-                         &areasFilter,
-                         &measuresFilter,
-                         &yearsFilter);
-  } catch (std::runtime_error runtimeError) {
-    std::cerr << "Error importing dataset:" << std::endl;
-    std::cerr << runtimeError.what() << std::endl;
-    return 0;//TODO: Possibly change to an error code
-  }
+    // Print the help usage if requested
+    if (args.count("help")) {
+      std::cerr << cxxopts.help() << std::endl;
+      return 0;
+    }
 
-  if (args.count("json")) {
-    // The output as JSON
-    std::cout << data.toJSON() << std::endl;
-  } else {
-    // The output as tables
-    std::cout << data;
+    // Parse data directory argument
+    std::string dir = args["dir"].as<std::string>() + DIR_SEP;
+
+    // Parse other arguments and import data
+    std::vector<BethYw::InputFileSource> datasetsToImport;
+    StringFilterSet areasFilter;
+    StringFilterSet measuresFilter;
+    YearFilterTuple yearsFilter;
+    try {
+      datasetsToImport = BethYw::parseDatasetsArg(args);
+      areasFilter = BethYw::parseAreasArg(args);
+      measuresFilter = BethYw::parseMeasuresArg(args);
+      yearsFilter = BethYw::parseYearsArg(args);
+    } catch (std::invalid_argument invalidArgument) {
+      std::cerr << invalidArgument.what();
+      return 0;//TODO: Possibly change to an error code
+    }
+
+    Areas data = Areas();
+    try {
+      BethYw::loadAreas(data, dir, &areasFilter);
+      BethYw::loadDatasets(data,
+                           dir,
+                           &datasetsToImport,
+                           &areasFilter,
+                           &measuresFilter,
+                           &yearsFilter);
+    } catch (std::runtime_error runtimeError) {
+      std::cerr << "Error importing dataset:" << std::endl;
+      std::cerr << runtimeError.what() << std::endl;
+      return 0;//TODO: Possibly change to an error code
+    }
+
+    if (args.count("json")) {
+      // The output as JSON
+      std::cout << data.toJSON() << std::endl;
+    } else {
+      // The output as tables
+      std::cout << data;
+    }
+  } catch (cxxopts::option_not_exists_exception optionNotExistsException) {
+    std::cerr << "Invalid program argument:" << std::endl << optionNotExistsException.what();
   }
 
   return 0;
