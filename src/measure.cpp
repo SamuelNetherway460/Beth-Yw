@@ -8,19 +8,15 @@
 
   AUTHOR: 955794
 
-  TODO: Documentation
   This file contains the implementation of the Measure class. Measure is a
   very simple class that needs to contain a few member variables for its name,
-  codename, and a Standard Library container for data. The data you need to 
-  store is values, organised by year. I'd recommend storing the values as 
-  doubles.
+  codename, and a map for data. The data stored is organised by year.
 */
 
 #include <stdexcept>
 #include <string>
 #include <regex>
 #include <iomanip>
-#include <iostream>
 
 #include "measure.h"
 #include "lib_json.hpp"
@@ -46,16 +42,16 @@ Measure::Measure() {}
     Measure measure(codename, label);
 */
 Measure::Measure(std::string codename, const std::string &label) : label(label) {
-  transform(codename.begin(), codename.end(), codename.begin(), ::tolower); //TODO Check this works
+  transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
   this->codename = codename;
 }
 
 
 /*
-  Retrieve the code for the Measure.
+  Retrieve the code for this Measure.
 
   @return
-    The codename for the Measure
+    The codename for the Measure.
 
   @example
     std::string codename = "Pop";
@@ -72,7 +68,7 @@ std::string Measure::getCodename() const noexcept {
 
 
 /*
-  Retrieve the human-friendly label for the Measure.
+  Retrieve the human-friendly label for this Measure.
 
   @return
     The human-friendly label for the Measure
@@ -103,13 +99,13 @@ std::string Measure::getLabel() const noexcept {
     ...
     measure.setLabel("New Population");
 */
-void Measure::setLabel(const std::string label) {
+void Measure::setLabel(const std::string label) noexcept {
   this->label = label;
 }
 
 
 /*
-  Retrieve a Measure's value for a given year.
+  Retrieves a Measure's value for a given year.
 
   @param key
     The year to find the value for
@@ -136,16 +132,15 @@ void Measure::setLabel(const std::string label) {
 double Measure::getValue(const int key) const {
   std::regex yearExpr("[1-9][0-9][0-9][0-9]");
   if (data.find(key) != data.end() && std::regex_match(std::to_string(key), yearExpr)) {
-    return data.find(key)->second; // TODO: Check that this second thing works correctly
+    return data.find(key)->second;
   } else {
-
     throw std::out_of_range("No value found for year " + std::to_string(key));
   }
 }
 
 
 /*
-  Adds a particular year's value to the Measure object. If a value already
+  Adds a particular year's value to this measure object. If a value already
   exists for the year, it is replaced.
 
   @param key
@@ -164,7 +159,7 @@ double Measure::getValue(const int key) const {
 
     measure.setValue(1999, 12345678.9);
 */
-void Measure::setValue(const int key, const double value) {
+void Measure::setValue(const int key, const double value) noexcept {
   data[key] = value;
 }
 
@@ -202,13 +197,9 @@ int Measure::size() const noexcept {
     auto diff = measure.getDifference(); // returns 1.0
 */
 double Measure::getDifference() const noexcept {
-  try {
-    if (data.size() > 1) {
-      return (--data.end())->second - data.begin()->second;
-    } else {
-      return 0;
-    }
-  } catch (std::exception) {
+  if (data.size() > 1) {
+    return (--data.end())->second - data.begin()->second;
+  } else {
     return 0;
   }
 }
@@ -229,13 +220,9 @@ double Measure::getDifference() const noexcept {
     auto diff = measure.getDifferenceAsPercentage();
 */
 double Measure::getDifferenceAsPercentage() const noexcept {
-  try {
-    if (data.size() > 1) {
-      return (getDifference() / data.begin()->second) * 100;
-    } else {
-      return 0;
-    }
-  } catch (std::exception) {
+  if (data.size() > 1) {
+    return (getDifference() / data.begin()->second) * 100;
+  } else {
     return 0;
   }
 }
@@ -263,10 +250,9 @@ double Measure::getAverage() const noexcept {
 
 
 /*
-  TODO: Check formatting of output
-  Adds measure's imported data to a os stream. Years are added in
+  Adds a measure's imported data to a os stream. Years are added in
   chronological order on a single line with the average value across the
-  years, the difference between the first and last year, and the
+  years, the difference between the first and last year and the
   percentage difference between the first and last year at the end.
 
   If there is no data in this measure, the name and code is printed with
@@ -297,25 +283,31 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
   if (measure.data.empty()) {
     os << "<no data>";
   } else {
+    // Adding years
     for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
       int width = std::to_string(iterator->second).size();
       os << std::setw(width) << std::right << std::to_string(iterator->first) << " ";
     }
 
+    // Formatting and positioning average title
     int averageWidth = std::to_string(measure.getAverage()).size();
     os << std::setw(averageWidth) << std::right << "Average";
 
+    // Formatting and positioning difference title
     int differenceWidth = std::to_string(measure.getDifference()).size() + 1;
     os << std::setw(differenceWidth) << std::right << " Diff.";
 
+    // Formatting and positioning percentage difference title
     int differencePercentWidth = std::to_string(measure.getDifferenceAsPercentage()).size() + 1;
     if (differencePercentWidth < 7) differencePercentWidth = 8;
     os << std::setw(differencePercentWidth) << std::right << "% Diff." << std::endl;
 
+    // Adding values beneath the appropriate years
     for (auto iterator = measure.data.begin(); iterator != measure.data.end(); iterator++) {
       os << std::to_string(iterator->second) << " ";
     }
 
+    // Adding calculated values beneath the appropriate titles
     os << std::to_string(measure.getAverage()) << " ";
     os << std::to_string(measure.getDifference()) << " ";
     os << std::to_string(measure.getDifferenceAsPercentage());
@@ -326,19 +318,18 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
 
 
 /*
-  TODO: Check logic
   Compares two Measure objects. Two Measure objects
   are only equal when their codename, label and data are all equal.
 
   @param lhs
-    A Measure object
+    A Measure object.
 
   @param lhs
-    A second Measure object
+    A second Measure object.
 
   @return
     true if both Measure objects have the same codename, label and data; false
-    otherwise
+    otherwise.
 */
 bool operator==(const Measure &lhs, const Measure &rhs) {
   if (lhs.codename == rhs.codename) {
@@ -353,7 +344,6 @@ bool operator==(const Measure &lhs, const Measure &rhs) {
 
 
 /*
-  TODO: Check
   Combines two Measure objects.
 
   @param measure
@@ -372,16 +362,10 @@ Measure& Measure::overwrite(Measure &measure) {
 
 
 /*
-  TODO: Documentation
- */
-/*
-nlohmann::json Measure::getJsonMeasure() const {
-  nlohmann::json j;
-  nlohmann::json j_map(data);
-  std::cout << j_map;
-  j[codename] = j_map;
-  return j;
-}
+  Generates a JSON object containing all data for this measure.
+
+  @return
+    A JSON object containing all years and corresponding values for this measure.
  */
 nlohmann::json Measure::getJsonMeasure() const {
   nlohmann::json j;

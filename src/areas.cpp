@@ -715,7 +715,6 @@ void Areas::populate(
 
 
 /*
-  TODO: Areas::toJSON()
   TODO: Update example below to look like JSON output example in the coursework brief
 
   Convert this Areas object, and all its containing Area instances, and

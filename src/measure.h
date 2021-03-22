@@ -39,9 +39,9 @@ public:
 
   std::string getCodename() const noexcept;
   std::string getLabel() const noexcept;
-  void setLabel(const std::string label);
+  void setLabel(const std::string label) noexcept;
   double getValue(const int key) const;
-  void setValue(const int key, const double value);
+  void setValue(const int key, const double value) noexcept;
   int size() const noexcept;
   double getDifference() const noexcept;
   double getDifferenceAsPercentage() const noexcept;
