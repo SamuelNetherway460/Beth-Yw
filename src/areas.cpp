@@ -41,7 +41,20 @@ Areas::Areas() {}
 
 
 /*
-  TODO: Documentation
+  Separates a line into individual tokens separated by the specified delimiter.
+
+  @param ls
+    A std::istream for the line.
+
+  @param line
+    The std::string line to be separated into tokens.
+
+  @param delimiter
+    The character used to know where to separate the line into tokens.
+
+  @return
+    A std::vector containing the std::string tokens.
+
  */
 std::vector<std::string> Areas::getLineTokens(std::istream &ls,
                                               std::string line,
@@ -50,7 +63,7 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
   std::vector<std::string> tokens;
   std::stringstream lineStream(line);
 
-  // Split each line into individual tokens separated by commas
+  // Split each line into individual tokens separated by the delimiter
   while (std::getline(lineStream, token, delimiter)) {
     tokens.push_back(token);
   }
@@ -60,14 +73,12 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
 
 
 /*
-  TODO: Documentation
+  Adds a particular Area to the Areas object.
 
-  Add a particular Area to the Areas object.
-
-  If an Area already exists with the same local authority code, overwrite all
-  data contained within the existing Area with those in the new
-  Area (i.e. they should be combined, but the new Area's data should take
-  precedence, e.g. replace a name with the same language identifier).
+  If an Area already exists with the same local authority code, all
+  data contained within the existing Area is overwritten with those in
+  the new Area (i.e. they are combined, but the new Area's data takes
+  precedence).
 
   @param key
     The local authority code of the Area
@@ -758,97 +769,9 @@ std::string Areas::toJSON() const {
 
 
 /*
-  TODO: Documentation & check output
-
-  Overload the << operator to print all of the imported data.
-
-  Output should be formatted like the following to pass the tests. Areas should
-  be printed, ordered alphabetically by their local authority code. Measures 
-  within each Area should be ordered alphabetically by their codename.
-
-  See the coursework specification for more information, although for reference
-  here is a quick example of how output should be formatted:
-
-    <English name of area 1> / <Welsh name of area 1> (<authority code 1>)
-    <Measure 1 name> (<Measure 1 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 1> <diff 1> <diffp 1>
-
-    <Measure 2 name> (<Measure 2 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 2> <diff 2> <diffp 2>
-
-    <Measure 3 name> (<Measure 3 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 3> <diff 3> <diffp 3>
-
-    ...
-
-    <Measure x name> (<Measure x code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean x> <diff x> <diffp x>
-
-
-    <English name of area 2> / <Welsh name of area 2> (<authority code 2>)
-    <Measure 1 name> (<Measure 1 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 1> <diff 1> <diffp 1>
-
-    <Measure 2 name> (<Measure 2 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 2> <diff 2> <diffp 2>
-
-    <Measure 3 name> (<Measure 3 code>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean 3> <diff 3> <diffp 3>
-
-    ...
-
-    <Measure x name> (<Measure x code>)
-     <year 1>  <year 2> <year 3> ...  <year n>
-    <value 1>  <year 2> <year 3> ... <value n> <mean x> <diff x> <diffp x>
-
-    ...
-
-    <English name of area y> / <Welsh name of area y> (<authority code y>)
-    <Measure 1 name> (<Measure 1 codename>)
-     <year 1>  <year 2> <year 3> ...  <year n>
-    <value 1>  <year 2> <year 3> ... <value n> <mean 1> <diff 1> <diffp 1>
-
-    <Measure 2 name> (<Measure 2 codename>)
-     <year 1>  <year 2> <year 3> ...  <year n>
-    <value 1>  <year 2> <year 3> ... <value n> <mean 2> <diff 2> <diffp 2>
-
-    <Measure 3 name> (<Measure 3 codename>)
-     <year 1>  <year 2> <year 3> ...  <year n>
-    <value 1>  <year 2> <year 3> ... <value n> <mean 3> <diff 3> <diffp 3>
-
-    ...
-
-    <Measure x name> (<Measure x codename>)
-     <year 1>  <year 2> <year 3> ...  <year n>  Average    Diff.   % Diff.
-    <value 1>  <year 2> <year 3> ... <value n> <mean x> <diff x> <diffp x>
-
-  With real data, your output should start like this for the command
-  bethyw --dir <dir> -p popden -y 1991-1993 (truncated for readability):
-
-    Isle of Anglesey / Ynys Môn (W06000001)
-    Land area (area) 
-          1991       1992       1993    Average    Diff.  % Diff. 
-    711.680100 711.680100 711.680100 711.680100 0.000000 0.000000 
-
-    Population density (dens) 
-         1991      1992      1993   Average    Diff.  % Diff. 
-    97.126504 97.486216 98.038430 97.550383 0.911926 0.938905 
-
-    Population (pop) 
-            1991         1992         1993      Average      Diff.  % Diff. 
-    69123.000000 69379.000000 69772.000000 69424.666667 649.000000 0.938906 
-
-
-    Gwynedd / Gwynedd (W06000002)
-    Land area (Area)
-    ...
+  Adds all imported area data to a os stream. Area objects are ordered alphabetically by
+  their local authority code. Measure objects within each Area are ordered alphabetically
+  by their codename.
 
   @param os
     The output stream to write to
