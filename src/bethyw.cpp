@@ -13,13 +13,6 @@
   don't need a class here. Classes are for modelling data, and so forth, but
   here the code is pretty much a sequential block of code (BethYw::run())
   calling a series of helper functions.
-
-  TODO: This file contains numerous functions you must implement. Each one
-  is denoted with a TODO in the block comment. Note that some code has been
-  provided in some functions to get you started, but you should read through
-  this code and make sure it is safe and complete. You may need to remove or
-  modify the provided code to get your program to work fully. You may implement
-  additional functions not specified.
 */
 
 #include <iostream>
@@ -40,6 +33,7 @@
   Run Beth Yw?, parsing the command line arguments, importing the data,
   and outputting the requested data to the standard output/error.
 
+  TODO: Read documentation
   Hint: cxxopts.parse() throws exceptions you'll need to catch. Read the cxxopts
   documentation for more information.
 
@@ -108,8 +102,7 @@ int BethYw::run(int argc, char *argv[]) {
 
 
 /*
-  This function sets up and returns a valid cxxopts object. You do not need to
-  modify this function.
+  Sets up and returns a valid cxxopts object.
 
   @return
      A constructed cxxopts object
@@ -161,18 +154,12 @@ cxxopts::Options BethYw::cxxoptsSetup() {
 
 
 /*
-  Parse the datasets argument passed into the command line. 
+  Parses the datasets argument passed into the command line.
 
   The datasets argument is optional, and if it is not included, all datasets 
-  should be imported. If it is included, it should be a comma-separated list of 
+  are imported. If it is included, it should be a comma-separated list of
   datasets to import. If the argument contains the value "all"
-  (case-insensitive), all datasets should be imported.
-
-  This function validates the passed in dataset names against the codes in
-  DATASETS array in the InputFiles namespace in datasets.h. If an invalid code
-  is entered, throw a std::invalid_argument with the message:
-  No dataset matches key: <input code>
-  where <input name> is the name supplied by the user through the argument.
+  (case-insensitive), all datasets are imported.
 
   @param args
     Parsed program arguments
@@ -193,22 +180,19 @@ cxxopts::Options BethYw::cxxoptsSetup() {
 std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
     cxxopts::ParseResult& args) {
 
-  // Retrieve all valid datasets, see datasets.h
+  // Retrieve all valid datasets
   size_t numDatasets = InputFiles::NUM_DATASETS;
   auto &allDatasets = InputFiles::DATASETS;
 
-  // Create the container for the return type
   std::vector<InputFileSource> datasetsToImport;
 
-  // You can get the std::vector of arguments from cxxopts like this.
-  // Note that this function will throw an exception if datasets is not set as 
-  // an argument. Check the documentation! Read it and understand it.
+  // Getting dataset command line arguments
   std::vector<std::string> inputDatasets;
   try {
       inputDatasets = args["datasets"].as<std::vector<std::string>>();
   } catch (const std::domain_error) {
       for(unsigned int i = 0; i < numDatasets; i++)
-          datasetsToImport.push_back(allDatasets[i]);//TODO: Look into
+          datasetsToImport.push_back(allDatasets[i]);
       return datasetsToImport;
   } catch (const std::bad_cast) {
       for(unsigned int i = 0; i < numDatasets; i++)
@@ -220,9 +204,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
       transform(inputDatasets[i].begin(), inputDatasets[i].end(), inputDatasets[i].begin(), ::tolower);
   }
 
-  // You now need to compare the strings in this vector to the keys in
-  // allDatasets above. Populate datasetsToImport with the values
-  // from allDatasets above and then return a vector
+  // Validating command line argument datasets and building a vector of datasets to import
   for (unsigned int x = 0; x < inputDatasets.size(); x++) {
       if (inputDatasets[x] == "all") {
           datasetsToImport.clear();
@@ -230,6 +212,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
               datasetsToImport.push_back(allDatasets[i]);
           return datasetsToImport;
       }
+
       bool isInvalidArg = true;
       for (unsigned int y = 0; y < numDatasets; y++) {
           if (inputDatasets[x] == allDatasets[y].CODE) {
@@ -237,6 +220,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
               isInvalidArg = false;
           }
       }
+
       if (isInvalidArg) throw std::invalid_argument("No dataset matches key: " + inputDatasets[x]);
   }
 
@@ -245,14 +229,9 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
 
 
 /*
-  Parses the areas command line argument, which is optional. If it doesn't 
+  Parses the optional areas command line argument. If it doesn't
   exist or exists and contains "all" as value (any case), all areas should be
   imported, i.e., the filter should be an empty set.
-
-  Unlike datasets we can't check the validity of the values as it depends
-  on each individual file imported (which hasn't happened until runtime).
-  Therefore, we simply fetch the list of areas and later pass it to the
-  Areas::populate() function.
 
   The filtering of inputs should be case insensitive.
 
@@ -286,7 +265,6 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
       transform(temp[i].begin(), temp[i].end(), temp[i].begin(), ::toupper);
   }
 
-  std::regex str_expr("W[0-9]+");
   for (unsigned int i = 0; i < temp.size(); i++) {
       if (temp[i] == "ALL") {
           areas.clear();
@@ -355,15 +333,9 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
 
 
 /*
-  Parse the years command line argument. Years is either a four digit year 
+  Parses the years command line argument. Years is either a four digit year
   value, or two four digit year values separated by a hyphen (i.e. either 
   YYYY or YYYY-ZZZZ).
-
-  This should be parsed as two integers and inserted into a std::tuple,
-  representing the start and end year (inclusive). If one or both values are 0,
-  then there is no filter to be applied. If no year argument is given return
-  <0,0> (i.e. to import all years). You will have to search
-  the web for how to construct std::tuple objects! 
 
   @param args
     Parsed program arguments
@@ -393,7 +365,6 @@ std::tuple<int, int> BethYw::parseYearsArg(
     std::regex singleYearExpr("[0-9][0-9][0-9][0-9]");
     std::regex dualYearExpr("[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
 
-
     if (std::regex_match(temp, singleAllExpr)) {
         return years;
     } else if (std::regex_match(temp, dualAllExpr)) {
@@ -409,15 +380,12 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
 
 /*
-  TODO: Documentation & check exception handling
-
-  Load the areas.csv file from the directory `dir`. Parse the file and
+  Loads the areas.csv file from the directory `dir`. Parses the file and
   create the appropriate Area objects inside the Areas object passed to
   the function in the `areas` argument.
 
   @param areas
-    An Areas instance that should be modified (i.e. the populate() function
-    in the instance should be called)
+    The areas instance which the areas will be added to.
 
   @param dir
     Directory where the areas.csv file is
@@ -434,48 +402,44 @@ std::tuple<int, int> BethYw::parseYearsArg(
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
 void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
-  InputFile input(dir + InputFiles::AREAS.FILE);
-  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO:* Remove after testing
+  //InputFile input(dir + InputFiles::AREAS.FILE);
+  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO:* Remove after testing
   auto cols = InputFiles::AREAS.COLS;
-  areas.populate(input.open(),
-                SourceDataType::AuthorityCodeCSV,
-                cols,
-                areasFilter,
-                nullptr,
-                nullptr);
+  try {
+    areas.populate(input.open(),
+                   SourceDataType::AuthorityCodeCSV,
+                   cols,
+                   areasFilter,
+                   nullptr,
+                   nullptr);
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << out_of_range.what();
+  }
 }
 
 
 /*
-  TODO: Documentation
-
-  Import datasets from `datasetsToImport` as files in `dir` into areas, and
-  filtering them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
-
-  The actual filtering will be done by the Areas::populate() function, thus 
-  you need to merely pass pointers on to these filters.
-
-  This function should promise not to throw an exception. If there is an
-  error/exception thrown in any function called by thus function, catch it and
-  output 'Error importing dataset:', followed by a new line and then the output
-  of the what() function on the exception.
+  Imports datasets from `datasetsToImport` as files in `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
 
   @param areas
-    An Areas instance that should be modified (i.e. datasets loaded into it)
+    The areas instance which the areas and measures will be added to.
 
   @param dir
-    The directory where the datasets are
+    The directory where the datasets are.
 
   @param datasetsToImport
-    A vector of InputFileSource objects
+    A vector of InputFileSource objects.
 
   @param areasFilter
     An unordered set of areas (as authority codes encoded in std::strings)
-    to filter, or empty to import all areas
+    to filter, or empty to import all areas.
 
   @param measuresFilter
     An unordered set of measures (as measure codes encoded in std::strings)
-    to filter, or empty to import all measures
+    to filter, or empty to import all measures.
 
   @param yearsFilter
     An two-pair tuple of unsigned ints corresponding to the range of years 
@@ -502,6 +466,7 @@ void BethYw::loadDatasets(Areas &areas,
                           const StringFilterSet * const measuresFilter,
                           const YearFilterTuple * const yearsFilter) noexcept {
 
+  // Identify the dataset being imported and call the correct sub function
   for (auto iterator = datasetsToImport->begin(); iterator != datasetsToImport->end(); iterator++) {
     if (iterator->NAME == InputFiles::BIZ.NAME) {
       loadBiz(areas, dir, areasFilter, measuresFilter, yearsFilter);
@@ -523,7 +488,29 @@ void BethYw::loadDatasets(Areas &areas,
 
 
 /*
-  //TODO: Documentation
+  Imports the Active Businesses dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Active Businesses dataset will be added to.
+
+  @param dir
+    The directory where the Active Businesses dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadBiz(Areas &areas,
                      std::string dir,
@@ -531,18 +518,42 @@ void BethYw::loadBiz(Areas &areas,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile bizInput(dir + InputFiles::BIZ.FILE);
-    //InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");//TODO:* Remove once testing is done
+    //InputFile bizInput(dir + InputFiles::BIZ.FILE);
+    InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");//TODO:* Remove once testing is done
     auto biz = InputFiles::BIZ.COLS;
     areas.populateFromWelshStatsJSON(bizInput.open(), biz, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::BIZ.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Air Quality Indicators dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Air Quality Indicators dataset will be added to.
+
+  @param dir
+    The directory where the Air Quality Indicators dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadAqi(Areas &areas,
                      std::string dir,
@@ -550,18 +561,42 @@ void BethYw::loadAqi(Areas &areas,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile aqiInput(dir + InputFiles::AQI.FILE);
-    //InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");//TODO:* Remove once testing is done
+    //InputFile aqiInput(dir + InputFiles::AQI.FILE);
+    InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");//TODO:* Remove once testing is done
     auto aqi = InputFiles::AQI.COLS;
     areas.populateFromWelshStatsJSON(aqiInput.open(), aqi, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::AQI.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::AQI.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::AQI.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Population density dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Population density dataset will be added to.
+
+  @param dir
+    The directory where the Population density dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadPopden(Areas &areas,
                         std::string dir,
@@ -569,18 +604,42 @@ void BethYw::loadPopden(Areas &areas,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile popdenInput(dir + InputFiles::POPDEN.FILE);
-    //InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");//TODO:* Remove once testing is done
+    //InputFile popdenInput(dir + InputFiles::POPDEN.FILE);
+    InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");//TODO:* Remove once testing is done
     auto popden = InputFiles::POPDEN.COLS;
     areas.populateFromWelshStatsJSON(popdenInput.open(), popden, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::POPDEN.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::POPDEN.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::POPDEN.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Rail passenger journeys dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Rail passenger journeys dataset will be added to.
+
+  @param dir
+    The directory where the Rail passenger journeys dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadTrains(Areas &areas,
                         std::string dir,
@@ -588,18 +647,42 @@ void BethYw::loadTrains(Areas &areas,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile trainsInput(dir + InputFiles::TRAINS.FILE);
-    //InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");//TODO:* Remove once testing is done
+    //InputFile trainsInput(dir + InputFiles::TRAINS.FILE);
+    InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");//TODO:* Remove once testing is done
     auto trains = InputFiles::TRAINS.COLS;
     areas.populateFromWelshStatsJSON(trainsInput.open(), trains, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::TRAINS.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::TRAINS.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::TRAINS.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Complete Population density dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Complete Population density dataset will be added to.
+
+  @param dir
+    The directory where the Complete Population density dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadCompletePopden(Areas &areas,
                                 std::string dir,
@@ -607,18 +690,42 @@ void BethYw::loadCompletePopden(Areas &areas,
                                 const StringFilterSet * const measuresFilter,
                                 const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile completePopdenInput(dir + InputFiles::COMPLETE_POPDEN.FILE);
-    //InputFile completePopdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-popden.csv");//TODO:* Remove once testing is done
+    //InputFile completePopdenInput(dir + InputFiles::COMPLETE_POPDEN.FILE);
+    InputFile completePopdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-popden.csv");//TODO:* Remove once testing is done
     auto completePopden = InputFiles::COMPLETE_POPDEN.COLS;
     areas.populateFromAuthorityByYearCSV(completePopdenInput.open(), completePopden, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Complete Population dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Complete Population density dataset will be added to.
+
+  @param dir
+    The directory where the Complete Population density dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadCompletePop(Areas &areas,
                              std::string dir,
@@ -626,18 +733,42 @@ void BethYw::loadCompletePop(Areas &areas,
                              const StringFilterSet * const measuresFilter,
                              const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile completePopInput(dir + InputFiles::COMPLETE_POP.FILE);
-    //InputFile completePopInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-pop.csv");//TODO:* Remove once testing is done
+    //InputFile completePopInput(dir + InputFiles::COMPLETE_POP.FILE);
+    InputFile completePopInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-pop.csv");//TODO:* Remove once testing is done
     auto completePop = InputFiles::COMPLETE_POP.COLS;
     areas.populateFromAuthorityByYearCSV(completePopInput.open(), completePop, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::COMPLETE_POP.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POP.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POP.FILE << std::endl << out_of_range.what();
   }
 }
 
 
 /*
-  //TODO: Documentation
+  Imports the Complete Land area dataset in the directory `dir` into areas, and
+  filters them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
+
+  @param areas
+    The areas instance which the Complete Land area density dataset will be added to.
+
+  @param dir
+    The directory where the Complete Land area density dataset is.
+
+  @param areasFilter
+    An unordered set of areas (as authority codes encoded in std::strings)
+    to filter, or empty to import all areas.
+
+  @param measuresFilter
+    An unordered set of measures (as measure codes encoded in std::strings)
+    to filter, or empty to import all measures.
+
+  @param yearsFilter
+    An two-pair tuple of unsigned ints corresponding to the range of years
+    to import, which should both be 0 to import all years.
+
+  @return
+    void
  */
 void BethYw::loadCompleteArea(Areas &areas,
                               std::string dir,
@@ -645,11 +776,13 @@ void BethYw::loadCompleteArea(Areas &areas,
                               const StringFilterSet * const measuresFilter,
                               const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    InputFile completeAreaInput(dir + InputFiles::COMPLETE_AREA.FILE);
-    //InputFile completeAreaInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-area.csv");//TODO:* Remove once testing is done
+    //InputFile completeAreaInput(dir + InputFiles::COMPLETE_AREA.FILE);
+    InputFile completeAreaInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-area.csv");//TODO:* Remove once testing is done
     auto completeArea = InputFiles::COMPLETE_AREA.COLS;
     areas.populateFromAuthorityByYearCSV(completeAreaInput.open(), completeArea, areasFilter, measuresFilter, yearsFilter);
-  } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
-    std::cout << "Error importing dataset: " << InputFiles::COMPLETE_AREA.FILE << std::endl << e.what();
+  } catch (std::runtime_error runtimeError) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_AREA.FILE << std::endl << runtimeError.what();
+  } catch (std::out_of_range out_of_range) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_AREA.FILE << std::endl << out_of_range.what();
   }
 }
