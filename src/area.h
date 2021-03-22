@@ -36,16 +36,16 @@ public:
   Area();
   Area(const std::string& localAuthorityCode);
 
-  std::string getLocalAuthorityCode() const;
+  std::string getLocalAuthorityCode() const noexcept;
   std::string getName(const std::string lang) const;
   void setName(std::string lang, const std::string name);
   Measure& getMeasure(const std::string key);
-  void setMeasure(std::string codename, const Measure measure);
-  std::map<std::string, Measure> getMeasures() const;
+  void setMeasure(std::string codename, const Measure measure) noexcept;
+  std::map<std::string, Measure> getMeasures() const noexcept;
   int size() const noexcept;
   Area& overwrite(Area &area);
-  nlohmann::json getJsonMeasures() const;
-  nlohmann::json getJsonNames() const;
+  nlohmann::json getJsonMeasures() const noexcept;
+  nlohmann::json getJsonNames() const noexcept;
 
   friend std::ostream& operator<<(std::ostream &os, const Area &area);
   friend bool operator==(const Area &lhs, const Area &rhs);

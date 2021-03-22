@@ -217,18 +217,25 @@ void Areas::populateFromAuthorityCodeCSV(
         tokens = getLineTokens(ls, line, ',');
         if (areasFilter == nullptr) {
           Area area(tokens[0]);
-          area.setName("eng", tokens[1]);
-          area.setName("cym", tokens[2]);
-          areas[tokens[0]] = area;
+          try {
+            area.setName("eng", tokens[1]);
+            area.setName("cym", tokens[2]);
+            areas[tokens[0]] = area;
+          } catch (std::invalid_argument invalidArgument) {
+            std::cerr << invalidArgument.what();
+          }
         } else if (areasFilter->find(tokens[0]) != areasFilter->end() ||
             areasFilter->size() == 0) {
           Area area(tokens[0]);
-          area.setName("eng", tokens[1]);
-          area.setName("cym", tokens[2]);
-          areas[tokens[0]] = area;
+          try {
+            area.setName("eng", tokens[1]);
+            area.setName("cym", tokens[2]);
+            areas[tokens[0]] = area;
+          } catch (std::invalid_argument invalidArgument) {
+            std::cerr << invalidArgument.what();
+          }
         }
       }
-
     } else {
       throw std::out_of_range("Incorrect column names");
     }
@@ -393,7 +400,11 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     }
 
     Area area(localAuthorityCode);
-    area.setName("eng", authNameEnglish);
+    try {
+      area.setName("eng", authNameEnglish);
+    } catch (std::invalid_argument invalidArgument) {
+      std::cerr << invalidArgument.what();
+    }
     Measure measure(measureCode, measureName);
 
     // Apply years filtering

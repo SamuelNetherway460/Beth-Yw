@@ -8,22 +8,19 @@
 
   AUTHOR: 955794
 
-  TODO: Documentation
   This file contains the implementation for the Area class. Area is a relatively
-  simple class that contains a local authority code, a container of names in
-  different languages (perhaps stored in an associative container?) and a series
-  of Measure objects (also in some form of container).
+  simple class that contains a local authority code, a map of names in
+  different languages and a series of Measure objects.
 */
 
 #include <stdexcept>
 #include <regex>
 #include <iomanip>
-#include <iostream>
 
 #include "area.h"
 
 /*
-  TODO: Documentation
+  Basic constructor for an area object.
  */
 Area::Area() {}
 
@@ -49,7 +46,7 @@ Area::Area(const std::string& localAuthorityCode) : localAuthorityCode(localAuth
     ...
     auto authCode = area.getLocalAuthorityCode();
 */
-std::string Area::getLocalAuthorityCode() const {
+std::string Area::getLocalAuthorityCode() const noexcept {
   return localAuthorityCode;
 }
 
@@ -58,14 +55,14 @@ std::string Area::getLocalAuthorityCode() const {
   Gets the name for the Area in a specified language.
 
   @param lang
-    A three-letter language code in ISO 639-3 format, e.g. cym or eng
+    A three-letter language code in ISO 639-3 format, e.g. cym or eng.
 
   @return
-    The name for the area in the given language
+    The name for the area in the given language.
 
   @throws
     std::out_of_range if lang does not correspond to a language of a name stored
-    inside the Area instance
+    inside the Area instance.
 
   @example
     Area area("W06000023");
@@ -89,13 +86,13 @@ std::string Area::getName(const std::string lang) const {
 
   @param lang
     A three-letter (alphabetical) language code in ISO 639-3 format,
-    e.g. cym or eng, which should be converted to lowercase
+    e.g. cym or eng, which will be converted to lowercase.
 
   @param name
-    The name of the Area in `lang`
+    The name of the Area in `lang`.
 
   @throws
-    std::invalid_argument if lang is not a three letter alphabetic code
+    std::invalid_argument if lang is not a three letter alphabetic code.
 
   @example
     Area area("W06000023");
@@ -172,7 +169,7 @@ Measure& Area::getMeasure(const std::string key) {
 
     area.setMeasure(code, measure);
 */
-void Area::setMeasure(std::string codename, Measure measure) {
+void Area::setMeasure(std::string codename, Measure measure) noexcept {
   transform(codename.begin(), codename.end(), codename.begin(), ::tolower);
   if (measures.find(codename) != measures.end()) {
     measures.find(codename)->second.overwrite(measure);
@@ -183,9 +180,12 @@ void Area::setMeasure(std::string codename, Measure measure) {
 
 
 /*
-  TODO: Documentation
+  Gets all measures for this area.
+
+  @return
+    A map of measures in the format <codename,Measure>
  */
-std::map<std::string, Measure> Area::getMeasures() const {
+std::map<std::string, Measure> Area::getMeasures() const noexcept {
   return measures;
 }
 
@@ -194,7 +194,7 @@ std::map<std::string, Measure> Area::getMeasures() const {
   Retrieves the number of Measures contained for this Area.
 
   @return
-    The size of the Area (i.e., the number of Measures)
+    The size of the Area (i.e., the number of Measures).
 
   @example
     Area area("W06000023");
@@ -215,9 +215,7 @@ int Area::size() const noexcept {
 
 
 /*
-  TODO: Documentation & implement rest of logic
-
-  Overload the stream output operator as a free/global function.
+  Overloads the stream output operator as a free/global function.
 
   Outputs the name of the Area in English and Welsh, followed by the local
   authority code.
@@ -225,19 +223,17 @@ int Area::size() const noexcept {
   If the Area only has only one name, only this is output. If the area has no names,
   "Unnamed" is outputted.
 
-  Measures should be ordered by their Measure codename. If there are no measures
+  Measures are ordered by their codename. If there are no measures
   output the line "<no measures>" after you have output the area names.
 
-  See the coursework specification for more examples.
-
   @param os
-    The output stream to write to
+    The output stream to write to.
 
   @param area
-    Area to write to the output stream
+    Area to write to the output stream.
 
   @return
-    Reference to the output stream
+    Reference to the output stream.
 
   @example
     Area area("W06000023");
@@ -262,6 +258,7 @@ std::ostream& operator<<(std::ostream &os, const Area &area) {
 
   os << " (" << area.localAuthorityCode << ")" << std::endl;
 
+  // Add all formatted measures
   if (area.measures.empty()) {
     os << "<no measures>" << std::endl << std::endl;
   } else {
@@ -279,10 +276,10 @@ std::ostream& operator<<(std::ostream &os, const Area &area) {
   their local authority code, all names, and all data are equal.
 
   @param lhs
-    An Area object
+    An Area object.
 
   @param lhs
-    A second Area object
+    A second Area object.
 
   @return
     true if both Area instances have the same local authority code, names
@@ -311,14 +308,15 @@ bool operator==(const Area &lhs, const Area &rhs) {
     The Area object whose values taken from when combining.
 
   @return area
-    The Area object which will contain the combined, most recent values.
-
+    The Area object which will contain the combined, most up to date values.
  */
 Area& Area::overwrite(Area &area) {
+  // Overwrite names
   for (auto iterator = area.names.begin(); iterator != area.names.end(); iterator++) {
     this->setName(iterator->first, iterator->second);
   }
 
+  // Overwrite measures
   for (auto iterator = area.measures.begin(); iterator != area.measures.end(); iterator++) {
     this->setMeasure(iterator->first, iterator->second);
   }
@@ -328,9 +326,12 @@ Area& Area::overwrite(Area &area) {
 
 
 /*
-  TODO: Documentation
+  Generates a JSON object containing all measures for this area.
+
+  @return
+    A JSON object containing all measure JSON objects.
  */
-nlohmann::json Area::getJsonMeasures() const {
+nlohmann::json Area::getJsonMeasures() const noexcept {
   nlohmann::json j;
   for (auto iterator = measures.begin(); iterator != measures.end(); iterator++) {
     j[iterator->first] = iterator->second.getJsonMeasure();
@@ -340,9 +341,12 @@ nlohmann::json Area::getJsonMeasures() const {
 
 
 /*
-  TODO: Documentation
+  Generates a JSON object containing all names for this area.
+
+  @return
+    A JSON object containing all names JSON objects.
  */
-nlohmann::json Area::getJsonNames() const {
+nlohmann::json Area::getJsonNames() const noexcept {
   nlohmann::json j_map(names);
   return j_map;
 }
