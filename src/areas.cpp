@@ -382,7 +382,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
       measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
     }
 
-    int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
+    unsigned int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
 
     // Retrieve value and convert to double if necessary
     double value;

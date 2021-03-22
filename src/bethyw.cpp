@@ -76,24 +76,24 @@ int BethYw::run(int argc, char *argv[]) {
     measuresFilter = BethYw::parseMeasuresArg(args);
     yearsFilter = BethYw::parseYearsArg(args);
   } catch (std::invalid_argument invalidArgument) {
-    std::cout << invalidArgument.what() << std::endl;
+    std::cerr << invalidArgument.what();
     return 0;//TODO: Possibly change to an error code
   }
 
   Areas data = Areas();
   try {
     BethYw::loadAreas(data, dir, &areasFilter);
+    BethYw::loadDatasets(data,
+                         dir,
+                         &datasetsToImport,
+                         &areasFilter,
+                         &measuresFilter,
+                         &yearsFilter);
   } catch (std::runtime_error runtimeError) {
-    std::cout << "Error importing dataset:" << std::endl;
-    std::cout << runtimeError.what() << std::endl;
+    std::cerr << "Error importing dataset:" << std::endl;
+    std::cerr << runtimeError.what();
+    return 0;//TODO: Possibly change to an error code
   }
-
-  BethYw::loadDatasets(data,
-                       dir,
-                       &datasetsToImport,
-                       &areasFilter,
-                       &measuresFilter,
-                       &yearsFilter);
 
   if (args.count("json")) {
     // The output as JSON
@@ -208,7 +208,7 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
       inputDatasets = args["datasets"].as<std::vector<std::string>>();
   } catch (const std::domain_error) {
       for(unsigned int i = 0; i < numDatasets; i++)
-          datasetsToImport.push_back(allDatasets[i]);
+          datasetsToImport.push_back(allDatasets[i]);//TODO: Look into
       return datasetsToImport;
   } catch (const std::bad_cast) {
       for(unsigned int i = 0; i < numDatasets; i++)
