@@ -11,34 +11,25 @@
   This file contains the code responsible for opening and closing file
   streams. The actual handling of the data from that stream is handled
   by the functions in data.cpp. See the header file for additional comments.
-  
-  Each function you must implement has a TODO in its comment block. You may
-  have to implement additional functions. You may implement additional
-  functions not specified.
  */
 
 #include "input.h"
 
 /*
-  TODO: InputSource::InputSource(source)
-
-  Constructor for an InputSource.
+  Initialises an InputSource.
 
   @param source
     A unique identifier for a source (i.e. the location).
 */
-InputSource::InputSource(const std::string& source) : source(source) {
-
-}
+InputSource::InputSource(const std::string& source) : source(source) {}
 
 /*
-  TODO: Documentation
-  This function should be callable from a constant context.
+  The file source.
 
   @return
     A non-modifiable value for the source passed into the constructor.
 */
-std::string InputSource::getSource() const {
+std::string InputSource::getSource() const noexcept {
   return source;
 }
 
