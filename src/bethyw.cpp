@@ -434,8 +434,8 @@ std::tuple<int, int> BethYw::parseYearsArg(
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
 void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
-  //InputFile input(dir + InputFiles::AREAS.FILE);
-  InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO: Remove after testing
+  InputFile input(dir + InputFiles::AREAS.FILE);
+  //InputFile input("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/areas.csv"); //TODO:* Remove after testing
   auto cols = InputFiles::AREAS.COLS;
   areas.populate(input.open(),
                 SourceDataType::AuthorityCodeCSV,
@@ -447,12 +447,7 @@ void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const are
 
 
 /*
-  TODO: BethYw::loadDatasets(areas,
-                             dir,
-                             datasetsToImport,
-                             areasFilter,
-                             measuresFilter,
-                             yearsFilter)
+  TODO: Documentation
 
   Import datasets from `datasetsToImport` as files in `dir` into areas, and
   filtering them with the `areasFilter`, `measuresFilter`, and `yearsFilter`.
@@ -536,8 +531,8 @@ void BethYw::loadBiz(Areas &areas,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile bizInput(dir + InputFiles::BIZ.FILE);
-    InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");//TODO: Remove once testing is done
+    InputFile bizInput(dir + InputFiles::BIZ.FILE);
+    //InputFile bizInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/econ0080.json");//TODO:* Remove once testing is done
     auto biz = InputFiles::BIZ.COLS;
     areas.populateFromWelshStatsJSON(bizInput.open(), biz, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -555,8 +550,8 @@ void BethYw::loadAqi(Areas &areas,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile aqiInput(dir + InputFiles::AQI.FILE);
-    InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");//TODO: Remove once testing is done
+    InputFile aqiInput(dir + InputFiles::AQI.FILE);
+    //InputFile aqiInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/envi0201.json");//TODO:* Remove once testing is done
     auto aqi = InputFiles::AQI.COLS;
     areas.populateFromWelshStatsJSON(aqiInput.open(), aqi, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -574,8 +569,8 @@ void BethYw::loadPopden(Areas &areas,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile popdenInput(dir + InputFiles::POPDEN.FILE);
-    InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");//TODO: Remove once testing is done
+    InputFile popdenInput(dir + InputFiles::POPDEN.FILE);
+    //InputFile popdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/popu1009.json");//TODO:* Remove once testing is done
     auto popden = InputFiles::POPDEN.COLS;
     areas.populateFromWelshStatsJSON(popdenInput.open(), popden, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -593,8 +588,8 @@ void BethYw::loadTrains(Areas &areas,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile trainsInput(dir + InputFiles::TRAINS.FILE);
-    InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");//TODO: Remove once testing is done
+    InputFile trainsInput(dir + InputFiles::TRAINS.FILE);
+    //InputFile trainsInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/tran0152.json");//TODO:* Remove once testing is done
     auto trains = InputFiles::TRAINS.COLS;
     areas.populateFromWelshStatsJSON(trainsInput.open(), trains, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -612,8 +607,8 @@ void BethYw::loadCompletePopden(Areas &areas,
                                 const StringFilterSet * const measuresFilter,
                                 const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile completePopdenInput(dir + InputFiles::COMPLETE_POPDEN.FILE);
-    InputFile completePopdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-popden.csv");//TODO: Remove once testing is done
+    InputFile completePopdenInput(dir + InputFiles::COMPLETE_POPDEN.FILE);
+    //InputFile completePopdenInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-popden.csv");//TODO:* Remove once testing is done
     auto completePopden = InputFiles::COMPLETE_POPDEN.COLS;
     areas.populateFromAuthorityByYearCSV(completePopdenInput.open(), completePopden, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -631,8 +626,8 @@ void BethYw::loadCompletePop(Areas &areas,
                              const StringFilterSet * const measuresFilter,
                              const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile completePopInput(dir + InputFiles::COMPLETE_POP.FILE);
-    InputFile completePopInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-pop.csv");//TODO: Remove once testing is done
+    InputFile completePopInput(dir + InputFiles::COMPLETE_POP.FILE);
+    //InputFile completePopInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-pop.csv");//TODO:* Remove once testing is done
     auto completePop = InputFiles::COMPLETE_POP.COLS;
     areas.populateFromAuthorityByYearCSV(completePopInput.open(), completePop, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
@@ -650,8 +645,8 @@ void BethYw::loadCompleteArea(Areas &areas,
                               const StringFilterSet * const measuresFilter,
                               const YearFilterTuple * const yearsFilter) noexcept {
   try {
-    //InputFile completeAreaInput(dir + InputFiles::COMPLETE_AREA.FILE);
-    InputFile completeAreaInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-area.csv");//TODO: Remove once testing is done
+    InputFile completeAreaInput(dir + InputFiles::COMPLETE_AREA.FILE);
+    //InputFile completeAreaInput("/Users/samuelnetherway/Nextcloud/Development/C++/BethYw/datasets/complete-popu1009-area.csv");//TODO:* Remove once testing is done
     auto completeArea = InputFiles::COMPLETE_AREA.COLS;
     areas.populateFromAuthorityByYearCSV(completeAreaInput.open(), completeArea, areasFilter, measuresFilter, yearsFilter);
   } catch (std::exception e) {//TODO: Possibly replace with multiple different exception types
