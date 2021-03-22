@@ -715,64 +715,18 @@ void Areas::populate(
 
 
 /*
-  TODO: Update example below to look like JSON output example in the coursework brief
-
-  Convert this Areas object, and all its containing Area instances, and
-  the Measure instances within those, to values.
-
-  Use the sample JSON library as above to create this. Construct a blank
-  JSON object:
-    json j;
-
-  Convert this json object to a string:
-    j.dump();
-
-  You then need to loop through your areas, measures, and years/values
-  adding this data to the JSON object.
-
-  Read the documentation for how to convert your outcome code to JSON:
-    https://github.com/nlohmann/json#arbitrary-types-conversions
-  
-  The JSON should be formatted as such:
-    {
-    "<localAuthorityCode1>" : {
-                              "names": { "<languageCode1>": "<languageName1>",
-                                         "<languageCode2>": "<languageName2>" 
-                                         …
-                                         "<languageCodeN>": "<languageNameN>" }, 
-                              "measures" : { "<year1>": <value1>,
-                                             "<year2>": <value2>,
-                                             …
-                                            "<yearN>": <valueN> }
-                               },
-    "<localAuthorityCode2>" : {
-                              "names": { "<languageCode1>": "<languageName1>",
-                                         "<languageCode2>": "<languageName2>" 
-                                         …
-                                         "<languageCodeN>": "<languageNameN>" }, 
-                              "measures" : { "<year1>": <value1>,
-                                             "<year2>": <value2>,
-                                             …
-                                            "<yearN>": <valueN> }
-                               }
-    ...
-    "<localAuthorityCodeN>" : {
-                              "names": { "<languageCode1>": "<languageName1>",
-                                         "<languageCode2>": "<languageName2>" 
-                                         …
-                                         "<languageCodeN>": "<languageNameN>" }, 
-                              "measures" : { "<year1>": <value1>,
-                                             "<year2>": <value2>,
-                                             …
-                                            "<yearN>": <valueN> }
-                               }
-    }
-
-  An empty JSON is "{}" (without the quotes), which you must return if your
-  Areas object is empty.
+  Converts an Areas object into a JSON in the form of a std::string. The JSON contains
+  all areas and their respective measures and names.If the Areas object is empty, an
+  empty JSON object is printed.
   
   @return
     std::string of JSON
+
+  @see
+    area.cpp for the generation of a JSON object containing the Measure(s) for an Area object.
+
+  @see
+    area.cpp for the generation of a JSON object containing names for an Area object.
 
   @example
     InputFile input("data/popu1009.json");
@@ -789,6 +743,7 @@ void Areas::populate(
 */
 std::string Areas::toJSON() const {
   if (areas.empty()) return "{}";
+
   json a;
   for (auto iterator = areas.begin(); iterator != areas.end(); iterator++) {
     a[iterator->first];
@@ -796,6 +751,7 @@ std::string Areas::toJSON() const {
       a[iterator->first]["measures"] = iterator->second.getJsonMeasures();
     a[iterator->first]["names"] = iterator->second.getJsonNames();
   }
+
   std::string dump = a.dump();
   return a.dump();
 }

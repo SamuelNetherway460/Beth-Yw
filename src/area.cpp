@@ -328,6 +328,9 @@ Area& Area::overwrite(Area &area) {
 /*
   Generates a JSON object containing all measures for this area.
 
+  @see
+    measure.cpp for the generation of a single JSON object for a single Measure object.
+
   @return
     A JSON object containing all measure JSON objects.
  */
