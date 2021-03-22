@@ -69,7 +69,7 @@ std::tuple<int, int> parseYearsArg(cxxopts::ParseResult& args);
 
 void loadAreas(Areas &areas,
                std::string dir,
-               StringFilterSet * const areasFilter = nullptr);//TODO: Possibly make const
+               const StringFilterSet * const areasFilter = nullptr);
 
 void loadDatasets(Areas &areas,
                   std::string dir,

@@ -155,6 +155,7 @@ int Areas::size() const noexcept {
 
 /*
   TODO: Documentation & check , possibly add more exceptions
+  TODO: Possibly split into more methods
 
   This function specifically parses the compiled areas.csv file of local 
   authority codes, and their names in English and Welsh.

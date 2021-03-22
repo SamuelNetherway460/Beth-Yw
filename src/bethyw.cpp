@@ -405,7 +405,7 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
-void BethYw::loadAreas(Areas &areas, std::string dir, StringFilterSet *const areasFilter) {
+void BethYw::loadAreas(Areas &areas, std::string dir, const StringFilterSet * const areasFilter) {
   InputFile input(dir + InputFiles::AREAS.FILE);
   auto cols = InputFiles::AREAS.COLS;
   try {
