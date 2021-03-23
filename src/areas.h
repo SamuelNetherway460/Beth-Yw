@@ -63,6 +63,7 @@ private:
 
   int safeStringToInt(const std::string& str) const;
   double safeStringToDouble(const std::string& str) const;
+  void checkFileStatus(std::istream &is) const;
 
   std::vector<std::string> getLineTokens(
       std::istream &ls,

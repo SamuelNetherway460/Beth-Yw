@@ -418,8 +418,8 @@ void BethYw::loadAreas(Areas &areas, std::string dir, const StringFilterSet * co
                    areasFilter,
                    nullptr,
                    nullptr);
-  } catch (std::out_of_range out_of_range) {
-    std::cerr << "Error importing dataset: " << InputFiles::AREAS.FILE << std::endl << out_of_range.what();
+  } catch (std::out_of_range outOfRange) {
+    std::cerr << "Error importing dataset: " << InputFiles::AREAS.FILE << std::endl << outOfRange.what() << std::endl;
   }
 }
 
@@ -695,8 +695,8 @@ void BethYw::loadCompletePopden(Areas &areas,
     areas.populateFromAuthorityByYearCSV(completePopdenInput.open(), completePopden, areasFilter, measuresFilter, yearsFilter);
   } catch (std::runtime_error runtimeError) {
     std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << runtimeError.what();
-  } catch (std::out_of_range out_of_range) {
-    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << out_of_range.what();
+  } catch (std::out_of_range outOfRange) {
+    std::cerr << "Error importing dataset: " << InputFiles::COMPLETE_POPDEN.FILE << std::endl << outOfRange.what();
   }
 }
 

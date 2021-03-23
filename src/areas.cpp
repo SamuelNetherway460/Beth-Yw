@@ -569,15 +569,19 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     Areas data = Areas();
     areas.populateFromAuthorityCodeCSV(is, cols, &areasFilter, &yearsFilter);
 
-  @throws 
-    std::runtime_error if a parsing error occurs (e.g. due to a malformed file)
-    std::out_of_range if there are not enough columns in cols
+  @throws std::runtime_error
+    If a parsing error occurs (e.g. due to a malformed file)
+
+  @throws std::out_of_range
+    If there are not enough columns in cols.
 */
 void Areas::populateFromAuthorityByYearCSV(std::istream& is,
                                            const BethYw::SourceColumnMapping& cols,
                                            const StringFilterSet * const areasFilter,
                                            const StringFilterSet * const measuresFilter,
                                            const YearFilterTuple * const yearsFilter) {
+
+  checkFileStatus(is);
 
   std::string line, token;
   std::vector<std::string> lineTokens;
@@ -602,7 +606,7 @@ void Areas::populateFromAuthorityByYearCSV(std::istream& is,
           parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
         } else {
           for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
-            if (contains(lineTokens[0], iterator->data())) {//TODO Check ->data() works
+            if (contains(lineTokens[0], iterator->data())) {
               parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
             }
           }
@@ -719,7 +723,7 @@ Measure Areas::parseMeasure(std::vector<std::string> lineTokens,
   try {
     // Parse each year in the dataset for this particular Area
     for (unsigned int i = 0; i < years.size(); i++) {
-      std::stringstream ss(lineTokens[i + 1]); //TODO: Check
+      std::stringstream ss(lineTokens[i + 1]);
       double value;
       ss >> value;
 
@@ -759,16 +763,8 @@ bool Areas::contains(std::string base, std::string search) const noexcept {
 
 
 /*
-  TODO: Add check for working stream and has content
-  TODO: Check that the correct cols are being passed in
-
   Parse data from an standard input stream `is`, that has data of a particular
   `type`, and with a given column mapping in `cols`.
-
-  This function should look at the `type` and hand off to one of the three 
-  functions populate………() functions.
-
-  The function must check if the stream is in working order and has content.
 
   @param is
     The input stream from InputSource
@@ -784,11 +780,13 @@ bool Areas::contains(std::string base, std::string search) const noexcept {
   @return
     void
 
-  @throws 
-    std::runtime_error if a parsing error occurs (e.g. due to a malformed file),
+  @throws std::runtime_error
+    If a parsing error occurs (e.g. due to a malformed file),
     the stream is not open/valid/has any contents, or an unexpected type
     is passed in.
-    std::out_of_range if there are not enough columns in cols
+
+   @throws std::out_of_range
+    If there are not enough columns in cols.
 
   @see
     See datasets.h for details of the values variable type can have
@@ -814,6 +812,9 @@ bool Areas::contains(std::string base, std::string search) const noexcept {
 void Areas::populate(std::istream &is,
                      const BethYw::SourceDataType &type,
                      const BethYw::SourceColumnMapping &cols) {
+
+  checkFileStatus(is);
+
   if (type == BethYw::AuthorityCodeCSV) {
     populateFromAuthorityCodeCSV(is, cols);
   } else if (type == BethYw::AuthorityByYearCSV) {
@@ -827,20 +828,9 @@ void Areas::populate(std::istream &is,
 
 
 /*
-  TODO: Add check for working stream and has content
-  TODO: Check that the correct cols are being passed in
-
-  Parse data from an standard input stream, that is of a particular type,
+  Parses data from a standard input stream, that is of a particular type,
   and with a given column mapping, filtering for specific areas, measures,
   and years, and fill the container.
-
-  This function should look at the `type` and hand off to one of the three 
-  functions you've implemented above.
-
-  The function must check if the stream is in working order and has content.
-
-  This overloaded function includes pointers to the three filters for areas,
-  measures, and years.
 
   @param is
     The input stream from InputSource
@@ -854,26 +844,28 @@ void Areas::populate(std::istream &is,
     that give the column header in the CSV file
 
   @param areasFilter
-    An umodifiable pointer to set of umodifiable strings for areas to import,
+    An unmodifiable pointer to set of unmodifiable strings for areas to import,
     or an empty set if all areas should be imported
 
   @param measuresFilter
-    An umodifiable pointer to set of umodifiable strings for measures to import,
+    An unmodifiable pointer to set of unmodifiable strings for measures to import,
     or an empty set if all measures should be imported
 
   @param yearsFilter
-    An umodifiable pointer to an umodifiable tuple of two unsigned integers,
+    An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
     where if both values are 0, then all years should be imported, otherwise
     they should be treated as a the range of years to be imported
 
   @return
     void
 
-  @throws 
-    std::runtime_error if a parsing error occurs (e.g. due to a malformed file),
+  @throws std::runtime_error
+    If a parsing error occurs (e.g. due to a malformed file),
     the stream is not open/valid/has any contents, or an unexpected type
     is passed in.
-    std::out_of_range if there are not enough columns in cols
+
+   @throws std::out_of_range
+    If there are not enough columns in cols.
 
   @see
     See datasets.h for details of the values variable type can have
@@ -911,6 +903,9 @@ void Areas::populate(
     const StringFilterSet * const areasFilter,
     const StringFilterSet * const measuresFilter,
     const YearFilterTuple * const yearsFilter) {
+
+  checkFileStatus(is);
+
   if (type == BethYw::AuthorityCodeCSV) {
     populateFromAuthorityCodeCSV(is, cols, areasFilter);
   } else if (type == BethYw::AuthorityByYearCSV) {
@@ -924,8 +919,34 @@ void Areas::populate(
 
 
 /*
+  Checks the status of the istream. Checks that the stream is open and has content.
+
+  @param is
+    A reference to the stream which is being checked.
+
+  @return
+    void
+
+  @throws std::runtime_error
+    If the stream isn't open.
+
+  @throws std::runtime_error
+    If the stream is open but the file has no content.
+ */
+void Areas::checkFileStatus(std::istream &is) const {
+  if (is.bad()) {
+    throw std::runtime_error("Failed to open file");
+  }
+  std::string test;
+  std::getline(is, test);
+  if (test.empty()) throw std::runtime_error("File has no content");
+  is.seekg(0); // Reset the position
+}
+
+
+/*
   Converts an Areas object into a JSON in the form of a std::string. The JSON contains
-  all areas and their respective measures and names.If the Areas object is empty, an
+  all areas and their respective measures and names. If the Areas object is empty, an
   empty JSON object is printed.
   
   @return
