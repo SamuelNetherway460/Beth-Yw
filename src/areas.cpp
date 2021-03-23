@@ -272,13 +272,12 @@ void Areas::populateFromAuthorityCodeCSV(
           try {
             area.setName("eng", tokens[1]);
             area.setName("cym", tokens[2]);
-            areas[tokens[0]] = area;
+            areas[tokens[0]] = area;//TODO Change to set area
           } catch (std::invalid_argument invalidArgument) {
             std::cerr << invalidArgument.what();
           }
         //TODO: Adjust code filtering here; change to if any name or codename contains one of the filter strings in it. Make a separate method to identify the boolean result.
-        } else if (areasFilter->find(tokens[0]) != areasFilter->end() ||
-            areasFilter->size() == 0) {
+        } else if (areasFilter->size() == 0) {
           Area area(tokens[0]);
           try {
             area.setName("eng", tokens[1]);
@@ -286,6 +285,21 @@ void Areas::populateFromAuthorityCodeCSV(
             areas[tokens[0]] = area;
           } catch (std::invalid_argument invalidArgument) {
             std::cerr << invalidArgument.what();
+          }
+        } else {
+          for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
+            if (contains(tokens[0], iterator->data()) ||
+                contains(tokens[1], iterator->data()) ||
+                contains(tokens[2], iterator->data())) {//TODO Check ->data() works
+              Area area(tokens[0]);
+              try {
+                area.setName("eng", tokens[1]);
+                area.setName("cym", tokens[2]);
+                areas[tokens[0]] = area;//TODO Change to set area
+              } catch (std::invalid_argument invalidArgument) {
+                std::cerr << invalidArgument.what();
+              }
+            }
           }
         }
       }
@@ -479,9 +493,15 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     // Apply areas filtering
     if (areasFilter == nullptr) {
       this->setArea(localAuthorityCode, area);
-    } else if (areasFilter->find(localAuthorityCode) != areasFilter->end() ||
-               areasFilter->size() == 0) {
+    } else if (areasFilter->size() == 0) {
       this->setArea(localAuthorityCode, area);
+    } else {
+      for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
+        if (contains(localAuthorityCode, iterator->data()) ||
+            contains(authNameEnglish, iterator->data())) {//TODO Check ->data() works
+          this->setArea(localAuthorityCode, area);
+        }
+      }
     }
   }
 }
@@ -578,9 +598,14 @@ void Areas::populateFromAuthorityByYearCSV(std::istream& is,
         if (areasFilter == nullptr) {
           parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
         //TODO: Adjust code filtering here; change to if any name or codename contains one of the filter strings in it. Make a separate method to identify the boolean result.
-        } else if (areasFilter->find(lineTokens[0]) != areasFilter->end() ||
-                   areasFilter->size() == 0) {
+        } else if (areasFilter->size() == 0) {
           parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+        } else {
+          for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
+            if (contains(lineTokens[0], iterator->data())) {//TODO Check ->data() works
+              parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+            }
+          }
         }
       }
     } else {
@@ -711,6 +736,25 @@ Measure Areas::parseMeasure(std::vector<std::string> lineTokens,
   }
 
   return measure;
+}
+
+
+/*
+  Checks whether a given string contains another string.
+
+  @param base
+    The string that will be searched through.
+
+  @param search
+    The string that will be searched for.
+
+  @return
+    A boolean value indicating whether the base string contains the search string.
+ */
+bool Areas::contains(std::string base, std::string search) const noexcept {
+  transform(base.begin(), base.end(), base.begin(), ::tolower);
+  transform(search.begin(), search.end(), search.begin(), ::tolower);
+  return base.find(search) != std::string::npos;
 }
 
 

@@ -82,6 +82,8 @@ private:
                  const StringFilterSet * const measuresFilter,
                  const YearFilterTuple * const yearsFilter);
 
+  bool contains(std::string base, std::string search) const noexcept;
+
 public:
   Areas();
 
