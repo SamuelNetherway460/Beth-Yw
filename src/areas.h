@@ -61,13 +61,26 @@ class Areas {
 private:
   AreasContainer areas;
 
+  int safeStringToInt(const std::string& str) const;
+  double safeStringToDouble(const std::string& str) const;
+
   std::vector<std::string> getLineTokens(
       std::istream &ls,
       std::string line,
       char delimiter);
 
-  int safeStringToInt(const std::string& str) const;
-  double safeStringToDouble(const std::string& str) const;
+  std::vector<unsigned int> parseYearColumns(std::vector<std::string> lineTokens) const noexcept;
+
+  Measure parseMeasure(std::vector<std::string> lineTokens,
+                       const BethYw::SourceColumnMapping& cols,
+                       const std::vector<unsigned int> years,
+                       const YearFilterTuple * const yearsFilter);
+
+  void parseArea(std::vector<std::string> lineTokens,
+                 const BethYw::SourceColumnMapping& cols,
+                 const std::vector<unsigned int> years,
+                 const StringFilterSet * const measuresFilter,
+                 const YearFilterTuple * const yearsFilter);
 
 public:
   Areas();

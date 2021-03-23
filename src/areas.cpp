@@ -73,6 +73,46 @@ std::vector<std::string> Areas::getLineTokens(std::istream &ls,
 
 
 /*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+int Areas::safeStringToInt(const std::string &str) const {
+  std::stringstream ss(str);
+  int num;
+  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
+  return num;
+}
+
+
+/*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+double Areas::safeStringToDouble(const std::string& str) const {
+  std::stringstream ss(str);
+  double num;
+  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
+  return num;
+}
+
+
+/*
   Adds a particular Area to the Areas object.
 
   If an Area already exists with the same local authority code, all
@@ -236,6 +276,7 @@ void Areas::populateFromAuthorityCodeCSV(
           } catch (std::invalid_argument invalidArgument) {
             std::cerr << invalidArgument.what();
           }
+        //TODO: Adjust code filtering here; change to if any name or codename contains one of the filter strings in it. Make a separate method to identify the boolean result.
         } else if (areasFilter->find(tokens[0]) != areasFilter->end() ||
             areasFilter->size() == 0) {
           Area area(tokens[0]);
@@ -249,7 +290,7 @@ void Areas::populateFromAuthorityCodeCSV(
         }
       }
     } else {
-      throw std::out_of_range("Incorrect column names");
+      throw std::out_of_range("Incorrect column names");//TODO: Possibly change to std::runtime_error
     }
   } else {
     throw std::out_of_range("Not enough columns");
@@ -393,7 +434,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     }
     transform(measureCode.begin(), measureCode.end(), measureCode.begin(), ::tolower);
 
-    // Retrieve measure name and convert to lower case
+    // Retrieve measure name
     std::string measureName;
     if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
       measureName = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME);
@@ -447,46 +488,6 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
 
 
 /*
-  Safely converts a std::string to an int.
-
-  @param str
-    The std::string to convert to an int.
-
-  @return
-    The integer value converted from the string.
-
-  @throws
-    std::runtime_error if the std::string could not be converted to an int.
- */
-int Areas::safeStringToInt(const std::string &str) const {
-  std::stringstream ss(str);
-  int num;
-  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
-  return num;
-}
-
-
-/*
-  Safely converts a std::string to an int.
-
-  @param str
-    The std::string to convert to an int.
-
-  @return
-    The integer value converted from the string.
-
-  @throws
-    std::runtime_error if the std::string could not be converted to an int.
- */
-double Areas::safeStringToDouble(const std::string &str) const {
-  std::stringstream ss(str);
-  double num;
-  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
-  return num;
-}
-
-
-/*
   TODO: Areas::populateFromAuthorityByYearCSV(is,
                                               cols,
                                               areasFilter,
@@ -512,7 +513,7 @@ double Areas::safeStringToDouble(const std::string &str) const {
 
   @param cols
     A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
-    that give the column header in the CSV file
+    that give the column header in the CSV file.
 
   @param areasFilter
     An unmodifiable pointer to set of unmodifiable strings for areas to import,
@@ -520,12 +521,12 @@ double Areas::safeStringToDouble(const std::string &str) const {
 
   @param measuresFilter
     An unmodifiable pointer to set of strings for measures to import, or an empty
-    set if all measures should be imported
+    set if all measures should be imported.
 
   @param yearsFilter
     An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
     where if both values are 0, then all years should be imported, otherwise
-    they should be treated as a the range of years to be imported
+    they should be treated as a the range of years to be imported.
 
   @return
     void
@@ -558,6 +559,158 @@ void Areas::populateFromAuthorityByYearCSV(std::istream& is,
                                            const StringFilterSet * const measuresFilter,
                                            const YearFilterTuple * const yearsFilter) {
 
+  std::string line, token;
+  std::vector<std::string> lineTokens;
+
+  std::getline(is, line);
+  std::stringstream ls(line);
+  lineTokens = getLineTokens(ls, line, ',');
+
+  std::vector<unsigned int> years;
+
+  // Check format of input dataset for correctness
+  if (lineTokens[0] == cols.at(BethYw::SourceColumn::AUTH_CODE)) {
+    if (lineTokens.size() == 12) {
+      years = parseYearColumns(lineTokens);
+      // Parse each line of data
+      while (std::getline(is, line)) {
+        lineTokens = getLineTokens(ls, line, ',');
+        if (areasFilter == nullptr) {
+          parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+        //TODO: Adjust code filtering here; change to if any name or codename contains one of the filter strings in it. Make a separate method to identify the boolean result.
+        } else if (areasFilter->find(lineTokens[0]) != areasFilter->end() ||
+                   areasFilter->size() == 0) {
+          parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+        }
+      }
+    } else {
+      throw std::out_of_range("Invalid number of columns");
+    }
+  } else {
+    throw std::runtime_error("No column found with title: " + cols.at(BethYw::SourceColumn::AUTH_CODE));
+  }
+}
+
+
+
+/*
+  Generates a vector containing all of the year column titles.
+
+  @param lineTokens
+    A vector of std::strings representing each individual token in a line;
+
+  @return
+    A vector containing all years or empty if an error occurred.
+ */
+std::vector<unsigned int> Areas::parseYearColumns(std::vector<std::string> lineTokens) const noexcept {
+  std::vector<unsigned int> years;
+  try {
+    for (unsigned int i = 1; i < lineTokens.size(); i++) {
+      std::string t = lineTokens[i];
+      years.push_back(std::stoi(lineTokens[i]));
+    }
+  } catch (std::exception e) {
+    return years;
+  }
+  return years;
+}
+
+
+/*
+  Parses a single Area and applies the measures and years filter.
+
+  @param lineTokens
+    A vector containing all individual pieces of data for the current line.
+
+  @param cols
+    A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
+    that give the column header in the CSV file.
+
+  @param years
+    A vector containing all of the years which have a measure value.
+
+  @param measuresFilter
+    An unmodifiable pointer to set of strings for measures to import, or an empty
+    set if all measures should be imported.
+
+  @param yearsFilter
+    An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
+    where if both values are 0, then all years should be imported, otherwise
+    they should be treated as a the range of years to be imported.
+
+ */
+void Areas::parseArea(std::vector<std::string> lineTokens,
+                      const BethYw::SourceColumnMapping& cols,
+                      const std::vector<unsigned int> years,
+                      const StringFilterSet * const measuresFilter,
+                      const YearFilterTuple * const yearsFilter) {
+  Area area(lineTokens[0]);
+  Measure measure;
+
+  // Apply measures filtering and parse if measure should be included
+  if (measuresFilter == nullptr) {
+    measure = parseMeasure(lineTokens, cols, years, yearsFilter);
+    area.setMeasure(measure.getCodename(), measure);
+  } else if (measuresFilter->find(cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE)) != measuresFilter->end() ||
+             measuresFilter->size() == 0) {
+    measure = parseMeasure(lineTokens, cols, years, yearsFilter);
+    area.setMeasure(measure.getCodename(), measure);
+  }
+
+  this->setArea(lineTokens[0], area);
+}
+
+
+/*
+  Parses a single Measure and applies the years filter.
+
+  @param lineTokens
+    A vector containing all individual pieces of data for the current line.
+
+  @param cols
+    A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
+    that give the column header in the CSV file.
+
+  @param years
+    A vector containing all of the years which have a measure value.
+
+  @param yearsFilter
+    An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
+    where if both values are 0, then all years should be imported, otherwise
+    they should be treated as a the range of years to be imported.
+
+  @return
+    The parse Measure object.
+ */
+Measure Areas::parseMeasure(std::vector<std::string> lineTokens,
+                     const BethYw::SourceColumnMapping& cols,
+                     const std::vector<unsigned int> years,
+                     const YearFilterTuple * const yearsFilter) {
+
+  Measure measure(cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE),
+                  cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME));
+
+  // Add all values to the measure
+  try {
+    // Parse each year in the dataset for this particular Area
+    for (unsigned int i = 0; i < years.size(); i++) {
+      std::stringstream ss(lineTokens[i + 1]); //TODO: Check
+      double value;
+      ss >> value;
+
+      // Apply years filtering
+      if (yearsFilter == nullptr) {
+        measure.setValue(years[i], value);
+      } else if ((years[i] >= std::get<0>(*yearsFilter) && years[i] <= std::get<1>(*yearsFilter)) ||
+                 (std::get<0>(*yearsFilter) == 0 && std::get<1>(*yearsFilter) == 0)) {
+        measure.setValue(years[i], value);
+      }
+    }
+  } catch (std::invalid_argument invalidArgument) {
+    std::cerr << invalidArgument.what();
+  }
+
+  return measure;
 }
 
 

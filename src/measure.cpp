@@ -331,7 +331,7 @@ std::ostream& operator<<(std::ostream &os, const Measure &measure) {
     true if both Measure objects have the same codename, label and data; false
     otherwise.
 */
-bool operator==(const Measure &lhs, const Measure &rhs) {
+bool operator==(const Measure &lhs, const Measure &rhs) noexcept {
   if (lhs.codename == rhs.codename) {
     if (lhs.label == rhs.label) {
       if (lhs.size() == rhs.size()) {

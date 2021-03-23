@@ -43,7 +43,7 @@ public:
   nlohmann::json getJsonMeasure() const;
 
   friend std::ostream& operator<<(std::ostream &os, const Measure &measure);
-  friend bool operator==(const Measure &lhs, const Measure &rhs);
+  friend bool operator==(const Measure &lhs, const Measure &rhs) noexcept;
 };
 
 #endif // MEASURE_H_

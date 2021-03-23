@@ -77,6 +77,7 @@ int BethYw::run(int argc, char *argv[]) {
 
     Areas data = Areas();
     try {
+      // The AREAS dataset should always be imported
       BethYw::loadAreas(data, dir, &areasFilter);
       BethYw::loadDatasets(data,
                            dir,
@@ -219,10 +220,12 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
 
       bool isInvalidArg = true;
       for (unsigned int y = 0; y < numDatasets; y++) {
+        if (inputDatasets[x] != InputFiles::AREAS.CODE) {
           if (inputDatasets[x] == allDatasets[y].CODE) {
-              datasetsToImport.push_back(allDatasets[y]);
-              isInvalidArg = false;
+            datasetsToImport.push_back(allDatasets[y]);
+            isInvalidArg = false;
           }
+        }
       }
 
       if (isInvalidArg) throw std::invalid_argument("No dataset matches key: " + inputDatasets[x]);
@@ -469,19 +472,19 @@ void BethYw::loadDatasets(Areas &areas,
 
   // Identify the dataset being imported and call the correct sub function
   for (auto iterator = datasetsToImport->begin(); iterator != datasetsToImport->end(); iterator++) {
-    if (iterator->NAME == InputFiles::BIZ.NAME) {
+    if (iterator->CODE == InputFiles::BIZ.CODE) {
       loadBiz(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::AQI.NAME) {
+    } else if (iterator->CODE == InputFiles::AQI.CODE) {
       loadAqi(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::POPDEN.NAME) {
+    } else if (iterator->CODE == InputFiles::POPDEN.CODE) {
       loadPopden(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::TRAINS.NAME) {
+    } else if (iterator->CODE == InputFiles::TRAINS.CODE) {
       loadTrains(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::COMPLETE_POPDEN.NAME) {
+    } else if (iterator->CODE == InputFiles::COMPLETE_POPDEN.CODE) {
       loadCompletePopden(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::COMPLETE_POP.NAME) {
+    } else if (iterator->CODE == InputFiles::COMPLETE_POP.CODE) {
       loadCompletePop(areas, dir, areasFilter, measuresFilter, yearsFilter);
-    } else if (iterator->NAME == InputFiles::COMPLETE_AREA.NAME) {
+    } else if (iterator->CODE == InputFiles::COMPLETE_AREA.CODE) {
       loadCompleteArea(areas, dir, areasFilter, measuresFilter, yearsFilter);
     }
   }
