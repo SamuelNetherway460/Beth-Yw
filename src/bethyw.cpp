@@ -72,7 +72,7 @@ int BethYw::run(int argc, char *argv[]) {
       yearsFilter = BethYw::parseYearsArg(args);
     } catch (std::invalid_argument invalidArgument) {
       std::cerr << invalidArgument.what();
-      return 0;//TODO: Possibly change to an error code
+      return 0;
     }
 
     Areas data = Areas();
@@ -88,7 +88,7 @@ int BethYw::run(int argc, char *argv[]) {
     } catch (std::runtime_error runtimeError) {
       std::cerr << "Error importing dataset:" << std::endl;
       std::cerr << runtimeError.what() << std::endl;
-      return 0;//TODO: Possibly change to an error code
+      return 0;
     }
 
     if (args.count("json")) {
@@ -255,29 +255,30 @@ std::vector<BethYw::InputFileSource> BethYw::parseDatasetsArg(
 */
 std::unordered_set<std::string> BethYw::parseAreasArg(
     cxxopts::ParseResult& args) {
-  // The unordered set you will return
+
   std::unordered_set<std::string> areas;
 
-  // Retrieve the areas argument like so:
-  std::vector<std::string> temp;
+  std::vector<std::string> areaArguments;
   try {
-      temp = args["areas"].as<std::vector<std::string>>();
+    areaArguments = args["areas"].as<std::vector<std::string>>();
   } catch (const std::domain_error) {
       return areas;
   } catch (const std::bad_cast) {
       return areas;
   }
 
-  for (unsigned int i = 0; i < temp.size(); i++) {
-      transform(temp[i].begin(), temp[i].end(), temp[i].begin(), ::toupper);
+  // Convert each area argument to upper case for comparison.
+  for (unsigned int i = 0; i < areaArguments.size(); i++) {
+      transform(areaArguments[i].begin(), areaArguments[i].end(), areaArguments[i].begin(), ::toupper);
   }
 
-  for (unsigned int i = 0; i < temp.size(); i++) {
-      if (temp[i] == "ALL") {
+  // Add area arguments to the set of areas to import.
+  for (unsigned int i = 0; i < areaArguments.size(); i++) {
+      if (areaArguments[i] == "ALL") {
           areas.clear();
           return areas;
       } else {
-        areas.insert(temp[i]);
+        areas.insert(areaArguments[i]);
       }
   }
   
@@ -286,18 +287,9 @@ std::unordered_set<std::string> BethYw::parseAreasArg(
 
 
 /*
-  TODO: Add exception throw for invalid measures or remove documentation if not possible
-
-  Parse the measures command line argument, which is optional. If it doesn't 
+  Parses the measures command line argument, which is optional. If it doesn't
   exist or exists and contains "all" as value (any case), all measures should
-  be imported.
-
-  Unlike datasets we can't check the validity of the values as it depends
-  on each individual file imported (which hasn't happened until runtime).
-  Therefore, we simply fetch the list of areas and later pass it to the
-  Areas::populate() function.
-
-  The filtering of inputs should be case insensitive.
+  be imported. The filtering of inputs is case insensitive.
 
   @param args
     Parsed program arguments
