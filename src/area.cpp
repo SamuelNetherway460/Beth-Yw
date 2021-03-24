@@ -240,7 +240,7 @@ int Area::size() const noexcept {
     area.setName("eng", "Powys");
     std::cout << area << std::endl;
 */
-std::ostream& operator<<(std::ostream &os, const Area &area) {
+std::ostream& operator<<(std::ostream &os, const Area &area) noexcept {
   // English Name
   if (area.names.find("eng") != area.names.end()) {
     os << area.names.find("eng")->second;

@@ -33,10 +33,6 @@
   Run Beth Yw?, parsing the command line arguments, importing the data,
   and outputting the requested data to the standard output/error.
 
-  TODO: Read documentation
-  Hint: cxxopts.parse() throws exceptions you'll need to catch. Read the cxxopts
-  documentation for more information.
-
   @param argc
     Number of program arguments
 
@@ -96,10 +92,16 @@ int BethYw::run(int argc, char *argv[]) {
       std::cout << data.toJSON() << std::endl;
     } else {
       // The output as tables
-      std::cout << data;
+      if(data.size() == 0) {
+        std::cout << "No data for arguments specified" << std::endl;
+      } else {
+        std::cout << data;
+      }
     }
-  } catch (cxxopts::option_not_exists_exception optionNotExistsException) {
-    std::cerr << "Invalid program argument:" << std::endl << optionNotExistsException.what();
+  } catch (cxxopts::OptionSpecException optionSpecException) {
+    std::cerr << "Invalid program option:" << std::endl << optionSpecException.what();
+  } catch (cxxopts::OptionParseException optionParseException) {
+    std::cerr << "Invalid program argument:" << std::endl << optionParseException.what();
   }
 
   return 0;
@@ -346,8 +348,7 @@ std::unordered_set<std::string> BethYw::parseMeasuresArg(
     std::invalid_argument if the argument contains an invalid years value with
     the message: Invalid input for years argument
 */
-std::tuple<int, int> BethYw::parseYearsArg(
-        cxxopts::ParseResult& args) {
+std::tuple<int, int> BethYw::parseYearsArg(cxxopts::ParseResult& args) {
     std::tuple<int, int> years = std::make_tuple(0, 0);
 
     std::string temp;
@@ -400,7 +401,9 @@ std::tuple<int, int> BethYw::parseYearsArg(
 
     BethYw::loadAreas(areas, "data", BethYw::parseAreasArg(args));
 */
-void BethYw::loadAreas(Areas &areas, std::string dir, const StringFilterSet * const areasFilter) {
+void BethYw::loadAreas(Areas &areas,
+                       const std::string dir,
+                       const StringFilterSet * const areasFilter) {
   InputFile input(dir + InputFiles::AREAS.FILE);
   auto cols = InputFiles::AREAS.COLS;
   try {
@@ -456,7 +459,7 @@ void BethYw::loadAreas(Areas &areas, std::string dir, const StringFilterSet * co
       BethYw::parseYearsArg(args));
 */
 void BethYw::loadDatasets(Areas &areas,
-                          std::string dir,
+                          const std::string dir,
                           const std::vector<InputFileSource> * const datasetsToImport,
                           const StringFilterSet * const areasFilter,
                           const StringFilterSet * const measuresFilter,
@@ -509,7 +512,7 @@ void BethYw::loadDatasets(Areas &areas,
     void
  */
 void BethYw::loadBiz(Areas &areas,
-                     std::string dir,
+                     const std::string dir,
                      const StringFilterSet * const areasFilter,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
@@ -551,7 +554,7 @@ void BethYw::loadBiz(Areas &areas,
     void
  */
 void BethYw::loadAqi(Areas &areas,
-                     std::string dir,
+                     const std::string dir,
                      const StringFilterSet * const areasFilter,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept {
@@ -593,7 +596,7 @@ void BethYw::loadAqi(Areas &areas,
     void
  */
 void BethYw::loadPopden(Areas &areas,
-                        std::string dir,
+                        const std::string dir,
                         const StringFilterSet * const areasFilter,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
@@ -635,7 +638,7 @@ void BethYw::loadPopden(Areas &areas,
     void
  */
 void BethYw::loadTrains(Areas &areas,
-                        std::string dir,
+                        const std::string dir,
                         const StringFilterSet * const areasFilter,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept {
@@ -677,7 +680,7 @@ void BethYw::loadTrains(Areas &areas,
     void
  */
 void BethYw::loadCompletePopden(Areas &areas,
-                                std::string dir,
+                                const std::string dir,
                                 const StringFilterSet * const areasFilter,
                                 const StringFilterSet * const measuresFilter,
                                 const YearFilterTuple * const yearsFilter) noexcept {
@@ -719,7 +722,7 @@ void BethYw::loadCompletePopden(Areas &areas,
     void
  */
 void BethYw::loadCompletePop(Areas &areas,
-                             std::string dir,
+                             const std::string dir,
                              const StringFilterSet * const areasFilter,
                              const StringFilterSet * const measuresFilter,
                              const YearFilterTuple * const yearsFilter) noexcept {
@@ -761,7 +764,7 @@ void BethYw::loadCompletePop(Areas &areas,
     void
  */
 void BethYw::loadCompleteArea(Areas &areas,
-                              std::string dir,
+                              const std::string dir,
                               const StringFilterSet * const areasFilter,
                               const StringFilterSet * const measuresFilter,
                               const YearFilterTuple * const yearsFilter) noexcept {

@@ -68,54 +68,54 @@ std::unordered_set<std::string> parseMeasuresArg(cxxopts::ParseResult& args);
 std::tuple<int, int> parseYearsArg(cxxopts::ParseResult& args);
 
 void loadAreas(Areas &areas,
-               std::string dir,
+               const std::string dir,
                const StringFilterSet * const areasFilter = nullptr);
 
 void loadDatasets(Areas &areas,
-                  std::string dir,
+                  const std::string dir,
                   const std::vector<InputFileSource> * const datasetsToImport,
                   const StringFilterSet * const areasFilter = nullptr,
                   const StringFilterSet * const measuresFilter = nullptr,
                   const YearFilterTuple * const yearsFilter= nullptr) noexcept;
 
 void loadBiz(Areas &areas,
-             std::string dir,
+             const std::string dir,
              const StringFilterSet * const areasFilter,
              const StringFilterSet * const measuresFilter,
              const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadAqi(Areas &areas,
-             std::string dir,
+             const std::string dir,
              const StringFilterSet * const areasFilter,
              const StringFilterSet * const measuresFilter,
              const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadPopden(Areas &areas,
-                std::string dir,
+                const std::string dir,
                 const StringFilterSet * const areasFilter,
                 const StringFilterSet * const measuresFilter,
                 const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadTrains(Areas &areas,
-                std::string dir,
+                const std::string dir,
                 const StringFilterSet * const areasFilter,
                 const StringFilterSet * const measuresFilter,
                 const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadCompletePopden(Areas &areas,
-                        std::string dir,
+                        const std::string dir,
                         const StringFilterSet * const areasFilter,
                         const StringFilterSet * const measuresFilter,
                         const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadCompletePop(Areas &areas,
-                     std::string dir,
+                     const std::string dir,
                      const StringFilterSet * const areasFilter,
                      const StringFilterSet * const measuresFilter,
                      const YearFilterTuple * const yearsFilter) noexcept;
 
 void loadCompleteArea(Areas &areas,
-                      std::string dir,
+                      const std::string dir,
                       const StringFilterSet * const areasFilter,
                       const StringFilterSet * const measuresFilter,
                       const YearFilterTuple * const yearsFilter) noexcept;

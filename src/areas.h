@@ -64,26 +64,35 @@ private:
   int safeStringToInt(const std::string& str) const;
   double safeStringToDouble(const std::string& str) const;
   void checkFileStatus(std::istream &is) const;
+  bool contains(std::string base, std::string search) const noexcept;
 
-  std::vector<std::string> getLineTokens(
-      std::istream &ls,
-      std::string line,
-      char delimiter);
+  std::vector<std::string> getLineTokens(std::istream &ls,
+                                         std::string line,
+                                         char delimiter);
+
+  void parseAreaFromAuthorityCodeCSV(std::vector<std::string> lineTokens) noexcept;
 
   std::vector<unsigned int> parseYearColumns(std::vector<std::string> lineTokens) const noexcept;
 
-  Measure parseMeasure(std::vector<std::string> lineTokens,
-                       const BethYw::SourceColumnMapping& cols,
-                       const std::vector<unsigned int> years,
-                       const YearFilterTuple * const yearsFilter);
+  Measure parseMeasureSingleCSV(std::vector<std::string> lineTokens,
+                                const BethYw::SourceColumnMapping& cols,
+                                const std::vector<unsigned int> years,
+                                const YearFilterTuple * const yearsFilter);
 
-  void parseArea(std::vector<std::string> lineTokens,
-                 const BethYw::SourceColumnMapping& cols,
-                 const std::vector<unsigned int> years,
-                 const StringFilterSet * const measuresFilter,
-                 const YearFilterTuple * const yearsFilter);
+  void parseAreaSingleCSV(std::vector<std::string> lineTokens,
+                          const BethYw::SourceColumnMapping& cols,
+                          const std::vector<unsigned int> years,
+                          const StringFilterSet * const measuresFilter,
+                          const YearFilterTuple * const yearsFilter);
 
-  bool contains(std::string base, std::string search) const noexcept;
+  std::string retrieveMeasureCodeFromJSON(const BethYw::SourceColumnMapping& cols,
+                                          nlohmann::basic_json<> &data);
+
+  std::string retrieveMeasureNameFromJSON(const BethYw::SourceColumnMapping& cols,
+                                          nlohmann::basic_json<> &data);
+
+  double retrieveMeasureValueFromJSON(const BethYw::SourceColumnMapping& cols,
+                                          nlohmann::basic_json<> &data);
 
 public:
   Areas();

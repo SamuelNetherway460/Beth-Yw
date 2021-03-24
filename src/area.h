@@ -47,7 +47,7 @@ public:
   nlohmann::json getJsonMeasures() const noexcept;
   nlohmann::json getJsonNames() const noexcept;
 
-  friend std::ostream& operator<<(std::ostream &os, const Area &area);
+  friend std::ostream& operator<<(std::ostream &os, const Area &area) noexcept;
   friend bool operator==(const Area &lhs, const Area &rhs);
 };
 

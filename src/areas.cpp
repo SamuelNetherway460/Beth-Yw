@@ -41,78 +41,6 @@ Areas::Areas() {}
 
 
 /*
-  Separates a line into individual tokens separated by the specified delimiter.
-
-  @param ls
-    A std::istream for the line.
-
-  @param line
-    The std::string line to be separated into tokens.
-
-  @param delimiter
-    The character used to know where to separate the line into tokens.
-
-  @return
-    A std::vector containing the std::string tokens.
-
- */
-std::vector<std::string> Areas::getLineTokens(std::istream &ls,
-                                              std::string line,
-                                              char delimiter) {
-  std::string token;
-  std::vector<std::string> tokens;
-  std::stringstream lineStream(line);
-
-  // Split each line into individual tokens separated by the delimiter
-  while (std::getline(lineStream, token, delimiter)) {
-    tokens.push_back(token);
-  }
-
-  return tokens;
-}
-
-
-/*
-  Safely converts a std::string to an int.
-
-  @param str
-    The std::string to convert to an int.
-
-  @return
-    The integer value converted from the string.
-
-  @throws
-    std::runtime_error if the std::string could not be converted to an int.
- */
-int Areas::safeStringToInt(const std::string &str) const {
-  std::stringstream ss(str);
-  int num;
-  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
-  return num;
-}
-
-
-/*
-  Safely converts a std::string to an int.
-
-  @param str
-    The std::string to convert to an int.
-
-  @return
-    The integer value converted from the string.
-
-  @throws
-    std::runtime_error if the std::string could not be converted to an int.
- */
-double Areas::safeStringToDouble(const std::string& str) const {
-  std::stringstream ss(str);
-  double num;
-  if ((ss >> num).fail()) throw std::runtime_error("Cannot cast std::string " + str + " to int");
-  return num;
-}
-
-
-/*
   Adds a particular Area to the Areas object.
 
   If an Area already exists with the same local authority code, all
@@ -194,21 +122,9 @@ int Areas::size() const noexcept {
 
 
 /*
-  TODO: Documentation & check , possibly add more exceptions
-  TODO: Possibly split into more methods
-
-  This function specifically parses the compiled areas.csv file of local 
-  authority codes, and their names in English and Welsh.
-
-  This is a simple dataset that is a comma-separated values file (CSV), where
-  the first row gives the name of the columns, and then each row is a set of
-  data.
-
-  For this coursework, you can assume that areas.csv will always have the same
-  three columns in the same order.
-
-  Once the data is parsed, you need to create the appropriate Area objects and
-  insert them in to a Standard Library container within Areas.
+  This function specifically parses the compiled areas.csv file of local
+  authority codes, and their names in English and Welsh. The areas filter
+  is applied to limit output to user specified areas.
 
   @param is
     The input stream from InputSource
@@ -241,9 +157,11 @@ int Areas::size() const noexcept {
     Areas data = Areas();
     areas.populateFromAuthorityCodeCSV(is, cols, &areasFilter);
 
-  @throws 
-    std::runtime_error if a parsing error occurs (e.g. due to a malformed file)
-    std::out_of_range if there are not enough columns in cols
+  @throws std::runtime_error
+    If a parsing error occurs (e.g. due to a malformed file)
+
+  @throws std::out_of_range
+    If there are not enough columns in cols
 */
 void Areas::populateFromAuthorityCodeCSV(
     std::istream &is,
@@ -258,7 +176,7 @@ void Areas::populateFromAuthorityCodeCSV(
   tokens = getLineTokens(ls, line, ',');
 
   // Check for correct number of columns
-  if (cols.size() == 3) {
+  if (tokens.size() == 3) {
     // Check for correct column names
     if (tokens[0] == cols.at(BethYw::SourceColumn::AUTH_CODE) &&
         tokens[1] == cols.at(BethYw::SourceColumn::AUTH_NAME_ENG) &&
@@ -267,44 +185,24 @@ void Areas::populateFromAuthorityCodeCSV(
       // Parse column data
       while (std::getline(is, line)) {
         tokens = getLineTokens(ls, line, ',');
+
         if (areasFilter == nullptr) {
-          Area area(tokens[0]);
-          try {
-            area.setName("eng", tokens[1]);
-            area.setName("cym", tokens[2]);
-            this->setArea(tokens[0], area);
-          } catch (std::invalid_argument invalidArgument) {
-            std::cerr << invalidArgument.what();
-          }
+          parseAreaFromAuthorityCodeCSV(tokens);
         } else if (areasFilter->size() == 0) {
-          Area area(tokens[0]);
-          try {
-            area.setName("eng", tokens[1]);
-            area.setName("cym", tokens[2]);
-            areas[tokens[0]] = area;
-          } catch (std::invalid_argument invalidArgument) {
-            std::cerr << invalidArgument.what();
-          }
+          parseAreaFromAuthorityCodeCSV(tokens);
         } else {
           // Advanced area filtering
           for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
             if (contains(tokens[0], iterator->data()) ||
                 contains(tokens[1], iterator->data()) ||
                 contains(tokens[2], iterator->data())) {
-              Area area(tokens[0]);
-              try {
-                area.setName("eng", tokens[1]);
-                area.setName("cym", tokens[2]);
-                this->setArea(tokens[0], area);
-              } catch (std::invalid_argument invalidArgument) {
-                std::cerr << invalidArgument.what();
-              }
+              parseAreaFromAuthorityCodeCSV(tokens);
             }
           }
         }
       }
     } else {
-      throw std::out_of_range("Incorrect column names");//TODO: Possibly change to std::runtime_error
+      throw std::out_of_range("Incorrect column names");
     }
   } else {
     throw std::out_of_range("Not enough columns");
@@ -313,7 +211,24 @@ void Areas::populateFromAuthorityCodeCSV(
 
 
 /*
-  TODO: Possibly break up into further methods - look at comments
+  Parses a single area found in the area.csv file and adds it to the areas map.
+
+  @param lineTokens
+    A vector of std::string containing each individual piece of data.
+ */
+void Areas::parseAreaFromAuthorityCodeCSV(std::vector<std::string> lineTokens) noexcept {
+  Area area(lineTokens[0]);
+  try {
+    area.setName("eng", lineTokens[1]);
+    area.setName("cym", lineTokens[2]);
+    areas[lineTokens[0]] = area;
+  } catch (std::invalid_argument invalidArgument) {
+    std::cerr << invalidArgument.what();
+  }
+}
+
+
+/*
   Parses the following four JSON datasets:
   - econ0080.json
   - envi0201.json
@@ -321,9 +236,9 @@ void Areas::populateFromAuthorityCodeCSV(
   - tran0152.json
 
   Data extracted is used to generate Area objects containing their respective
-  names in different languages and measures.
+  measures and names in different languages.
 
-  Data from StatsWales is in the JSON format, and contains three
+  Data from StatsWales is in the JSON format that contains three
   top-level keys: odata.metadata, value, odata.nextLink. value contains the
   data we need. Rather than been hierarchical, it contains data as a
   continuous list (e.g. as you would find in a table). For each row in value,
@@ -334,7 +249,7 @@ void Areas::populateFromAuthorityCodeCSV(
 
   @param cols
     A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
-    that give the column header in the CSV file.
+    that give the JSON data names.
 
   @param areasFilter
     An unmodifiable pointer to set of unmodifiable strings of areas to import,
@@ -392,6 +307,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
   std::string str;
   std::string fileContents;
 
+  // Get entire file contents
   while (std::getline(is, str))
   {
     fileContents += str;
@@ -400,37 +316,16 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
 
   json j = json::parse(fileContents);
 
+  // Iterate through the contents of the JSON and extract all relevant area data
   for (auto& el : j["value"].items()) {
-    auto &data = el.value();
+    nlohmann::basic_json<> &data = el.value();
     std::string localAuthorityCode = data[cols.at(BethYw::SourceColumn::AUTH_CODE)];
     std::string authNameEnglish = data[cols.at(BethYw::SourceColumn::AUTH_NAME_ENG)];
 
-    // Retrieve measure code and convert to lower case
-    std::string measureCode;
-    if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
-      measureCode = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE);
-    } else {
-      measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
-    }
-    transform(measureCode.begin(), measureCode.end(), measureCode.begin(), ::tolower);
-
-    // Retrieve measure name
-    std::string measureName;
-    if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
-      measureName = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME);
-    } else {
-      measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
-    }
-
+    std::string measureCode = retrieveMeasureCodeFromJSON(cols, data);
+    std::string measureName = retrieveMeasureNameFromJSON(cols, data);
     unsigned int year = safeStringToInt(data[cols.at(BethYw::SourceColumn::YEAR)]);
-
-    // Retrieve value and convert to double if necessary
-    double value;
-    if (data[cols.at(BethYw::SourceColumn::VALUE)].is_number()) {
-      value = data[cols.at(BethYw::SourceColumn::VALUE)];
-    } else {
-      value = safeStringToDouble(data[cols.at(BethYw::SourceColumn::VALUE)]);
-    }
+    double value = retrieveMeasureValueFromJSON(cols, data);
 
     Area area(localAuthorityCode);
     try {
@@ -438,6 +333,7 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
     } catch (std::invalid_argument invalidArgument) {
       std::cerr << invalidArgument.what();
     }
+
     Measure measure(measureCode, measureName);
 
     // Apply years filtering
@@ -471,6 +367,82 @@ void Areas::populateFromWelshStatsJSON(std::istream& is,
       }
     }
   }
+}
+
+
+/*
+  Retrieves the measure code for a particular measure from a JSON dataset.
+
+  @param cols
+    A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
+    that give the JSON data names.
+
+  @param data
+    The data for the current JSON object being processed.
+
+  @return
+    A std::string measure code.
+ */
+std::string Areas::retrieveMeasureCodeFromJSON(const BethYw::SourceColumnMapping& cols,
+                                               nlohmann::basic_json<> &data) {
+  std::string measureCode;
+  if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
+    measureCode = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE);
+  } else {
+    measureCode = data[cols.at(BethYw::SourceColumn::MEASURE_CODE)];
+  }
+  transform(measureCode.begin(), measureCode.end(), measureCode.begin(), ::tolower);
+  return measureCode;
+}
+
+
+/*
+  Retrieves the measure name for a particular measure from a JSON dataset.
+
+  @param cols
+    A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
+    that give the JSON data names.
+
+  @param data
+    The data for the current JSON object being processed.
+
+  @return
+    A std::string measure name.
+ */
+std::string Areas::retrieveMeasureNameFromJSON(const BethYw::SourceColumnMapping& cols,
+                                               nlohmann::basic_json<> &data) {
+  std::string measureName;
+  if (cols.find(BethYw::SourceColumn::MEASURE_CODE) == cols.end()) {
+    measureName = cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME);
+  } else {
+    measureName = data[cols.at(BethYw::SourceColumn::MEASURE_NAME)];
+  }
+  return measureName;
+}
+
+
+/*
+  Retrieves the measure value for a particular year from a JSON dataset.
+
+  @param cols
+    A map of the enum BethyYw::SourceColumnMapping (see datasets.h) to strings
+    that give the JSON data names.
+
+  @param data
+    The data for the current JSON object being processed.
+
+  @return
+    The measure value for a particular year as a double type.
+ */
+double Areas::retrieveMeasureValueFromJSON(const BethYw::SourceColumnMapping& cols,
+                                               nlohmann::basic_json<> &data) {
+  double value;
+  if (data[cols.at(BethYw::SourceColumn::VALUE)].is_number()) {
+    value = data[cols.at(BethYw::SourceColumn::VALUE)];
+  } else {
+    value = safeStringToDouble(data[cols.at(BethYw::SourceColumn::VALUE)]);
+  }
+  return value;
 }
 
 
@@ -557,15 +529,17 @@ void Areas::populateFromAuthorityByYearCSV(std::istream& is,
       while (std::getline(is, line)) {
         lineTokens = getLineTokens(ls, line, ',');
 
+        // Apply areas filtering and parse if should be included
+        // Avoid computation of parsing an area and its measures if not required by filter
         if (areasFilter == nullptr) {
-          parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+          parseAreaSingleCSV(lineTokens, cols, years, measuresFilter, yearsFilter);
         } else if (areasFilter->size() == 0) {
-          parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+          parseAreaSingleCSV(lineTokens, cols, years, measuresFilter, yearsFilter);
         } else {
           // Advanced area filtering
           for (auto iterator = areasFilter->begin(); iterator != areasFilter->end(); iterator++) {
             if (contains(lineTokens[0], iterator->data())) {
-              parseArea(lineTokens, cols, years, measuresFilter, yearsFilter);
+              parseAreaSingleCSV(lineTokens, cols, years, measuresFilter, yearsFilter);
             }
           }
         }
@@ -625,23 +599,23 @@ std::vector<unsigned int> Areas::parseYearColumns(std::vector<std::string> lineT
     An unmodifiable pointer to an unmodifiable tuple of two unsigned integers,
     where if both values are 0, then all years should be imported, otherwise
     they should be treated as a the range of years to be imported.
-
  */
-void Areas::parseArea(std::vector<std::string> lineTokens,
-                      const BethYw::SourceColumnMapping& cols,
-                      const std::vector<unsigned int> years,
-                      const StringFilterSet * const measuresFilter,
-                      const YearFilterTuple * const yearsFilter) {
+void Areas::parseAreaSingleCSV(std::vector<std::string> lineTokens,
+                               const BethYw::SourceColumnMapping& cols,
+                               const std::vector<unsigned int> years,
+                               const StringFilterSet * const measuresFilter,
+                               const YearFilterTuple * const yearsFilter) {
   Area area(lineTokens[0]);
   Measure measure;
 
   // Apply measures filtering and parse if measure should be included
+  // Avoid computation of parsing measure if not required by filter
   if (measuresFilter == nullptr) {
-    measure = parseMeasure(lineTokens, cols, years, yearsFilter);
+    measure = parseMeasureSingleCSV(lineTokens, cols, years, yearsFilter);
     area.setMeasure(measure.getCodename(), measure);
   } else if (measuresFilter->find(cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE)) != measuresFilter->end() ||
              measuresFilter->size() == 0) {
-    measure = parseMeasure(lineTokens, cols, years, yearsFilter);
+    measure = parseMeasureSingleCSV(lineTokens, cols, years, yearsFilter);
     area.setMeasure(measure.getCodename(), measure);
   }
 
@@ -670,10 +644,10 @@ void Areas::parseArea(std::vector<std::string> lineTokens,
   @return
     The parse Measure object.
  */
-Measure Areas::parseMeasure(std::vector<std::string> lineTokens,
-                     const BethYw::SourceColumnMapping& cols,
-                     const std::vector<unsigned int> years,
-                     const YearFilterTuple * const yearsFilter) {
+Measure Areas::parseMeasureSingleCSV(std::vector<std::string> lineTokens,
+                                     const BethYw::SourceColumnMapping& cols,
+                                     const std::vector<unsigned int> years,
+                                     const YearFilterTuple * const yearsFilter) {
 
   Measure measure(cols.at(BethYw::SourceColumn::SINGLE_MEASURE_CODE),
                   cols.at(BethYw::SourceColumn::SINGLE_MEASURE_NAME));
@@ -699,25 +673,6 @@ Measure Areas::parseMeasure(std::vector<std::string> lineTokens,
   }
 
   return measure;
-}
-
-
-/*
-  Checks whether a given string contains another string.
-
-  @param base
-    The string that will be searched through.
-
-  @param search
-    The string that will be searched for.
-
-  @return
-    A boolean value indicating whether the base string contains the search string.
- */
-bool Areas::contains(std::string base, std::string search) const noexcept {
-  transform(base.begin(), base.end(), base.begin(), ::tolower);
-  transform(search.begin(), search.end(), search.begin(), ::tolower);
-  return base.find(search) != std::string::npos;
 }
 
 
@@ -900,6 +855,97 @@ void Areas::checkFileStatus(std::istream &is) const {
   std::getline(is, test);
   if (test.empty()) throw std::runtime_error("File has no content");
   is.seekg(0); // Reset the position
+}
+
+
+/*
+  Separates a line into individual tokens separated by the specified delimiter.
+
+  @param ls
+    A std::istream for the line.
+
+  @param line
+    The std::string line to be separated into tokens.
+
+  @param delimiter
+    The character used to know where to separate the line into tokens.
+
+  @return
+    A std::vector containing the std::string tokens.
+
+ */
+std::vector<std::string> Areas::getLineTokens(std::istream &ls,
+                                              std::string line,
+                                              char delimiter) {
+  std::string token;
+  std::vector<std::string> tokens;
+  std::stringstream lineStream(line);
+
+  // Split each line into individual tokens separated by the delimiter
+  while (std::getline(lineStream, token, delimiter)) {
+    tokens.push_back(token);
+  }
+
+  return tokens;
+}
+
+
+/*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+int Areas::safeStringToInt(const std::string &str) const {
+  std::stringstream ss(str);
+  int num;
+  if ((ss >> num).fail()) throw std::runtime_error("Invalid value in file: " + str + " is not an integer\n");
+  return num;
+}
+
+
+/*
+  Safely converts a std::string to an int.
+
+  @param str
+    The std::string to convert to an int.
+
+  @return
+    The integer value converted from the string.
+
+  @throws
+    std::runtime_error if the std::string could not be converted to an int.
+ */
+double Areas::safeStringToDouble(const std::string& str) const {
+  std::stringstream ss(str);
+  double num;
+  if ((ss >> num).fail()) throw std::runtime_error("Invalid value in file: " + str + " is not a number");
+  return num;
+}
+
+
+/*
+  Checks whether a given string contains another string.
+
+  @param base
+    The string that will be searched through.
+
+  @param search
+    The string that will be searched for.
+
+  @return
+    A boolean value indicating whether the base string contains the search string.
+ */
+bool Areas::contains(std::string base, std::string search) const noexcept {
+  transform(base.begin(), base.end(), base.begin(), ::tolower);
+  transform(search.begin(), search.end(), search.begin(), ::tolower);
+  return base.find(search) != std::string::npos;
 }
 
 
